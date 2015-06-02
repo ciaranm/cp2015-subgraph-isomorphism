@@ -265,6 +265,7 @@ recurse (\lineref{line:recursesearch}).
     \nl $D_v \gets \textnormal{a domain in $D$ with minimum size, tiebreaking on static degree in}~\mathcal{P}$ \label{line:branch} \;
     \nl $F \gets \{ v \}$ \label{line:fcurrent} \;
     \nl \ForEach {$v' \in D_v~\textnormal{ordered by static degree in}~\mathcal{T}$\label{line:parforeach}}{
+        \nl $D' \gets \FuncSty{clone}(D)$ \;
         \nl \Switch{$\FuncSty{assign}(G, D', v, v')$\label{line:assign}}{
             \nl \lCase{\textnormal{Fail $F'$~\KwSty{then}}}{$F \gets F \cup F'$\label{line:fassign}}
             \nl \Case{\textnormal{Success~\KwSty{then}}}{
