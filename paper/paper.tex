@@ -479,11 +479,11 @@ implementation of VF2 \cite{Cordella:2004}. (The versions of each of these solve
 support loops in graphs correctly.)
 
 Note that SND is not inherently multi-threaded, but the Java 8 virtual machine we used for testing
-makes some use of multiple threads even for sequential code. On the one hand, this could be seen as
-giving SND an unfair advantage. However, nearly all modern CPUs are multi-core anyway, so one could
-say that it is everyone else's fault for not taking advantage of these extra resources. We therefore
-present both sequential (from a dedicated implementation, \emph{not} a threaded implementation
-running with only a single thread) and threaded results for our algorithm.
+makes use of multiple threads for garbage collection even for sequential code. On the one hand,
+this could be seen as giving SND an unfair advantage. However, nearly all modern CPUs are multi-core
+anyway, so one could say that it is everyone else's fault for not taking advantage of these extra
+resources. We therefore present both sequential (from a dedicated implementation, \emph{not} a
+threaded implementation running with only a single thread) and threaded results for our algorithm.
 
 \begin{figure}[tb]
     \centering
