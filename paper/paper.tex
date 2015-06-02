@@ -1,0 +1,647 @@
+% vim: set spell spelllang=en tw=100 et sw=4 sts=4 :
+
+\documentclass{llncs}
+
+% \usepackage{showframe}
+
+\usepackage{microtype}
+\usepackage{complexity}                % \P, \NP etc
+\usepackage{tikz}                      % For pretty pictures
+\usepackage{amsmath}                   % \operatorname
+\usepackage{amsfonts}                  % \mathcal
+\usepackage{amssymb}                   % \nexists
+\usepackage{hyperref}                  % clicky links
+\usepackage{cleveref}                  % no need to type Figure etc
+\usepackage{enumitem}                  % better lists
+\usepackage{gnuplot-lua-tikz}          % graphs
+\usepackage{placeins}                  % floatbarrier
+\usepackage[ruled,vlined]{algorithm2e} % algorithms (after cleverref!)
+
+\usetikzlibrary{arrows, shadows, calc, positioning, decorations, decorations.pathreplacing, patterns}
+
+% lncs style
+\crefname{algocf}{Algorithm}{Algorithms}
+\Crefname{algocf}{Algorithm}{Algorithms}
+\crefname{figure}{Fig.}{Figs.}
+\Crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+
+\newcommand{\lineref}[1]{line~\ref{#1}}
+
+\title{A Parallel, Backjumping Subgraph Isomorphism Algorithm using Supplemental Graphs}
+
+\author{Ciaran McCreesh\thanks{This work was supported by the Engineering and Physical Sciences
+Research Council [grant number EP/K503058/1]} \and Patrick Prosser}
+\institute{University of Glasgow, Glasgow, Scotland \\ \email{c.mccreesh.1@research.gla.ac.uk}, \\
+    \email{patrick.prosser@glasgow.ac.uk}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    The subgraph isomorphism problem involves finding a pattern graph inside a target graph.  We
+    present a new bit- and thread-parallel constraint-based search algorithm for the problem, and
+    experiment on a wide range of standard benchmark instances to demonstrate its effectiveness.  We
+    introduce the idea of supplemental graphs, to create implied constraints. We use a low-overhead,
+    lazy variation of conflict directed backjumping which interacts safely with parallel search, and
+    a counting-based all-different propagator which is better suited to our large domains than the
+    conventional matching approach.
+\end{abstract}
+
+\section{Introduction}
+
+The subgraph isomorphism family of problems involve ``finding a copy of'' a pattern graph inside a
+larger target graph; applications include bioinformatics \cite{Bonnici:2013}, chemistry
+\cite{Regin:1995}, computer vision \cite{Damiand:2011,Solnon:2015}, law enforcement
+\cite{Coffman:2004}, model checking \cite{Sevegnani:2015}, and pattern recognition
+\cite{Conte:2004}.  These problems have natural constraint programming models: we have a variable
+for each vertex in the pattern graph, with the vertices of the target graph being the domains. The
+exact constraints vary depending upon which variation of the problem we are studying (which we
+discuss in the following section), but generally there are rules about preserving adjacency, and an
+all-different constraint across all the variables.
+
+This constraint-based search approach dates back to works by Ullmann \cite{Ullmann:1976} and
+McGregor \cite{McGregor:1979}, and was improved upon in the LV \cite{Larrosa:2002} and VF2
+\cite{Cordella:2004} algorithms.  More recently, ILF \cite{Zampelli:2010}, LAD \cite{Solnon:2010}
+and SND \cite{Audemard:2014} are algorithms which take a ``deep thinking'' approach, using strong
+inference at each stage of the search.  This is powerful, but we observe that when LAD or SND fail
+to find a solution in time, it is often because they do not get to explore much of the search space.
+Sometimes LAD and SND make less than one recursive call per second---this is often true with larger
+target graphs, where strong inference becomes particularly expensive.  This motivates our
+alternative approach: on the same hardware, we will be making between ten thousand and a million
+recursive calls per core per second on non-trivial instances.  The main features of our algorithm
+are:
+
+\begin{enumerate}
+    \item We introduce supplemental graphs, which generalise some of the ideas in SND. The key idea
+        is that a subgraph isomorphism $i : P \hookrightarrow T$ induces a subgraph isomorphism
+        $F(i) : F(P) \hookrightarrow F(T)$, for certain functors $F$.  This is used to generate
+        implied constraints: we may now look for a mapping which is simultaneously a subgraph
+        isomorphism between several carefully selected pairs of graphs.
+
+    \item We use weaker inference than LAD and SND: we do not achieve or maintain arc consistency.
+        We introduce a cheaper, counting-based all-different propagator which has better scalability
+        for large target graphs, and which has very good constant factors on modern hardware thanks
+        to bitset encodings.
+
+    \item We describe a clone-comparing variation of conflict-directed backjumping, which does not
+        require explicit conflict sets. We note that an all-different propagator can produce reduced
+        conflict sets, which can enable more backjumping.
+
+    \item We use thread-parallel preprocessing and search, to make better use of modern multi-core
+        hardware. We explain how parallel search may interact safely with backjumping. We use
+        explicit, non-randomised work stealing to offset poor early heuristic choices during search.
+\end{enumerate}
+
+\noindent Although weaker propagation and backjumping have fallen out of fashion in general for
+constraint programming, here this approach usually pays off. In \cref{section:experiments} we show
+that over a large collection of instances commonly used to compare subgraph isomorphism algorithms,
+our solver is the single best.
+
+\section{Definitions, Notation, and a Proposition}
+
+Throughout, our graphs are finite, undirected, and do not have multiple edges between pairs of
+vertices, but may have loops (an edge from a vertex to itself). We write $\operatorname{V}(G)$ for
+the vertex set of a graph $G$, and $\operatorname{N}(G, v)$ for the neighbours of a vertex $v$ in
+$G$ (that is, the vertices adjacent to $v$).  The \emph{degree} of $v$ is the cardinality of its set
+of neighbours. The \emph{neighbourhood degree sequence} of $v$, denoted $\operatorname{S}(G, v)$, is
+the sequence consisting of the degrees of every neighbour of $v$, from largest to smallest.  A
+vertex is \emph{isolated} if it has no neighbours. By $v \sim_G w$ we mean vertex $v$ is adjacent to
+vertex $w$ in graph $G$. We write $G[V]$ for the subgraph of $G$ induced by a set of vertices $V$.
+
+A \emph{non-induced subgraph isomorphism} is an injective mapping $i : P \hookrightarrow T$ from a
+graph $P$ to a graph $T$ which preserves adjacency---that is, if $v \sim_{P} w$ then we require
+$i(v) \sim_{T} i(w)$ (and thus if $v$ has a loop, then $i(v)$ must have a loop). The
+\emph{non-induced subgraph isomorphism problem} is to find such a mapping from a given pattern graph
+$P$ to a given target graph $T$.  (The \emph{induced subgraph isomorphism problem} additionally
+requires that if $v \not\sim_{P} w$ then $i(v) \not\sim_{T} i(w)$; we discuss only the non-induced
+version in this paper. Both variants are \NP-complete.)
+
+If $R$ and $S$ are sequences of integers, we write $R \preceq S$ if there exists a subsequence of
+$S$ with length equal to that of $R$, such that each element in $R$ is less than or equal to the
+corresponding element in $S$.  For a set $U$ and element $v$, we write $U - v$ to mean $U \setminus
+\{ v \}$, and $U + v$ to mean $U \cup \{ v \}$.
+
+A \emph{path} in a graph is a sequence of distinct vertices, such that each successive pair of
+vertices are adjacent; we also allow a path from a vertex to itself, in which case the first and
+last vertices in the sequence are the same (and there is a \emph{cycle}). The \emph{distance}
+between two vertices is the length of a shortest path between them. We write $G^d$ for the graph
+with vertex set $\operatorname{V}(G)$, and edges between $v$ and $w$ if the distance between $v$ and
+$w$ in $G$ is at most $d$.  We introduce the notation $G^{\left[n, m\right]}$ for the graph with
+vertex set $\operatorname{V}(G)$, and edges between vertices $v$ and $w$ (not necessarily distinct)
+precisely if there are at least $m$ paths of length exactly $n$ between $v$ and $w$ in $G$. The
+following proposition may easily be verified:
+
+\begin{proposition}\label{proposition:supplemental}
+    Let $i : P \hookrightarrow T$ be a subgraph isomorphism. Then $i$ is also
+    \begin{enumerate}[itemindent=1em,topsep=0pt,itemsep=0.2pt]
+        \item a subgraph isomorphism $i^d : P^d \hookrightarrow T^d$ for any $d \ge 1$, and
+        \item a subgraph isomorphism $i^{\left[n, m\right]} : P^{\left[n, m\right]} \hookrightarrow
+            T^{\left[n, m\right]}$ for any $n, m \ge 1$.
+    \end{enumerate}
+\end{proposition}
+
+\noindent The (contrapositive of the) first of these facts is used by SND, which dynamically
+performs distance-based filtering during search. We will instead use the second fact, at the top of
+search, to generate implied constraints.
+
+\section{A New Algorithm}
+
+\Cref{algorithm:sip} describes our approach.  We begin (\lineref{line:enough}) with a simple check
+that there are enough vertices in the pattern graph for an injective mapping to exist.  We then
+(\lineref{line:isolated}) discard isolated vertices in the pattern graph---such vertices may be
+greedily assigned to any remaining target vertices after a solution is found. This reduces the
+number of variables which must be copied when branching.  Next we construct the supplemental graphs
+(\lineref{line:buildsup}) and initialise domains (\lineref{line:initdomains}). We then
+(\lineref{line:initalldiff}) use a counting-based all-different propagator to reduce these domains
+further. Finally, we perform a backtracking search (\lineref{line:search}). Each of these steps is
+elaborated upon below.
+
+\begin{algorithm}[h]
+\DontPrintSemicolon
+\nl $\FuncSty{nonInducedSubgraphIsomorphism}$ (Graph $\mathcal{P}$, Graph $\mathcal{T}$) $\rightarrow$ Bool \;
+\nl \Begin{
+    \nl \lIf{$|\operatorname{V}(\mathcal{P})| > |\operatorname{V}(\mathcal{T})|$}{$\KwSty{return}~\KwSty{false}$\label{line:enough}}
+    \nl Discard isolated vertices in $\mathcal{P}$\label{line:isolated} \;
+    \nl $G \gets \FuncSty{createSupplementalGraphs}(\mathcal{P}, \mathcal{T})$ \label{line:buildsup}\;
+    \nl $D \gets \FuncSty{init}(\operatorname{V}(\mathcal{P}), \operatorname{V}(\mathcal{T}), G)$
+    \label{line:initdomains}\;
+    \nl \lIf{$\FuncSty{countingAllDifferent}(D) \ne \textnormal{Success}$}{$\KwSty{return}~\KwSty{false}$\label{line:initalldiff}}
+    \nl $\KwSty{return}~\FuncSty{search}(G, D) = \textnormal{Success}$ \label{line:search} \;
+}
+
+\caption{A non-induced subgraph isomorphism algorithm}
+\label{algorithm:sip}
+\end{algorithm}
+
+\subsection{Preprocessing and Initialisation}
+
+Following \cref{proposition:supplemental}, in \cref{algorithm:supplemental} we construct a sequence
+of supplemental graph pairs from our given pattern and target graph. We will then search for a
+mapping which is simultaneously a mapping from each pattern graph in the sequence to its paired
+target graph---this gives us implied constraints, leading to additional filtering during search.
+
+Our choice of supplemental graphs is somewhat arbitrary. We observe that distances of greater than 3
+rarely give additional filtering power, and constructing $G^{\left[4,n\right]}$ is computationally
+very expensive (for unbounded $m$, the construction is \NP-hard). Checking $n > 3$ is also rarely
+beneficial. Our choices work reasonably well in general on the wide range of benchmark instances we
+consider, but can be expensive for trivial instances---thus there is potential room to improve the
+algorithm by better selection on an instance by instance basis \cite{Malitsky:2014}.
+
+\begin{algorithm}[h]
+\DontPrintSemicolon
+\nl $\FuncSty{createSupplementalGraphs}$ (Graph $P$, Graph $T$) $\rightarrow$ GraphPairs \;
+\nl \Begin{
+    \nl $\begin{aligned}\KwSty{return}~\Big\{
+            &(\mathcal{P},\ \mathcal{T}),
+            &&(\mathcal{P}^{\left[2,1\right]},\ \mathcal{T}^{\left[2,1\right]}),
+            &&(\mathcal{P}^{\left[2,2\right]},\ \mathcal{T}^{\left[2,2\right]}),
+            &&(\mathcal{P}^{\left[2,3\right]},\ \mathcal{T}^{\left[2,3\right]}), \\
+            &&&(\mathcal{P}^{\left[3,1\right]},\ \mathcal{T}^{\left[3,1\right]}),
+            &&(\mathcal{P}^{\left[3,2\right]},\ \mathcal{T}^{\left[3,2\right]}),
+            &&(\mathcal{P}^{\left[3,3\right]},\ \mathcal{T}^{\left[3,3\right]})
+    \Big\}\end{aligned}$ \;
+}
+\caption{Supplemental graphs for \cref{algorithm:sip}}
+\label{algorithm:supplemental}
+\end{algorithm}
+
+\Cref{algorithm:init} is responsible for initialising domains. We have a variable for each vertex in
+the (original) pattern graph, with each domain being the vertices in the (original) target graph. It
+is easy to see that a vertex of degree $d$ in the pattern graph $P$ may only be mapped to a vertex in
+the target graph $T$ of degree $d$ or higher: this allows us to perform some initial filtering. By
+extension, we may use compatibility of neighbourhood degree sequences: $v$ may only be mapped to $w$
+if $\operatorname{S}(P, v) \preceq \operatorname{S}(T, w)$ \cite{Zampelli:2010}.  Because any
+subgraph isomorphism $P \hookrightarrow T$ is also a subgraph isomorphism $F(P) \hookrightarrow
+F(T)$ for any of our supplemental graph constructions $F$, we may further restrict initial domains
+by considering only the intersection of filtered domains using each supplemental graph pair
+individually (\lineref{line:filter}). At this stage, we also enforce the ``loops must be mapped to loops'' constraint.
+
+\begin{algorithm}[h]
+\DontPrintSemicolon
+\nl $\FuncSty{init}$ (Vertices $V$, Vertices $R$, GraphPairs $G$) $\rightarrow$ Domains \;
+\nl \Begin{
+    \nl \Repeat{\nl$R$ \textnormal{is unchanged}}{
+        \nl \ForEach{$v \in V$}{
+            \nl $D_v \gets \bigcap_{(P,\,T) \in G} \left\{ w \in R :~
+                v\underset{P}{\sim}v \Rightarrow w\underset{T}{\sim}w \wedge \operatorname{S}(P, v) \preceq
+            \operatorname{S}(T[R], w) \right\}$ \label{line:filter} \;
+        }
+    \nl $R \gets \bigcup_{v \in V} D_v$ \label{line:rred} \;
+}
+\nl $\KwSty{return}~D$ \;
+}
+\caption{Variable initialisation for \cref{algorithm:sip}}
+\label{algorithm:init}
+\end{algorithm}
+
+Following this filtering, some target vertices may no longer appear in any domain, in which case $R$
+will be reduced on \lineref{line:rred}. If this happens, we iteratively repeat the domain
+construction, but do not consider any target vertex no longer in $R$ when calculating degree
+sequences. (Note that for performance reasons, we do not recompute supplemental graphs when this
+occurs.)
+
+\subsection{Search and Inference}
+
+\Cref{algorithm:search} describes our recursive search procedure. If every variable has already been
+assigned, we succeed (\lineref{line:success}). Otherwise, we pick a variable (\lineref{line:branch})
+to branch on by selecting the variable with smallest domain, tiebreaking on static degree only in
+the original pattern graph (we tried other variations, including using supplemental graphs for
+calculating degree, and domain over degree, but none gave an overall improvement).  For each value
+in its domain in turn, ordered by static degree in the target graph \cite{Geelen:1992}, we try
+assigning that value to the variable (\lineref{line:assign}). If we do not detect a failure, we
+recurse (\lineref{line:recursesearch}).
+
+\begin{algorithm}[h]
+\DontPrintSemicolon
+\SetKwSwitch{Switch}{Case}{Other}{case}{of}{}{otherwise}{endcase}{endsw}
+\nl $\FuncSty{search}$ (GraphPairs $G$, Domains $D$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
+\nl \Begin{
+    \nl \lIf {$D = \emptyset$}{$\KwSty{return}~\textnormal{Success}$\label{line:success}}
+    \nl $D_v \gets \textnormal{a domain in $D$ with minimum size, tiebreaking on static degree in}~\mathcal{P}$ \label{line:branch} \;
+    \nl $F \gets \{ v \}$ \label{line:fcurrent} \;
+    \nl \ForEach {$v' \in D_v~\textnormal{ordered by static degree in}~\mathcal{T}$\label{line:parforeach}}{
+        \nl \Switch{$\FuncSty{assign}(G, D', v, v')$\label{line:assign}}{
+            \nl \lCase{\textnormal{Fail $F'$~\KwSty{then}}}{$F \gets F \cup F'$\label{line:fassign}}
+            \nl \Case{\textnormal{Success~\KwSty{then}}}{
+                \nl \Switch{$\FuncSty{search}(G, D' - D_v)$\label{line:recursesearch}}{
+                    \nl \lCase{\textnormal{Success~\KwSty{then}}}{$\KwSty{return}~\textnormal{Success}$}
+                    \nl \Case{\textnormal{Fail $F'$~\KwSty{then}}\label{line:searchfailed}}{
+                        \nl \If{$\nexists\,w \in F'~\KwSty{such that}~D_w \ne D'_w$}{
+                        \nl $\KwSty{return}~\textnormal{Fail}~F'$\label{line:backjump}}
+                        \nl $F \gets F \cup F'$ \label{line:fsub} \;
+                    }
+                }
+            }
+        }
+    }
+    \nl $\KwSty{return}~\textnormal{Fail}~F$ \;
+}
+\caption{Recursive search for \cref{algorithm:sip}}
+\label{algorithm:search}
+\end{algorithm}
+
+The assignment and recursive search both either indicate success, or return a nogood set of
+variables $F$ which cannot all be instantiated whilst respecting assignments which have already been
+made. This information is used to prune the search space: if a subproblem search has failed
+(\lineref{line:searchfailed}), but the current assignment did not remove any value from any of the
+domains involved in the discovered nogood (\lineref{line:backjump}), then we may ignore the current
+assignment and backtrack immediately.  In fact this is simply conflict-directed backjumping
+\cite{Prosser:1993a} in disguise: rather than explicitly maintaining conflict sets to determine
+culprits (which can be costly when backjumping does nothing \cite{Bessiere:1996,Gent:2010}), we
+lazily create the conflict sets for the variables in $F'$ as necessary by comparing $D$ before the
+current assignment with the $D'$ created after it. Finally, as in backjumping, if none of the
+assignments are possible, we return with a nogood of the current variable (\lineref{line:fcurrent})
+combined with the union of the nogoods of each failed assignment (\lineref{line:fassign}) or
+subsearch (\lineref{line:fsub}).
+
+For assignment and inference, \Cref{algorithm:assign} gives the value $v'$ to the domain $D_v$
+(\lineref{line:assigngets}), and then infers which values may be eliminated from the remaining
+domains.  Firstly, no other domain may now be given the value $v'$ (\lineref{line:removev}).
+Secondly, for each supplemental graph pair, any domain for a vertex adjacent to $v$ may only be
+mapped to a vertex adjacent to $v'$ (\lineref{line:adj}). If any domain gives a wipeout, then we
+fail with that variable as the nogood (\lineref{line:wipeout}).
+
+\begin{algorithm}[h]
+\DontPrintSemicolon
+\nl $\FuncSty{assign}$ (GraphPairs $G$, Domains $D$, Vertex $v$, Vertex $v'$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
+\nl \Begin{
+    \nl $D_v \gets \{ v' \}$ \label{line:assigngets} \;
+\nl \ForEach{$D_w \in D - D_v$}{
+    \nl $D_w \gets D_w - v'$ \label{line:removev} \;
+    \nl \ForEach{$(P,\,T) \in G$}{
+        \nl \lIf{$v \sim_P w$}{$D_w \gets D_w \cap \operatorname{N}(T, v')$\label{line:adj}}
+    }
+    \nl \lIf{$D_w = \emptyset$}{$\KwSty{return}~\textnormal{Fail}~\{ w \}$\label{line:wipeout}}
+}
+\nl $\KwSty{return}~\FuncSty{countingAllDifferent}(D)$ \;
+}
+\caption{Variable assignment for \cref{algorithm:assign}}
+\label{algorithm:assign}
+\end{algorithm}
+
+To enforce the all-different constraint, it suffices to remove the assigned value from every other
+domain, as we did in \lineref{line:removev}. However, it is often possible to do better. We can
+sometimes detect that an assignment is impossible even if values remain in each variable's domain
+(if we can find a set of $n$ variables whose domains include strictly less than $n$ values between
+them, which we call a \emph{failed Hall set}), and we can remove certain variable-value assignments
+that we can prove will never occur (if we can find a set of $n$ variables whose domains include only
+$n$ values between them, which we call a \emph{Hall set}, then those values may be removed from the
+domains of any other variable). The canonical way of doing this is to use R\'egin's matching-based
+propagator \cite{Regin:1994}.
+
+However, matching-based filtering is expensive and may do relatively little, particularly when
+domains are large, and the payoff may not always be worth the cost. Various approaches to offsetting
+this cost while maintaining the filtering power have been considered \cite{Gent:2008}. Since we are
+not maintaining arc consistency in general, we instead use an intermediate level of inference which
+is not guaranteed to identify every Hall set: this can be thought of as a heuristic towards the
+matching approach. This is described in \cref{algorithm:cad}.
+
+\begin{algorithm}[h]
+\DontPrintSemicolon
+\nl $\FuncSty{countingAllDifferent}$ (Domains $D$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
+\nl \Begin{
+\nl $F \gets \emptyset$ \;
+\nl $(H,\,A,\,n) \gets (\emptyset,\,\emptyset,\,0)$ \;
+\nl \ForEach{$D_v \in D$ \textnormal{from smallest cardinality to largest\label{line:eachdomain}}}{
+    \nl $F \gets F + v$ \;
+    \nl $D_v \gets D_v \setminus H$ \label{line:elimhall} \;
+    \nl $(A,\,n) \gets (A \cup D_v,\,n + 1)$ \label{line:acc} \;
+    \nl \lIf{$D_v = \emptyset~\KwSty{or}~|A| < n$}{$\KwSty{return}~\textnormal{Fail}~F$\label{line:failhall}}
+    \nl \lIf{$|A| = n$}{$(H,\,A,\,n) \gets (H \cup A,\,\emptyset,\,0)$\label{line:hall}}
+}
+\nl $\KwSty{return}~\textnormal{Success}$ \;
+}
+\caption{Counting-based all-different propagation}
+\label{algorithm:cad}
+\end{algorithm}
+
+The algorithm works by performing a linear pass over each domain in turn, from smallest cardinality
+to largest (\lineref{line:eachdomain}). The $H$ variable contains the union of every Hall set
+detected so far; initially it is empty. The $A$ set accumulates the union of domains seen so far,
+and $n$ contains the number of domains contributing to $A$. For each new domain we encounter, we
+eliminate any values present in previous Hall sets (\lineref{line:elimhall}). We then add that
+domain's values to $A$ and increment $n$ (\lineref{line:acc}). If we detect a failed Hall set, we
+fail (\lineref{line:failhall}).  If we detect a Hall set, we add those values to $H$, and reset $A$
+and $n$, and keep going (\lineref{line:hall}).
+
+It is important to note that this approach may fail to identify some Hall sets, if the initial
+ordering of domains is imperfect. However, the algorithm runs very quickly in practice: the
+sorting step is $\mathcal{O}(v \log{} v)$ (where $v$ is the number of remaining variables), and the
+loop has complexity $\mathcal{O}(v d)$ (where $d$ is the cost of a bitset operation over a target
+domain, which we discuss below). We validate this trade-off experimentally in the following section.
+
+In case a failure is detected, the $F$ set of nogoods we return need only include the variables
+processed so far, not every variable involved in the constraint. This is because an all-different
+constraint implies an all-different constraint on any subset of its variables. A smaller set of
+nogoods can increase the potential for backjumping (and experiments verified that this is beneficial
+in practice).
+
+We have been unable to find this algorithm described elsewhere in the literature, although a sort-
+and counting-based approach has been used to achieve bounds consistency \cite{Puget:1998} (but our
+domains are not naturally ordered) and as a preprocessing step \cite{Quimper:2005}. Bitsets (which
+we discuss below) have also been used to implement the matching algorithm \cite{VanKessel:2012}.
+
+\subsection{Bit- and Thread-Parallelism}
+
+The use of bitset encodings for graph algorithms to exploit hardware parallelism dates back to at
+least Ullmann's algorithm \cite{Ullmann:1976}, and remains an active area of research
+\cite{SanSegundo:2007,Ullmann:2011}. We use bitsets here: our graphs are stored as arrays of bit
+vectors, our domains are bit vectors, the neighbourhood intersection in \cref{algorithm:assign} is a
+bitwise-and operation, the unions in \cref{algorithm:search} and \cref{algorithm:cad} are bitwise-or
+operations, and the cardinality check in \cref{algorithm:cad} is a population count (this is a
+single instruction in modern CPUs).  In addition to the SIMD-like parallelism from bitset encodings,
+we observed two opportunities for multi-core thread parallelism in the algorithm:
+
+\paragraph{Graph and domain construction} We may parallelise the outer $\FuncSty{for}$ loops
+involved in calculating neighbourhood degree sequences and in initialising the domains of variables
+in \cref{algorithm:init}.  Similarly, constructing each supplemental graph in
+\cref{algorithm:supplemental} involves an outer $\KwSty{for}$ loop, iterating over each vertex in
+the input graph. These loops may also be parallelised, with one caveat: we must be able to add edges
+to (but not remove edges from) the output graph safely, in parallel. This may be done using an
+atomic ``or'' operation.
+
+\paragraph{Search} Viewing the recursive calls made by the $\FuncSty{search}$ function in
+\cref{algorithm:search} as forming a tree, we may explore different subtrees in parallel. The key
+points are:
+
+\begin{enumerate}
+    \item We do not know in advance whether the $\KwSty{foreach}$ loop (\cref{algorithm:search}
+        \lineref{line:parforeach}) will exit early (either due to a solution being found, or
+        backjumping). Thus our parallelism is speculative: we make a single thread always preserve
+        the sequential search order, and use any additional threads to precompute subsequent entries
+        in the loop which \emph{might} be used. This may mean we get no speedup at all, if our
+        speculation performs work which will not be used.
+
+    \item The $\KwSty{search}$ function, parallelised without changes, could attempt to exit early
+        due to backjumping. We rule out this possibility by refusing to pass knowledge to the left:
+        that is, we do not allow speculatively-found backjumping conditions to change the return
+        value of $\KwSty{search}$). This is for safety \cite{Trienekens:1990} and reproducibility:
+        value-ordering heuristics can alter the performance of unsatisfiable instances when
+        backjumping, and allowing parallelism to select a different backjump set could lead to an
+        absolute slowdown \cite{Prosser:1993b}. To avoid this possibility, when a backjump condition
+        is found, we \emph{must} cancel any speculative work being done to the right of its
+        position, and \emph{cannot} cancel any ongoing work to the left.  This means that unlike in
+        conventional backtracking search without learning, we should \emph{not} expect a linear
+        speedup for unsatisfiable instances.
+
+        (In effect we are treating the $\KwSty{foreach}$ loop as a parallel fold, so that a subtree
+        does not depend upon items to its left. Backjumping conditions are left-zero elements
+        \cite{Lobachev:2012}, although we do not have a unique zero.)
+
+    \item If any thread finds a solution, we \emph{do} succeed immediately, even if this involves
+        passing knowledge to the left. If there are multiple solutions, this can lead to a parallel
+        search finding a different solution to the one which would be found sequentially---since the
+        solution we find is arbitrary, this is not genuinely unsafe. However, this means we could
+        witness a superlinear (greater than $n$ from $n$ threads) speedup for satisfiable instances
+        \cite{deBruin:1995}.
+
+    \item For work stealing, we explicitly prioritise subproblems highest up and then furthest left
+        in the search tree. This is because we expect our value-ordering heuristics to be weakest
+        early on in search \cite{Harvey:1995}, and we use parallelism to offset poor choices early
+        on in the search \cite{Chu:2009,McCreesh:2014}.
+\end{enumerate}
+
+\section{Experimental Evaluation}\label{section:experiments}
+
+Our algorithm was implemented\footnote{source code is available at
+\url{https://github.com/ciaranm/parasols}} in C++ using C++11 native threads, and was compiled using
+GCC 4.9.0.  We performed our experiments on a machine with dual Intel Xeon E5-2640 v2 processors
+(for a total of 16 cores, and 32 hardware threads via hyper-threading), running Scientific Linux
+6.6.  For the comparison with SND in the following section, we used Java HotSpot 1.8.0\_11.
+
+For evaluation, we used the same families of benchmark instances that were used to evaluate LAD
+\cite{Solnon:2010} and SND \cite{Audemard:2014}. The ``LV'' family \cite{Larrosa:2002} contains
+graphs with various interesting properties from the Stanford Graph Database, and the 793
+pattern/target pairs give a mix of satisfiable and unsatisfiable queries. The ``SF'' family contains
+100 scale-free graph pairs, again mixing satisfiable and unsatisfiable queries. The remainder of
+these graphs come from the Vflib database \cite{Cordella:2004}: the ``BVG'' and ``BVGm'' families
+are bounded degree graphs (540 pairs all are satisfiable), ``M4D'' and ``M4Dr'' are four-dimensional
+meshes (360 pairs, all satisfiable), and the ``r'' family is randomly generated (270 pairs, all
+satisfiable).  We expanded this suite with 24 pairs of graphs representing image pattern queries
+\cite{Damiand:2011} (which we label ``football''), and 200 randomly selected pairs from each of a
+series of 2D image (``images'') and 3D mesh (``meshes'') graph queries \cite{Solnon:2015}. The
+largest number of vertices is 900 for a pattern and 5,944 for a target, and the largest number of
+edges is 12,410 for a pattern and 34,210 for a target; some of these graphs do contain loops. All
+2,487 instances are publicly available in a simple text
+format\footnote{\url{http://liris.cnrs.fr/csolnon/SIP.html}}.
+
+\subsection{Comparison with Other Solvers}
+
+We compare our implementation against the Abscon 609 implementation of SND (which is written in
+Java) \cite{Audemard:2014}, Solnon's C implementation of LAD \cite{Solnon:2010}, and the VFLib C
+implementation of VF2 \cite{Cordella:2004}. (The versions of each of these solvers we used could
+support loops in graphs correctly.)
+
+Note that SND is not inherently multi-threaded, but the Java 8 virtual machine we used for testing
+makes some use of multiple threads even for sequential code. On the one hand, this could be seen as
+giving SND an unfair advantage. However, nearly all modern CPUs are multi-core anyway, so one could
+say that it is everyone else's fault for not taking advantage of these extra resources. We therefore
+present both sequential (from a dedicated implementation, \emph{not} a threaded implementation
+running with only a single thread) and threaded results for our algorithm.
+
+\begin{figure}[tb]
+    \centering
+    \input{gen-graph-cumulative}
+
+    \caption{Cumulative number of benchmark instances solved within a given time, for different
+    algorithms: at time $t$, the value is the size of the set of instances whose runtime is at most
+    $t$ for that algorithm. Parallel results are using 32 threads on a 16 core hyper-threaded
+    system.}
+    \label{figure:cumulative}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \input{gen-graph-best-other}
+
+    \caption{Above, our sequential runtime compared to the virtual best other sequential solver,
+        for each benchmark instance; below, the same, with our parallel runtimes and including
+        parallel solvers. For points below the diagonal line, ours is the best solver for this
+        instance; for points above the diagonal, the point colour indicates the best solver.}
+    \label{figure:best-other}
+\end{figure}
+
+In \cref{figure:cumulative} we show the cumulative performance of each algorithm. The value of
+the line at a given time for an algorithm shows the total number of instances which, individually,
+were solved in at most that amount of time. Our sequential implementation beats VF2 for times over
+0.2s, LAD for times over 0.6s, and always beats SND. Our parallel implementation beats VF2 for times
+over 0.06s, LAD for times over 0.02s, and always beats SND. Parallelism gives us an overall benefit
+from 12ms onwards.
+
+\Cref{figure:best-other} presents an alternative perspective of these results. Each point represents
+an instance, and the shape of a point shows its family. For the $y$ position for an instance, we use
+our sequential (top graph) or parallel (bottom graph) runtime. For the $x$ position, we use the
+runtime from the virtual best other solver; the colour of a point indicates which solver this is.
+For any point below the $x=y$ diagonal line, we are the best solver. A limit of $10^8$\,ms was
+used---points along the outer axes represent timeouts.
+
+Although overall ours is the single best solver, VF2 is stronger on trivial instances. This is not
+surprising: we must spend time constructing supplemental graphs. Thus it may be worth using VF2 as a
+presolver, if short runtimes for trivial instances is desirable---this may be the case in graph
+database systems where many trivial queries must be run \cite{Giugno:2013} (although these systems
+could cache the supplemental graphs for targets). These results also suggest potential scope for
+algorithm portfolios, or instance-specific configuration: for example, we could omit or use
+different supplemental graphs in some cases.
+
+\subsection{Parallelism}
+
+\begin{figure}[p]
+    \centering
+    \input{gen-graph-speedup}
+
+    \caption{The effects of parallelism, using 32 threads on a 16 core hyper-threaded
+    system.  Each point is a problem instance; points below the diagonal line indicate a speedup.}
+    \label{figure:speedup}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \input{gen-graph-backjumping}
+
+    \caption{The effects of backjumping. Each point is one benchmark instance; points below the
+    diagonal line indicate a speedup.}
+    \label{figure:bj}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \input{gen-graph-fad}
+
+    \caption{Above, the improvement to the search space size which would be given by R\'egin's
+    matching-based all-different propagator. Below, the improvement given by using counting
+    all-different rather than simple deletion. Each point is one benchmark instance; the point style
+    shows the benchmark family. Points below the diagonal line indicate a reduction in the search space
+    size.}
+    \label{figure:fad}
+\end{figure}
+
+\Cref{figure:speedup} shows, for each instance, the speedup obtained from parallelism. Except at
+very low sequential runtimes, we see a reasonable general improvement.  For some satisfiable
+instances, we see strongly superlinear speedups. These instances are exceptionally hard problems
+\cite{Smith:1997}: we would have found a solution quickly, except for a small number of wrong turns
+at the top of search. Our work stealing strategy was able to avoid strong commitment to early
+value-ordering heuristic choices, providing an alternative to using more complicated sequential
+search strategies to offset this issue. (Some of these results were also visible in
+\cref{figure:best-other}, where we timed out on satisfiable instances which another solver found
+trivial.)
+
+Some non-trivial satisfiable instances exhibited a visible slowdown. This is because we were using
+32 software threads, to match the advertised number of hardware hyper-threads, but our CPUs only
+have 16 ``real'' cores between them. For these instances parallelism did not reduce the amount of
+work required to find a solution, but did result in a lower rate of recursive calls per second on
+the sequential search path---this is similar to the risk of introducing a slower processing element
+to a cluster \cite{Trienekens:1990}. Even when experimenting with 16 threads, we sometimes observed
+a small slowdown due to worse cache and memory bus performance, and due to the overhead of modifying
+the code to allow for work stealing (recall that we are benchmarking against a dedicated sequential
+implementation).
+
+In a small number of cases, we observe low speedups for non-trivial unsatisfiable instances. These
+are from cases where backjumping has a substantial effect on search, making much of our speculative
+parallelism wasted effort. (Additionally, if cancellation were not to be used, some of these
+instances would exhibit large absolute slowdowns.)
+
+\subsection{Effects of Backjumping}
+
+In \cref{figure:bj} we show the benefits of backjumping: points below the diagonal line indicate an
+improvement to runtimes from backjumping. Close inspection shows that backjumping usually at least
+pays for itself, or gives a slight improvement. (This was not the case when we maintained conflict
+sets explicitly: there, the overheads lead to a small average slowdown.)
+
+For a few instances, backjumping makes an improvement of several orders of magnitude. The effects
+are most visible for some of the LV benchmarks, which consist of highly structured graphs. This
+mirrors the conclusions of Chen and Van Beek \cite{Chen:2001}, who saw that ``adding CBJ to a
+backtracking algorithm \ldots can (still) speed up the algorithm by several orders of magnitude on
+hard, structured problems''.  Real-world graphs often have unexpected structural properties which
+are not present in random instances \cite{MacIntyre:1998,Slater:2014}, so we consider backjumping to
+be worthwhile.
+
+\subsection{Comparing All-Different Propagators}
+
+We now justify our use of the counting all-different propagator. In the top half of
+\cref{figure:fad} we show the benefits to the size of the search space that would be gained if we
+used R\'egin's algorithm at every step instead of our counting propagator (cutting search off after
+$10^9$ search nodes). We see that for most graph families, there would be little to no benefit even
+if there was no additional performance cost. Only in a small portion of the LV graphs do we see a
+gain (and in one case, due to dynamic variable ordering, there is a penalty).
+
+Thus, either our counting propagator is nearly always as good as matching, or neither propagator
+does very much in this domain. In the bottom half of \cref{figure:fad} we show the benefits to the
+size of the search space that are gained from using counting, rather than simply deleting a value
+from every other domain on assignment. The large number of points below the diagonal line confirm
+that going beyond simple value deletion for all-different propagation is worthwhile.
+
+\section{Conclusion}
+
+Going against conventional wisdom, we saw that replacing strong inference with cheaper surrogates
+could pay off, and that backjumping could be implemented cheaply enough to be beneficial. We also
+saw parallelism give a substantial benefit. This was true even for relatively low runtimes, due to
+us exploiting parallelism for pre-processing as well as for search.  Parallel backjumping has only
+been given limited attention \cite{Conrad:1994,Habbas:1997,Cope:2000}.  However, a simple approach
+has worked reasonably well here (in contrast to stronger learning systems, where successes in
+parallelism appear to be rare).
+
+There is also plenty of scope for extensions of and improvement to our algorithm. We have yet to
+deeply investigate the possibility of constructing domain- or instance-specific supplemental graphs.
+Nor did we discuss directed graphs or induced isomorphisms: supplemental graphs can be taken further
+for these variations of the problem.  In particular, composing transformations for induced
+isomorphisms would allow us to reason about ``paths of non-edges'', which may be very helpful.
+Finally, we have yet to consider exploiting the symmetries and dominance relations which we know are
+present in many graph instances.
+
+\section*{Acknowledgements}
+
+The authors wish to thank Christine Solnon for discussions, providing the graph instances and the
+LAD implementation, Christophe Lecoutre for discussion and the SND implementation, and Lars Kotthoff
+and Alice Miller for their comments.
+
+\FloatBarrier
+\bibliographystyle{splncs}
+\bibliography{paper}
+
+\end{document}
+
