@@ -273,8 +273,7 @@ recurse (\lineref{line:recursesearch}).
                 \nl \Switch{$\FuncSty{search}(L, D' - D_v)$\label{line:recursesearch}}{
                     \nl \lCase{\textnormal{Success~\KwSty{then}}}{$\KwSty{return}~\textnormal{Success}$}
                     \nl \Case{\textnormal{Fail $F'$~\KwSty{then}}\label{line:searchfailed}}{
-                        \nl \If{$\nexists\,w \in F'~\KwSty{such that}~D_w \ne D'_w$}{
-                        \nl $\KwSty{return}~\textnormal{Fail}~F'$\label{line:backjump}}
+                        \nl \lIf{$\nexists\,w \in F'~\KwSty{such that}~D_w \ne D'_w$}{$\KwSty{return}~\textnormal{Fail}~F'$\label{line:backjump}}
                         \nl $F \gets F \cup F'$ \label{line:fsub} \;
                     }
                 }
