@@ -32,7 +32,7 @@ plot \
     "graph-cumulative.data" u ($7):($7 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Our Parallel" lc 1, \
     "graph-cumulative.data" u ($4):($4 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Our Sequential" lc 1 dt ".", \
     "graph-cumulative.data" u ($5):($5 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "No Supplementals" lc 1 dt "-", \
-    "graph-cumulative.data" u ($9):($9 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "SND" lc 5, \
+    "graph-cumulative.data" u ($9):($9 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "SND" lc 4, \
     "graph-cumulative.data" u ($3):($3 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "LAD" lc 8, \
     "graph-cumulative.data" u ($8):($8 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "VF2" at end lc 2
 
@@ -57,7 +57,7 @@ plot \
     "graph-cumulative.data" u ($7 >= 86400e3 ? 86400e3 : $7):($7 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{Our Parallel}' at end lc 1, \
     "graph-cumulative.data" u ($4 >= 86400e3 ? 86400e3 : $4):($4 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{Our Sequential}' at end lc 1 dt ".", \
     "graph-cumulative.data" u ($5 >= 86400e3 ? 86400e3 : $5):($5 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0.5mm}{No Supplementals}' at end lc 1 dt "-", \
-    "graph-cumulative.data" u ($9 >= 86400e3 ? 86400e3 : $9):($9 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{-0.5mm}{SND}' at end lc 5, \
+    "graph-cumulative.data" u ($9 >= 86400e3 ? 86400e3 : $9):($9 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{-0.5mm}{SND}' at end lc 4, \
     "graph-cumulative.data" u ($3 >= 86400e3 ? 86400e3 : $3):($3 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{LAD}' at end lc 8
 
 unset multiplot
