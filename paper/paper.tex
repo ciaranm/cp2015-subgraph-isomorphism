@@ -168,11 +168,11 @@ elaborated upon below.
 \nl \Begin{
     \nl \lIf{$|\operatorname{V}(\mathcal{P})| > |\operatorname{V}(\mathcal{T})|$}{$\KwSty{return}~\KwSty{false}$\label{line:enough}}
     \nl Discard isolated vertices in $\mathcal{P}$\label{line:isolated} \;
-    \nl $G \gets \FuncSty{createSupplementalGraphs}(\mathcal{P}, \mathcal{T})$ \label{line:buildsup}\;
-    \nl $D \gets \FuncSty{init}(\operatorname{V}(\mathcal{P}), \operatorname{V}(\mathcal{T}), G)$
+    \nl $L \gets \FuncSty{createSupplementalGraphList}(\mathcal{P}, \mathcal{T})$ \label{line:buildsup}\;
+    \nl $D \gets \FuncSty{init}(\operatorname{V}(\mathcal{P}), \operatorname{V}(\mathcal{T}), L)$
     \label{line:initdomains}\;
     \nl \lIf{$\FuncSty{countingAllDifferent}(D) \ne \textnormal{Success}$}{$\KwSty{return}~\KwSty{false}$\label{line:initalldiff}}
-    \nl $\KwSty{return}~\FuncSty{search}(G, D) = \textnormal{Success}$ \label{line:search} \;
+    \nl $\KwSty{return}~\FuncSty{search}(L, D) = \textnormal{Success}$ \label{line:search} \;
 }
 
 \caption{A non-induced subgraph isomorphism algorithm}
@@ -195,9 +195,9 @@ algorithm by better selection on an instance by instance basis \cite{Malitsky:20
 
 \begin{algorithm}[h]
 \DontPrintSemicolon
-\nl $\FuncSty{createSupplementalGraphs}$ (Graph $\mathcal{P}$, Graph $\mathcal{T}$) $\rightarrow$ GraphPairs \;
+\nl $\FuncSty{createSupplementalGraphList}$ (Graph $\mathcal{P}$, Graph $\mathcal{T}$) $\rightarrow$ GraphPairs \;
 \nl \Begin{
-    \nl $\begin{aligned}\KwSty{return}~\Big\{
+    \nl $\begin{aligned}\KwSty{return}~\Big[
             &(\mathcal{P},\ \mathcal{T}),
             &&(\mathcal{P}^{\left[1,2\right]},\ \mathcal{T}^{\left[1,2\right]}),
             &&(\mathcal{P}^{\left[2,2\right]},\ \mathcal{T}^{\left[2,2\right]}),
@@ -205,7 +205,7 @@ algorithm by better selection on an instance by instance basis \cite{Malitsky:20
             &&&(\mathcal{P}^{\left[1,3\right]},\ \mathcal{T}^{\left[1,3\right]}),
             &&(\mathcal{P}^{\left[2,3\right]},\ \mathcal{T}^{\left[2,3\right]}),
             &&(\mathcal{P}^{\left[3,3\right]},\ \mathcal{T}^{\left[3,3\right]})
-    \Big\}\end{aligned}$ \;
+    \Big]\end{aligned}$ \;
 }
 \caption{Supplemental graphs for \cref{algorithm:sip}}
 \label{algorithm:supplemental}
@@ -224,11 +224,11 @@ individually (\lineref{line:filter}). At this stage, we also enforce the ``loops
 
 \begin{algorithm}[h]
 \DontPrintSemicolon
-\nl $\FuncSty{init}$ (Vertices $V$, Vertices $R$, GraphPairs $G$) $\rightarrow$ Domains \;
+\nl $\FuncSty{init}$ (Vertices $V$, Vertices $R$, GraphPairs $L$) $\rightarrow$ Domains \;
 \nl \Begin{
     \nl \Repeat{\nl$R$ \textnormal{is unchanged}}{
         \nl \ForEach{$v \in V$}{
-            \nl $D_v \gets \bigcap_{(P,\,T) \in G} \left\{ w \in R :~
+            \nl $D_v \gets \bigcap_{(P,\,T) \in L} \left\{ w \in R :~
                 v\underset{P}{\sim}v \Rightarrow w\underset{T}{\sim}w \wedge \operatorname{S}(P, v) \preceq
             \operatorname{S}(T[R], w) \right\}$ \label{line:filter} \;
         }
@@ -260,17 +260,17 @@ recurse (\lineref{line:recursesearch}).
 \begin{algorithm}[h]
 \DontPrintSemicolon
 \SetKwSwitch{Switch}{Case}{Other}{case}{of}{}{otherwise}{endcase}{endsw}
-\nl $\FuncSty{search}$ (GraphPairs $G$, Domains $D$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
+\nl $\FuncSty{search}$ (GraphPairs $L$, Domains $D$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
 \nl \Begin{
     \nl \lIf {$D = \emptyset$}{$\KwSty{return}~\textnormal{Success}$\label{line:success}}
     \nl $D_v \gets \textnormal{a domain in $D$ with minimum size, tiebreaking on static degree in}~\mathcal{P}$ \label{line:branch} \;
     \nl $F \gets \{ v \}$ \label{line:fcurrent} \;
     \nl \ForEach {$v' \in D_v~\textnormal{ordered by static degree in}~\mathcal{T}$\label{line:parforeach}}{
         \nl $D' \gets \FuncSty{clone}(D)$ \;
-        \nl \Switch{$\FuncSty{assign}(G, D', v, v')$\label{line:assign}}{
+        \nl \Switch{$\FuncSty{assign}(L, D', v, v')$\label{line:assign}}{
             \nl \lCase{\textnormal{Fail $F'$~\KwSty{then}}}{$F \gets F \cup F'$\label{line:fassign}}
             \nl \Case{\textnormal{Success~\KwSty{then}}}{
-                \nl \Switch{$\FuncSty{search}(G, D' - D_v)$\label{line:recursesearch}}{
+                \nl \Switch{$\FuncSty{search}(L, D' - D_v)$\label{line:recursesearch}}{
                     \nl \lCase{\textnormal{Success~\KwSty{then}}}{$\KwSty{return}~\textnormal{Success}$}
                     \nl \Case{\textnormal{Fail $F'$~\KwSty{then}}\label{line:searchfailed}}{
                         \nl \If{$\nexists\,w \in F'~\KwSty{such that}~D_w \ne D'_w$}{
@@ -310,12 +310,12 @@ fail with that variable as the nogood (\lineref{line:wipeout}).
 
 \begin{algorithm}[h]
 \DontPrintSemicolon
-\nl $\FuncSty{assign}$ (GraphPairs $G$, Domains $D$, Vertex $v$, Vertex $v'$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
+\nl $\FuncSty{assign}$ (GraphPairs $L$, Domains $D$, Vertex $v$, Vertex $v'$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
 \nl \Begin{
     \nl $D_v \gets \{ v' \}$ \label{line:assigngets} \;
 \nl \ForEach{$D_w \in D - D_v$}{
     \nl $D_w \gets D_w - v'$ \label{line:removev} \;
-    \nl \ForEach{$(P,\,T) \in G$}{
+    \nl \ForEach{$(P,\,T) \in L$}{
         \nl \lIf{$v \sim_P w$}{$D_w \gets D_w \cap \operatorname{N}(T, v')$\label{line:adj}}
     }
     \nl \lIf{$D_w = \emptyset$}{$\KwSty{return}~\textnormal{Fail}~\{ w \}$\label{line:wipeout}}
