@@ -5,6 +5,11 @@ To run:
 
     ./solve_subgraph_isomorphism algorithm-name pattern-file target-file
 
+You may need to increase the stack space, for larger graphs. In bash this is
+done as follows:
+
+    ulimit -s 1048576
+
 The algorithm variations are:
 
     sequential
