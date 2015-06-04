@@ -1,0 +1,59 @@
+Files
+-----
+
+Makefile: make an executable (main) and test on 4 subgraph isomorphism instances 
+allDiff.c compatibility.c graph.c lad.c domains.c main.c: source files
+pattern.txt: example of non labelled pattern graph
+patternL.txt: example of labelled pattern graph
+target.txt: example of target graph
+targetL.txt: example of labelled target graph
+README: this file
+
+Usage
+-----
+
+  -p FILE  Input pattern graph (mandatory)
+  -t FILE  Input target graph (mandatory)
+  -s INT   Set CPU time limit in seconds (default: 60)
+  -l       Labelled graphs (default: non labelled graphs)
+  -f       Stop at first solution (default: search for all solutions)
+  -i       Search for an induced subgraph (default: partial subgraph)
+  -v       Print solutions (default: only number of solutions)
+  -vv      Be verbose
+  -h       Print this help message
+
+Graph format
+------------
+
+Pattern and target graphs should be defined in two text files. The format of these files depends on whether the graphs are labelled or not (i.e., whether the otion -l has been set or not)
+
+Format for non labelled graphs.
+The first line only contains the number n of vertices.
+Each following line gives, for each vertex i, the number of successors of i followed by the list of successors of i.
+
+Format for labelled graphs:
+The first line only contains the number n of vertices.
+Each following line gives, for each vertex i:
+- the label of vertex i
+- the number of successors of vertex i
+- for each successor k of i: k followed by the label of edge (i,k)
+
+In all cases, nodes must be numbered from 0 and, if there is an edge from i to j and an edge from j to i, then j must be a successor of i and i must be a successor of j.
+
+By default, 2 labels are compatible iff they have the same value (so that 2 vertex/edges may be matched iff they have the same labels). If you want to define other compatibility relationships, just modify the two functions compatibleVertexLabels and compatibleEdgeLabels of file compatibility.c
+
+For example, the adjacency matrix of the non labelled graph 'pattern.txt' is:
+   0  1  2  3  4
+0: 0  0  0  0  1
+1: 1  0  1  0  0
+2: 0  0  0  1  0
+3: 0  0  0  0  1
+4: 0  1  0  0  0
+
+The label matrix (such that a_ij = label of edge (i,j) if i != j, and a_ii = label of vertex i) of the labelled graph 'patternL.txt' is:
+   0  1  2  3  4
+0: 1  1  0  0  2
+1: 2  1  2  0  1
+2: 0  1  2  2  0
+3: 0  0  1  2  2
+4: 1  2  0  1  2
