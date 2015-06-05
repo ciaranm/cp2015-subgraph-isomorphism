@@ -14,6 +14,7 @@
 #include <atomic>
 #include <cstdlib>
 #include <chrono>
+#include <vector>
 
 using std::chrono::milliseconds;
 using std::chrono::steady_clock;
@@ -21,14 +22,15 @@ using std::chrono::duration_cast;
 
 namespace
 {
-    void load(const std::string & file, ARGEdit & ed)
+    void load(const std::string & file, ARGEdit & ed, std::vector<int> & loops)
     {
         std::ifstream f(file.c_str());
 
         int nv;
         f >> nv;
+        loops.resize(nv);
         for (int i = 0 ; i < nv ; ++i)
-            ed.InsertNode(NULL);
+            ed.InsertNode(&loops[i]);
 
         for (int r = 0 ; r < nv ; ++r) {
             int nn;
@@ -36,13 +38,24 @@ namespace
             for (int n = 0 ; n < nn ; ++n) {
                 int nb;
                 f >> nb;
-                ed.InsertEdge(r, nb, NULL);
+                if (r == nb)
+                    loops[r] = true;
+                else
+                    ed.InsertEdge(r, nb, NULL);
             }
         }
 
         if (! f)
             throw 0;
     }
+
+    struct OurComparator : AttrComparator
+    {
+        virtual bool compatible(void *attr1, void *attr2)
+        {
+            return *static_cast<int *>(attr1) == *static_cast<int *>(attr2);
+        }
+    };
 }
 
 int main(int argc, char * argv[])
@@ -56,9 +69,10 @@ int main(int argc, char * argv[])
     int timeout = atoi(argv[3]);
 
     ARGEdit pattern_ed, target_ed;
+    std::vector<int> pattern_loops, target_loops;
 
-    load(argv[1], pattern_ed);
-    load(argv[2], target_ed);
+    load(argv[1], pattern_ed, pattern_loops);
+    load(argv[2], target_ed, target_loops);
 
     int n;
     node_id ni1[8000], ni2[8000];
@@ -97,6 +111,9 @@ int main(int argc, char * argv[])
     });
 
     Graph pattern_g(&pattern_ed), target_g(&target_ed);
+
+    pattern_g.SetNodeComparator(new OurComparator);
+    target_g.SetNodeComparator(new OurComparator);
 
     VF2MonoState s0(&pattern_g, &target_g);
 
