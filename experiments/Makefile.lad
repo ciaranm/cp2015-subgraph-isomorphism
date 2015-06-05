@@ -3,14 +3,15 @@ INSTANCES := $(shell cut -d' ' -f1 instances.txt)
 TIMEOUT := 100
 ALGORITHMS := lad
 STACK_SPACE := 1048576
+RESULTS := results
 
-all : $(foreach i, $(INSTANCES), $(foreach a, $(ALGORITHMS), results/$(a)/$i.out ))
+all : $(foreach i, $(INSTANCES), $(foreach a, $(ALGORITHMS), $(RESULTS)/$(a)/$i.out ))
 
 dir-% :
-	mkdir -p results results/$*
+	mkdir -p $(RESULTS) $(RESULTS)/$*
 
 define ALGORITHM_template =
-results/$(1)/%.out : | dir-$(1)
+$(RESULTS)/$(1)/%.out : | dir-$(1)
 	ulimit -s $$(STACK_SPACE) ; ../directedLAD/main -v -f -s $$(TIMEOUT) \
 	    -p $$(shell grep "^`basename $$*` " < instances.txt | cut -d' ' -f2 ) \
 	    -t $$(shell grep "^`basename $$*` " < instances.txt | cut -d' ' -f3 ) > >(tee $$@ ) || grep -q exceeded $$@

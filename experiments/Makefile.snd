@@ -2,14 +2,15 @@ SHELL := /bin/bash
 INSTANCES := $(shell cut -d' ' -f1 instances.txt)
 TIMEOUT := 100
 ALGORITHMS := snd
+RESULTS := results
 
-all : $(foreach i, $(INSTANCES), $(foreach a, $(ALGORITHMS), results/$(a)/$i.out ))
+all : $(foreach i, $(INSTANCES), $(foreach a, $(ALGORITHMS), $(RESULTS)/$(a)/$i.out ))
 
 dir-% :
-	mkdir -p results results/$*
+	mkdir -p $(RESULTS) $(RESULTS)/$*
 
 define ALGORITHM_template =
-results/$(1)/%.out : | dir-$(1)
+$(RESULTS)/$(1)/%.out : | dir-$(1)
 	java -cp ../snd/abscon609.jar abscon.Resolution problems.patt.Isomorphism $$(shell grep "^`basename $$*` " < instances.txt | cut -d' ' -f2-3 ) \
 	    -xo=2 -prepro=no -p=PropagationIsomorphism -sop=false -em=intension -t=$$(TIMEOUT)s > >(tee $$@ ) || grep -q UNKNOWN $$@
 endef
