@@ -1,0 +1,19 @@
+SHELL := /bin/bash
+INSTANCES := $(shell cut -d' ' -f1 instances.txt)
+TIMEOUT := 100
+ALGORITHMS := threaded
+THREADS := $(shell nproc )
+STACK_SPACE := 1048576
+
+all : $(foreach i, $(INSTANCES), $(foreach a, $(ALGORITHMS), results/$(a)/$i.out ))
+
+dir-% :
+	mkdir -p results results/$*
+
+define ALGORITHM_template =
+results/$(1)/%.out : | dir-$(1)
+	ulimit -s $$(STACK_SPACE) ; ../code/solve_subgraph_isomorphism $(1) --timeout $$(TIMEOUT) --threads $$(THREADS) $$(shell grep "^`basename $$*` " < instances.txt | cut -d' ' -f2-3 ) > >(tee $$@ )
+endef
+
+$(foreach a,$(ALGORITHMS),$(eval $(call ALGORITHM_template,$(a))))
+
