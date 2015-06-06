@@ -9,3 +9,4 @@ all :
 	$(MAKE) -f Makefile.vf2 TIMEOUT=$(TIMEOUT) RESULTS=$(RESULTS)
 	$(MAKE) -j1 -f Makefile.snd TIMEOUT=$(TIMEOUT) RESULTS=$(RESULTS)
 	$(MAKE) -j1 -f Makefile.threaded TIMEOUT=$(TIMEOUT) THREADS=$(THREADS) STACK_SPACE=$(STACK_SPACE) RESULTS=$(RESULTS)
+	$(MAKE) -f Makefile.stats RESULTS=$(RESULTS)

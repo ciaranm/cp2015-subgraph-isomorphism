@@ -1,0 +1,52 @@
+SHELL := /bin/bash
+INSTANCES := $(shell cut -d' ' -f1 instances.txt)
+OUR_ALGORITHMS := sequential no-backjumping no-all-diff no-supplementals full-all-diff
+LAD_ALGORITHMS := lad
+SND_ALGORITHMS := snd
+VF2_ALGORITHMS := vf2
+STACK_SPACE := 1048576
+RESULTS := results
+
+all : $(foreach i, $(INSTANCES), $(RESULTS)/stats/$i.summary $(RESULTS)/stats/$i.sat )
+
+dir-% :
+	mkdir -p $(RESULTS) $(RESULTS)/$*
+
+$(RESULTS)/stats/%.summary : | dir-stats
+	{ for a in $(OUR_ALGORITHMS) ; do \
+	  if grep -q aborted $(RESULTS)/$$a/$*.out ; then echo -n 'X' ; \
+	  elif grep -q false $(RESULTS)/$$a/$*.out ; then echo -n '0' ; \
+	  elif grep -q true $(RESULTS)/$$a/$*.out ; then echo -n '1' ; \
+	  else echo -n 'F' ; fi ; done ; \
+	  for a in $(LAD_ALGORITHMS) ; do \
+	  if grep -q 'exceeded' $(RESULTS)/$$a/$*.out ; then echo -n 'X' ; \
+	  elif grep -q '1 solutions' $(RESULTS)/$$a/$*.out ; then echo -n '1' ; \
+	  elif grep -q '0 solutions' $(RESULTS)/$$a/$*.out ; then echo -n '0' ; \
+	  else echo -n 'F' ; fi ; done ; \
+	  for a in $(VF2_ALGORITHMS) ; do \
+	  if grep -q aborted $(RESULTS)/$$a/$*.out ; then echo -n 'X' ; \
+	  elif grep -q false $(RESULTS)/$$a/$*.out ; then echo -n '0' ; \
+	  elif grep -q true $(RESULTS)/$$a/$*.out ; then echo -n '1' ; \
+	  else echo -n 'F' ; fi ; done ; \
+	  for a in $(SND_ALGORITHMS) ; do \
+	  if grep -q '^s UNKNOWN' $(RESULTS)/$$a/$*.out ; then echo -n 'X' ; \
+	  elif grep -q '^s UNSATISFIABLE' $(RESULTS)/$$a/$*.out ; then echo -n '0' ; \
+	  elif grep -q '^s SATISFIABLE' $(RESULTS)/$$a/$*.out ; then echo -n '1' ; \
+	  else echo -n 'F' ; fi ; done ; \
+	} | tee $@
+
+$(RESULTS)/stats/%.sat : $(RESULTS)/stats/%.summary
+	if grep -q F $< ; then \
+	    echo "Failure in $<" ; exit 1 ; \
+	elif grep -q 0 $< && grep -q 1 $< ; then \
+	    echo "Mismatch on $<" ; exit 1 ; \
+	elif grep -q 0 $< ; then \
+	    echo 0 > $@ ; \
+	elif grep -q 1 $< ; then \
+	    echo 1 > $@ ; \
+	elif grep -q X $< ; then \
+	    echo X > $@ ; \
+	else \
+	    echo "Unknown on $<" ; exit 1 ; \
+	fi
+
