@@ -4,10 +4,16 @@ OUR_ALGORITHMS := sequential no-backjumping no-all-diff no-supplementals full-al
 LAD_ALGORITHMS := lad
 SND_ALGORITHMS := snd
 VF2_ALGORITHMS := vf2
+ALL_ALGORITHMS := $(OUR_ALGORITHMS) $(LAD_ALGORITHMS) $(SND_ALGORITHMS) $(VF2_ALGORITHMS)
 STACK_SPACE := 1048576
 RESULTS := results
 
-all : $(foreach i, $(INSTANCES), $(RESULTS)/stats/$i.summary $(RESULTS)/stats/$i.sat )
+SUMMARIES = $(foreach i, $(INSTANCES), $(RESULTS)/stats/$i.summary)
+SATS = $(foreach i, $(INSTANCES), $(RESULTS)/stats/$i.sat)
+RUNTIMES = $(foreach i, $(INSTANCES), $(foreach a, $(ALL_ALGORITHMS), $(RESULTS)/stats/$i.runtime.$a ))
+NODES = $(foreach i, $(INSTANCES), $(foreach a, $(OUR_ALGORITHMS), $(RESULTS)/stats/$i.nodes.$a ))
+
+all : $(SUMMARIES) $(SATS) $(RUNTIMES) $(NODES)
 
 dir-% :
 	mkdir -p $(RESULTS) $(RESULTS)/$*
@@ -50,3 +56,48 @@ $(RESULTS)/stats/%.sat : $(RESULTS)/stats/%.summary
 	    echo "Unknown on $<" ; exit 1 ; \
 	fi
 
+define OUR_ALGORITHM_template =
+$(RESULTS)/stats/%.runtime.$(1) : | dir-stats
+	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	else sed -n -e '3p' $(RESULTS)/$(1)/$$*.out | cut -d' ' -f1 > $$@ ; \
+	fi
+	test -s $$@
+
+$(RESULTS)/stats/%.nodes.$(1) : | dir-stats
+	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	else sed -n -e '1p' $(RESULTS)/$(1)/$$*.out | cut -d' ' -f2 > $$@ ; \
+	fi
+	test -s $$@
+endef
+
+$(foreach a,$(OUR_ALGORITHMS),$(eval $(call OUR_ALGORITHM_template,$(a))))
+
+define VF2_ALGORITHM_template =
+$(RESULTS)/stats/%.runtime.$(1) : | dir-stats
+	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	else sed -n -e '3p' $(RESULTS)/$(1)/$$*.out | cut -d' ' -f1 > $$@ ; \
+	fi
+	test -s $$@
+endef
+
+$(foreach a,$(VF2_ALGORITHMS),$(eval $(call VF2_ALGORITHM_template,$(a))))
+
+define LAD_ALGORITHM_template =
+$(RESULTS)/stats/%.runtime.$(1) : | dir-stats
+	if grep -q 'exceeded' $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	else sed -n -e '/^Run completed:/s/^.* 0*\([0-9]*\)\.\([0-9][0-9][0-9]\)[0-9]* seconds$$$$/\1\2/p' $(RESULTS)/$(1)/$$*.out > $$@ ; \
+	fi
+	test -s $$@
+endef
+
+$(foreach a,$(LAD_ALGORITHMS),$(eval $(call LAD_ALGORITHM_template,$(a))))
+
+define SND_ALGORITHM_template =
+$(RESULTS)/stats/%.runtime.$(1) : | dir-stats
+	if grep -q '^s UNKNOWN' $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	else dc -e "$$$$(sed -n -e '/totalWckTime=/s/^.*totalWckTime=0*\([0-9]*\.[0-9]*\) .*/\1/p' $(RESULTS)/$(1)/$$*.out ) 1000.0 * p" | sed -e 's,\..*,,' > $$@ ; \
+	fi
+	test -s $$@
+endef
+
+$(foreach a,$(SND_ALGORITHMS),$(eval $(call SND_ALGORITHM_template,$(a))))

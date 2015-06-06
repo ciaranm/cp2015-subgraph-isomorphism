@@ -1,0 +1,26 @@
+SHELL := /bin/bash
+OUR_ALGORITHMS := sequential no-backjumping no-all-diff no-supplementals full-all-diff
+LAD_ALGORITHMS := lad
+SND_ALGORITHMS := snd
+VF2_ALGORITHMS := vf2
+ALL_ALGORITHMS := $(LAD_ALGORITHMS) $(SND_ALGORITHMS) $(VF2_ALGORITHMS) $(OUR_ALGORITHMS)
+RESULTS := results
+
+all : $(RESULTS)/runtimes.data $(RESULTS)/nodes.data
+
+$(RESULTS)/runtimes.data :
+	{ \
+	    echo instance family sat $(ALL_ALGORITHMS) ; \
+	    cat instances.txt | while read i p t f ; do \
+	        echo $$i $$f $$(cat $(RESULTS)/stats/$$i.sat ) $$(for a in $(ALL_ALGORITHMS) ; do cat $(RESULTS)/stats/$$i.runtime.$$a ; done ) ; \
+	    done ; \
+	} | tee $@
+
+$(RESULTS)/nodes.data :
+	{ \
+	    echo instance family sat $(OUR_ALGORITHMS) ; \
+	    cat instances.txt | while read i p t f ; do \
+	        echo $$i $$f $$(cat $(RESULTS)/stats/$$i.sat ) $$(for a in $(OUR_ALGORITHMS) ; do cat $(RESULTS)/stats/$$i.nodes.$$a ; done ) ; \
+	    done ; \
+	} | tee $@
+
