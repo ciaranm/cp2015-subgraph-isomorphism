@@ -17,3 +17,27 @@ Parts of this repository are from other authors:
    instances:
 
     http://liris.cnrs.fr/csolnon/SIP.html
+
+Steps to reproduce the paper:
+
+ * Build our code: run 'make' inside the code/ directory, after reading
+   code/README.md for details on compiler requirements and dependencies.
+
+ * Build LAD: run 'make' inside the directedLAD/ directory.
+
+ * Build the vflib library: run 'make' inside the vflib/vflib-2.0.6/ directory.
+
+ * Build the vflib solver: run 'make' inside the vflib/ directory.
+
+ * Obtain SND: consult snd/README.md for details.
+
+ * Run the experiments: run 'make TIMEOUT=100000' inside the experiments/
+   directory. (This will take a loooooong time. If a timeout is not specified,
+   100s is used instead, which should finish within a few days.)
+
+ * Copy experiments/results/*.data into the paper/ directory, to replace our
+   experimental results with your own.
+
+ * Run 'make' inside the paper/ directory. You will need Gnuplot 5 built with
+   Lua support, and a full TeX Live installation.
+
