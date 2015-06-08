@@ -22,21 +22,21 @@ set format x '$10^{%T}$'
 set format y '$10^{%T}$'
 
 plot \
-    "graph-speedup.data" u (($2 == 0 && $3 == 10) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 5 lc 2 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 10) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 4 lc 2 notitle, \
-    "graph-speedup.data" u (($2 == 0 && $3 == 2) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 7 lc 1 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 2) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 6 lc 1 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 3) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 1 lc 3 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 4) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 1 lc 3 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 5) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 2 lc 5 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 6) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 2 lc 5 notitle, \
-    "graph-speedup.data" u (($2 == 0 && $3 == 1) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 11 lc 7 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 1) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 10 lc 7 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 7) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 3 lc 8 notitle, \
-    "graph-speedup.data" u (($2 == 0 && $3 == 8) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 9 lc 6 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 8) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 8 lc 6 notitle, \
-    "graph-speedup.data" u (($2 == 1 && $3 == 9) ? ($5<1?1:$5) : NaN):($7<1?1:$7):(1) ps variable pt 12 lc 4 notitle, \
-    "graph-speedup.data" u (($2 == -1 && ($5 < 1e8 || $7 < 1e8)) ? ($5<1?1:$5) : NaN):($7<1?1:$7) pt 2 lc 0 ps 10 notitle, \
+    "runtimes.data" u (($3 == 0 && $2 == 10) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 5 lc 2 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 10) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 4 lc 2 notitle, \
+    "runtimes.data" u (($3 == 0 && $2 == 2) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 7 lc 1 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 2) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 6 lc 1 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 3) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 1 lc 3 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 4) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 1 lc 3 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 5) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 2 lc 5 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 6) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 2 lc 5 notitle, \
+    "runtimes.data" u (($3 == 0 && $2 == 1) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 11 lc 7 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 1) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 10 lc 7 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 7) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 3 lc 8 notitle, \
+    "runtimes.data" u (($3 == 0 && $2 == 8) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 9 lc 6 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 8) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 8 lc 6 notitle, \
+    "runtimes.data" u (($3 == 1 && $2 == 9) ? ($7<1?1:$7) : NaN):($12<1?1:$12):(1) ps variable pt 12 lc 4 notitle, \
+    "runtimes.data" u (($3 == -1 && ($7 < 1e8 || $12 < 1e8)) ? ($7<1?1:$7) : NaN):($12<1?1:$12) pt 2 lc 0 ps 10 notitle, \
     x w l lt 1 lc 0 notitle, \
     NaN w p ps 1.5 pt 6 lc 1 ti "LV (sat)", \
     NaN w p ps 1.5 pt 7 lc 1 ti "LV (unsat)", \

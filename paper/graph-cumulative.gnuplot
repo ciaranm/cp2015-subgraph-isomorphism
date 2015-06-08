@@ -29,12 +29,12 @@ set arrow from 60e3,2250 to 60e3,2487 front nohead
 set arrow from 86400e3,2250 to 86400e3,2487 front nohead
 
 plot \
-    "graph-cumulative.data" u ($7):($7 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Our Parallel" lc 1, \
-    "graph-cumulative.data" u ($4):($4 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Our Sequential" lc 1 dt ".", \
-    "graph-cumulative.data" u ($5):($5 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "No Supplementals" lc 1 dt "-", \
-    "graph-cumulative.data" u ($9):($9 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "SND" lc 4, \
-    "graph-cumulative.data" u ($3):($3 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "LAD" lc 8, \
-    "graph-cumulative.data" u ($8):($8 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "VF2" at end lc 2
+    "runtimes.data" u ($12):($12 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Our Parallel" lc 1, \
+    "runtimes.data" u ($7):($7 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Our Sequential" lc 1 dt ".", \
+    "runtimes.data" u ($10):($10 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "No Supplementals" lc 1 dt "-", \
+    "runtimes.data" u ($5):($5 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "SND" lc 4, \
+    "runtimes.data" u ($4):($4 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "LAD" lc 8, \
+    "runtimes.data" u ($6):($6 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "VF2" at end lc 2
 
 set size 0.32, 0.40
 set origin 0.525, 0.17
@@ -54,10 +54,10 @@ set ylabel ""
 set grid xtics ytics mytics
 
 plot \
-    "graph-cumulative.data" u ($7 >= 86400e3 ? 86400e3 : $7):($7 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{Our Parallel}' at end lc 1, \
-    "graph-cumulative.data" u ($4 >= 86400e3 ? 86400e3 : $4):($4 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{Our Sequential}' at end lc 1 dt ".", \
-    "graph-cumulative.data" u ($5 >= 86400e3 ? 86400e3 : $5):($5 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0.5mm}{No Supplementals}' at end lc 1 dt "-", \
-    "graph-cumulative.data" u ($9 >= 86400e3 ? 86400e3 : $9):($9 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{-0.5mm}{SND}' at end lc 4, \
-    "graph-cumulative.data" u ($3 >= 86400e3 ? 86400e3 : $3):($3 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{LAD}' at end lc 8
+    "runtimes.data" u ($12 >= 86400e3 ? 86400e3 : $12):($12 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{Our Parallel}' at end lc 1, \
+    "runtimes.data" u ($7 >= 86400e3 ? 86400e3 : $7):($7 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{Our Sequential}' at end lc 1 dt ".", \
+    "runtimes.data" u ($10 >= 86400e3 ? 86400e3 : $10):($10 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0.5mm}{No Supplementals}' at end lc 1 dt "-", \
+    "runtimes.data" u ($5 >= 86400e3 ? 86400e3 : $5):($5 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{-0.5mm}{SND}' at end lc 4, \
+    "runtimes.data" u ($4 >= 86400e3 ? 86400e3 : $4):($4 >= 86400e3 ? 1e-10 : 1) smooth cumulative ti '\raisebox{0mm}{LAD}' at end lc 8
 
 unset multiplot

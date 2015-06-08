@@ -24,58 +24,58 @@ set format x '$10^{%T}$'
 set format y '$10^{%T}$'
 
 plot \
-    "graph-best-other.data" u (($3 == 1 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 11 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 11 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 11 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 10 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 10 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 10 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 3 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 3 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 3 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 4 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 4 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 4 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 5 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 5 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 5 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 6 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 6 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 6 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 3 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 3 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 3 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 9 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 9 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 9 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 8 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 8 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 8 notitle, \
-    "graph-best-other.data" u (($3 == 9 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 12 notitle, \
-    "graph-best-other.data" u (($3 == 9 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 12 notitle, \
-    "graph-best-other.data" u (($3 == 9 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 12 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 5 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 5 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 5 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($7):(1) w p ps variable lc 4 pt 4 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 8 pt 4 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($7):(1) w p ps variable lc 2 pt 4 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($7):(1) w p ps variable lc 0 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($7):(1) w p ps variable lc 0 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($7):(1) w p ps variable lc 0 pt 3 notitle, \
-    "graph-best-other.data" u (($3 >= 8 && $2 == 1 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -1 && $5<1e8)?$5:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -1 && $9<1e8)?$9:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -1 && $11<1e8)?$11:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -2 && $5<1e8)?$5:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
-    "graph-best-other.data" u (($2 == -2 && $9<1e8)?$9:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
-    "graph-best-other.data" u (($2 == -2 && $11<1e8)?$11:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 11 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 11 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 11 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 10 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 10 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 10 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 6 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 6 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 6 notitle, \
+    "runtimes.data" u (($2 == 3 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 1 notitle, \
+    "runtimes.data" u (($2 == 3 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 1 notitle, \
+    "runtimes.data" u (($2 == 3 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 1 notitle, \
+    "runtimes.data" u (($2 == 4 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 1 notitle, \
+    "runtimes.data" u (($2 == 4 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 1 notitle, \
+    "runtimes.data" u (($2 == 4 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 1 notitle, \
+    "runtimes.data" u (($2 == 5 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 2 notitle, \
+    "runtimes.data" u (($2 == 5 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 2 notitle, \
+    "runtimes.data" u (($2 == 5 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 2 notitle, \
+    "runtimes.data" u (($2 == 6 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 2 notitle, \
+    "runtimes.data" u (($2 == 6 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 2 notitle, \
+    "runtimes.data" u (($2 == 6 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 2 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 3 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 3 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 3 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 9 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 9 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 9 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 8 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 8 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 8 notitle, \
+    "runtimes.data" u (($2 == 9 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 12 notitle, \
+    "runtimes.data" u (($2 == 9 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 12 notitle, \
+    "runtimes.data" u (($2 == 9 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 12 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 5 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 5 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 5 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($7):(1) w p ps variable lc 4 pt 4 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($7):(1) w p ps variable lc 8 pt 4 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($7):(1) w p ps variable lc 2 pt 4 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($7):(1) w p ps variable lc 0 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($7):(1) w p ps variable lc 0 pt 6 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($7):(1) w p ps variable lc 0 pt 3 notitle, \
+    "runtimes.data" u (($2 >= 8 && $3 == 1 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -1 && $4<1e8)?$4:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -1 && $6<1e8)?$6:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -1 && $5<1e8)?$5:NaN):($7):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -2 && $4<1e8)?$4:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
+    "runtimes.data" u (($3 == -2 && $6<1e8)?$6:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
+    "runtimes.data" u (($3 == -2 && $5<1e8)?$5:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
     x w l lt 0 notitle, \
     NaN w p ps 1.5 pt 7 lc 8 ti "LAD", \
     NaN w p ps 1.5 pt 7 lc 2 ti "VF2", \
@@ -98,58 +98,58 @@ set xlabel "Virtual best other solver runtime (ms)"
 set ylabel "Our parallel runtime (ms)"
 
 plot \
-    "graph-best-other.data" u (($3 == 1 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 11 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 11 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 11 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 10 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 10 notitle, \
-    "graph-best-other.data" u (($3 == 1 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 10 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 3 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 3 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 3 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 4 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 4 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 4 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 1 notitle, \
-    "graph-best-other.data" u (($3 == 5 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 5 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 5 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 6 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 6 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 6 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 2 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 3 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 3 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 3 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 9 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 9 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 9 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 8 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 8 notitle, \
-    "graph-best-other.data" u (($3 == 8 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 8 notitle, \
-    "graph-best-other.data" u (($3 == 9 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 12 notitle, \
-    "graph-best-other.data" u (($3 == 9 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 12 notitle, \
-    "graph-best-other.data" u (($3 == 9 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 12 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 0 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 5 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 0 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 5 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 0 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 5 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 1 && $11 < $5 && $11 < $9 && $11 < 1e8)?$11:NaN):($6):(1) w p ps variable lc 4 pt 4 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 1 && $5 <= $9 && $5 <= $11 && $5 < 1e8)?$5:NaN):($6):(1) w p ps variable lc 8 pt 4 notitle, \
-    "graph-best-other.data" u (($3 == 10 && $2 == 1 && $9 < $5 && $9 <= $11 && $9 < 1e8)?$9:NaN):($6):(1) w p ps variable lc 2 pt 4 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 0 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($6):(1) w p ps variable lc 0 pt 7 notitle, \
-    "graph-best-other.data" u (($3 == 2 && $2 == 1 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($6):(1) w p ps variable lc 0 pt 6 notitle, \
-    "graph-best-other.data" u (($3 == 7 && $2 == 1 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($6):(1) w p ps variable lc 0 pt 3 notitle, \
-    "graph-best-other.data" u (($3 >= 8 && $2 == 1 && $9 >= 1e8 && $9 >= 1e8 && $11 >= 1e8)?1e8:NaN):($6):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -1 && $5<1e8)?$5:NaN):($6):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -1 && $9<1e8)?$9:NaN):($6):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -1 && $11<1e8)?$11:NaN):($6):(1) w p ps 10 lc 0 pt 1 notitle, \
-    "graph-best-other.data" u (($2 == -2 && $5<1e8)?$5:NaN):($6):(1) w p ps 10 lc 0 pt 2 notitle, \
-    "graph-best-other.data" u (($2 == -2 && $9<1e8)?$9:NaN):($6):(1) w p ps 10 lc 0 pt 2 notitle, \
-    "graph-best-other.data" u (($2 == -2 && $11<1e8)?$11:NaN):($6):(1) w p ps 10 lc 0 pt 2 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 11 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 11 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 11 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 10 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 10 notitle, \
+    "runtimes.data" u (($2 == 1 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 10 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 6 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 6 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 6 notitle, \
+    "runtimes.data" u (($2 == 3 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 1 notitle, \
+    "runtimes.data" u (($2 == 3 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 1 notitle, \
+    "runtimes.data" u (($2 == 3 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 1 notitle, \
+    "runtimes.data" u (($2 == 4 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 1 notitle, \
+    "runtimes.data" u (($2 == 4 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 1 notitle, \
+    "runtimes.data" u (($2 == 4 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 1 notitle, \
+    "runtimes.data" u (($2 == 5 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 2 notitle, \
+    "runtimes.data" u (($2 == 5 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 2 notitle, \
+    "runtimes.data" u (($2 == 5 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 2 notitle, \
+    "runtimes.data" u (($2 == 6 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 2 notitle, \
+    "runtimes.data" u (($2 == 6 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 2 notitle, \
+    "runtimes.data" u (($2 == 6 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 2 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 3 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 3 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 3 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 9 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 9 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 9 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 8 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 8 notitle, \
+    "runtimes.data" u (($2 == 8 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 8 notitle, \
+    "runtimes.data" u (($2 == 9 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 12 notitle, \
+    "runtimes.data" u (($2 == 9 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 12 notitle, \
+    "runtimes.data" u (($2 == 9 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 12 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 0 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 5 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 0 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 5 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 0 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 5 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 1 && $5 < $4 && $5 < $6 && $5 < 1e8)?$5:NaN):($12):(1) w p ps variable lc 4 pt 4 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 1 && $4 <= $6 && $4 <= $5 && $4 < 1e8)?$4:NaN):($12):(1) w p ps variable lc 8 pt 4 notitle, \
+    "runtimes.data" u (($2 == 10 && $3 == 1 && $6 < $4 && $6 <= $5 && $6 < 1e8)?$6:NaN):($12):(1) w p ps variable lc 2 pt 4 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 0 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($12):(1) w p ps variable lc 0 pt 7 notitle, \
+    "runtimes.data" u (($2 == 2 && $3 == 1 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($12):(1) w p ps variable lc 0 pt 6 notitle, \
+    "runtimes.data" u (($2 == 7 && $3 == 1 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($12):(1) w p ps variable lc 0 pt 3 notitle, \
+    "runtimes.data" u (($2 >= 8 && $3 == 1 && $6 >= 1e8 && $6 >= 1e8 && $5 >= 1e8)?1e8:NaN):($12):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -1 && $4<1e8)?$4:NaN):($12):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -1 && $6<1e8)?$6:NaN):($12):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -1 && $5<1e8)?$5:NaN):($12):(1) w p ps 10 lc 0 pt 1 notitle, \
+    "runtimes.data" u (($3 == -2 && $4<1e8)?$4:NaN):($12):(1) w p ps 10 lc 0 pt 2 notitle, \
+    "runtimes.data" u (($3 == -2 && $6<1e8)?$6:NaN):($12):(1) w p ps 10 lc 0 pt 2 notitle, \
+    "runtimes.data" u (($3 == -2 && $5<1e8)?$5:NaN):($12):(1) w p ps 10 lc 0 pt 2 notitle, \
     x w l lt 0 notitle, \
     NaN w p ps 0 lc "white" ti "~~~~~~~~~~~~~~"
 

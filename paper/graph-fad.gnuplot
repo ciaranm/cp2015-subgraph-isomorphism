@@ -25,20 +25,20 @@ set format x '$10^{%T}$'
 set format y '$10^{%T}$'
 
 plot \
-    "graph-fad.data" u (($2 == 0 && $3 == 10) ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 5 lc 2 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 10) ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 4 lc 2 notitle, \
-    "graph-fad.data" u (($2 == 0 && $3 == 2)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 7 lc 1 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 2)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 6 lc 1 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 3)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 1 lc 3 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 4)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 1 lc 3 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 5)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 2 lc 5 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 6)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 2 lc 5 notitle, \
-    "graph-fad.data" u (($2 == 0 && $3 == 1)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 11 lc 7 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 1)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 10 lc 7 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 7)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 3 lc 8 notitle, \
-    "graph-fad.data" u (($2 == 0 && $3 == 8)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 9 lc 6 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 8)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 8 lc 6 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 9)  ? ($5<1?1:($5>1e9?1e9:$5)) : NaN):($6<1?1:($6>1e9?1e9:$6)):(1) ps variable pt 12 lc 4 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 10) ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 5 lc 2 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 10) ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 4 lc 2 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 2)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 7 lc 1 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 2)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 6 lc 1 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 3)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 1 lc 3 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 4)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 1 lc 3 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 5)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 2 lc 5 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 6)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 2 lc 5 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 1)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 11 lc 7 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 1)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 10 lc 7 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 7)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 3 lc 8 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 8)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 9 lc 6 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 8)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 8 lc 6 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 9)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 12 lc 4 notitle, \
     x w l lt 1 lc 0 notitle, \
     NaN w p ps 0 lc "white" ti "~~~~~~~~~~~~~~", \
     NaN w p ps 1.5 pt 6 lc 1 ti "LV (sat)", \
@@ -59,20 +59,20 @@ set xlabel "Recursive calls with value-deleting all-different"
 set ylabel "Recursive calls with counting-based all-different"
 
 plot \
-    "graph-fad.data" u (($2 == 0 && $3 == 10) ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 5 lc 2 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 10) ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 4 lc 2 notitle, \
-    "graph-fad.data" u (($2 == 0 && $3 == 2)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 7 lc 1 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 2)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 6 lc 1 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 3)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 1 lc 3 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 4)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 1 lc 3 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 5)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 2 lc 5 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 6)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 2 lc 5 notitle, \
-    "graph-fad.data" u (($2 == 0 && $3 == 1)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 11 lc 7 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 1)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 10 lc 7 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 7)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 3 lc 8 notitle, \
-    "graph-fad.data" u (($2 == 0 && $3 == 8)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 9 lc 6 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 8)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 8 lc 6 notitle, \
-    "graph-fad.data" u (($2 == 1 && $3 == 9)  ? ($7<1?1:($7>1e9?1e9:$7)) : NaN):($5<1?1:($5>1e9?1e9:$5)):(1) ps variable pt 12 lc 4 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 10) ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 5 lc 2 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 10) ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 4 lc 2 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 2)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 7 lc 1 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 2)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 6 lc 1 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 3)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 1 lc 3 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 4)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 1 lc 3 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 5)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 2 lc 5 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 6)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 2 lc 5 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 1)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 11 lc 7 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 1)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 10 lc 7 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 7)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 3 lc 8 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 8)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 9 lc 6 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 8)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 8 lc 6 notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 9)  ? ($6<1?1:($6>1e9?1e9:$6)) : NaN):($4<1?1:($4>1e9?1e9:$4)):(1) ps variable pt 12 lc 4 notitle, \
     x w l lt 1 lc 0 notitle, \
     NaN w p ps 0 lc "white" ti "~~~~~~~~~~~~~~"
 
