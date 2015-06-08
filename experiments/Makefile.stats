@@ -1,6 +1,7 @@
 SHELL := /bin/bash
 INSTANCES := $(shell cut -d' ' -f1 instances.txt)
-OUR_ALGORITHMS := sequential no-backjumping no-all-diff no-supplementals full-all-diff
+OUR_ALGORITHMS := sequential no-backjumping no-all-diff no-supplementals full-all-diff threaded
+OUR_ALGORITHMS_RESTRICTED := sequential no-backjumping no-all-diff no-supplementals threaded
 LAD_ALGORITHMS := lad
 SND_ALGORITHMS := snd
 VF2_ALGORITHMS := vf2
@@ -19,7 +20,7 @@ dir-% :
 	mkdir -p $(RESULTS) $(RESULTS)/$*
 
 $(RESULTS)/stats/%.summary : | dir-stats
-	{ for a in $(OUR_ALGORITHMS) ; do \
+	{ for a in $(OUR_ALGORITHMS_RESTRICTED) ; do \
 	  if grep -q aborted $(RESULTS)/$$a/$*.out ; then echo -n 'X' ; \
 	  elif grep -q false $(RESULTS)/$$a/$*.out ; then echo -n '0' ; \
 	  elif grep -q true $(RESULTS)/$$a/$*.out ; then echo -n '1' ; \
@@ -58,13 +59,13 @@ $(RESULTS)/stats/%.sat : $(RESULTS)/stats/%.summary
 
 define OUR_ALGORITHM_template =
 $(RESULTS)/stats/%.runtime.$(1) : | dir-stats
-	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo '1e10' > $$@ ; \
 	else sed -n -e '3p' $(RESULTS)/$(1)/$$*.out | cut -d' ' -f1 > $$@ ; \
 	fi
 	test -s $$@
 
 $(RESULTS)/stats/%.nodes.$(1) : | dir-stats
-	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo '1e10' > $$@ ; \
 	else sed -n -e '1p' $(RESULTS)/$(1)/$$*.out | cut -d' ' -f2 > $$@ ; \
 	fi
 	test -s $$@
@@ -74,7 +75,7 @@ $(foreach a,$(OUR_ALGORITHMS),$(eval $(call OUR_ALGORITHM_template,$(a))))
 
 define VF2_ALGORITHM_template =
 $(RESULTS)/stats/%.runtime.$(1) : | dir-stats
-	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	if grep -q aborted $(RESULTS)/$(1)/$$*.out ; then echo '1e10' > $$@ ; \
 	else sed -n -e '3p' $(RESULTS)/$(1)/$$*.out | cut -d' ' -f1 > $$@ ; \
 	fi
 	test -s $$@
@@ -84,7 +85,7 @@ $(foreach a,$(VF2_ALGORITHMS),$(eval $(call VF2_ALGORITHM_template,$(a))))
 
 define LAD_ALGORITHM_template =
 $(RESULTS)/stats/%.runtime.$(1) : | dir-stats
-	if grep -q 'exceeded' $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	if grep -q 'exceeded' $(RESULTS)/$(1)/$$*.out ; then echo '1e10' > $$@ ; \
 	else sed -n -e '/^Run completed:/s/^.* 0*\([0-9]*\)\.\([0-9][0-9][0-9]\)[0-9]* seconds$$$$/\1\2/p' $(RESULTS)/$(1)/$$*.out > $$@ ; \
 	fi
 	test -s $$@
@@ -94,7 +95,7 @@ $(foreach a,$(LAD_ALGORITHMS),$(eval $(call LAD_ALGORITHM_template,$(a))))
 
 define SND_ALGORITHM_template =
 $(RESULTS)/stats/%.runtime.$(1) : | dir-stats
-	if grep -q '^s UNKNOWN' $(RESULTS)/$(1)/$$*.out ; then echo 'NaN' > $$@ ; \
+	if grep -q '^s UNKNOWN' $(RESULTS)/$(1)/$$*.out ; then echo '1e10' > $$@ ; \
 	else dc -e "$$$$(sed -n -e '/totalWckTime=/s/^.*totalWckTime=0*\([0-9]*\.[0-9]*\) .*/\1/p' $(RESULTS)/$(1)/$$*.out ) 1000.0 * p" | sed -e 's,\..*,,' > $$@ ; \
 	fi
 	test -s $$@

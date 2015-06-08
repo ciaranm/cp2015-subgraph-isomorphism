@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-OUR_ALGORITHMS := sequential no-backjumping no-all-diff no-supplementals full-all-diff
+OUR_ALGORITHMS := sequential no-backjumping no-all-diff no-supplementals full-all-diff threaded
 LAD_ALGORITHMS := lad
 SND_ALGORITHMS := snd
 VF2_ALGORITHMS := vf2
