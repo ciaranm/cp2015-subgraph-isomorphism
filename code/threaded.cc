@@ -150,7 +150,7 @@ struct HelpPoints
     std::mutex mutex;
     std::condition_variable cv;
     std::map<Position, Task> tasks;
-    bool finish;
+    std::atomic<bool> finish;
 
     std::vector<std::thread> threads;
 
@@ -162,7 +162,7 @@ struct HelpPoints
         for (int t = 0 ; t < n_threads ; ++t)
             threads.emplace_back([this, n_threads, t] {
                     milliseconds total_work_time = milliseconds::zero();
-                    while (! finish) {
+                    while (! finish.load()) {
                         std::unique_lock<std::mutex> guard(mutex);
                         bool did_something = false;
                         for (auto task = tasks.begin() ; task != tasks.end() ; ++task) {
@@ -201,7 +201,7 @@ struct HelpPoints
     {
         {
             std::unique_lock<std::mutex> guard(mutex);
-            finish = true;
+            finish.store(true);
             cv.notify_all();
         }
 
