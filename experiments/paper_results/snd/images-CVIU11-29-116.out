@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern29-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target116
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern29,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target116
+      
+
+   loading variables...
+        nbVariables=22  nbDomainTypes=1  nbTotalValues=125620  domainSizes=(5710:22)
+          =>  wckTime=0.36  cpuTime=0.383  mem=268M55
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=32  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:30)  nbConflictsStructures=(1,shared:30,unbuilt:1)
+        degrees=(3:4)(4:18)  arities=(2:31)(22:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:31)
+          =>  wckTime=0.62  cpuTime=0.641  mem=290M111
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target116.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=7.019  cpuTime=6.618  mem=811M796
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=37619  nbRevisions=104219  nbUselessRevisions=66619
+        nbAssignments=5585  nbFailedAssignments=5585  nbBacktracks=1  nbVisitedNodes=11171  nbRestartNogoods=0
+          =>  wckTime=2858.403  cpuTime=2798.884  mem=5846M622
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=37619  nbRevisions=104219  nbUselessRevisions=66619  nbRestartNogoods=0
+        solvingWckTime=2858.403  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2865.422  cpuTime=2798.884  mem=5846M622
+
+s UNSATISFIABLE
+d NODES 5585
+
+   totalWckTime=2865.327  totalCpuTime=2798.886

@@ -1,0 +1,46 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target93
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target93
+      
+
+   loading variables...
+        nbVariables=124  nbDomainTypes=1  nbTotalValues=485460  domainSizes=(3915:124)
+          =>  wckTime=0.312  cpuTime=0.365  mem=135M166
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=169  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:166)  nbConflictsStructures=(1,shared:166,unbuilt:2)
+        degrees=(2:1)(3:38)(4:82)(5:3)  arities=(1:1)(2:167)(124:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:167)(ConstraintHardExtensionV-Table:1)
+        tables=(4:1)  nbTotalTuples=4
+          =>  wckTime=0.574  cpuTime=0.601  mem=150M926
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target93.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=3.278  cpuTime=3.201  mem=949M735
+
+   
+   search
+        run=0  nbConstraintChecks=3920  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=1602  nbRevisions=3561  nbUselessRevisions=2461
+        nbAssignments=151  nbFailedAssignments=151  nbBacktracks=1  nbVisitedNodes=303  nbRestartNogoods=0
+          =>  wckTime=40.175  cpuTime=40.535  mem=1183M375
+
+   
+   global
+        nbConstraintChecks=3920  nbEffectivePropagations=1602  nbRevisions=3561  nbUselessRevisions=2461  nbRestartNogoods=0
+        solvingWckTime=40.176  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=43.454  cpuTime=40.536  mem=1183M375
+
+s UNSATISFIABLE
+d NODES 151
+
+   totalWckTime=43.345  totalCpuTime=40.54

@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g15
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g15
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=500  domainSizes=(50:10)
+          =>  wckTime=0.168  cpuTime=0.276  mem=9M304
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=16  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:14)  nbConflictsStructures=(1,shared:14,unbuilt:1)
+        degrees=(4:10)  arities=(2:15)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:15)
+          =>  wckTime=0.191  cpuTime=0.298  mem=10M175
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g15.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.337  cpuTime=0.419  mem=15M962
+
+    instantiation X0=0 X1=5 X2=3 X3=7 X4=4 X5=2 X6=1 X7=6 X8=9 X9=30 
+
+    solution X0=0 X1=5 X2=3 X3=7 X4=4 X5=2 X6=1 X7=6 X8=9 X9=30 
+
+   
+   search
+        run=0  nbConstraintChecks=16  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=31  nbRevisions=99  nbUselessRevisions=96
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.068  cpuTime=0.459  mem=12M467
+
+   
+   global
+        nbConstraintChecks=16  nbEffectivePropagations=31  nbRevisions=99  nbUselessRevisions=96  nbRestartNogoods=0  solvingWckTime=0.068
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.456  Stop=REACHED_GOAL
+          =>  wckTime=0.407  cpuTime=0.46  mem=12M467
+
+s SATISFIABLE
+v X0=0 X1=5 X2=3 X3=7 X4=4 X5=2 X6=1 X7=6 X8=9 X9=30 
+d NODES 10
+
+   totalWckTime=0.304  totalCpuTime=0.46

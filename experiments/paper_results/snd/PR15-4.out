@@ -1,0 +1,50 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern4-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern4,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+      
+
+   loading variables...
+        nbVariables=8  nbDomainTypes=1  nbTotalValues=38704  domainSizes=(4838:8)
+          =>  wckTime=0.319  cpuTime=0.402  mem=192M338
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=9  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:7)  nbConflictsStructures=(1,shared:7,unbuilt:1)
+        degrees=(3:8)  arities=(2:8)(8:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:8)
+          =>  wckTime=0.513  cpuTime=0.593  mem=203M535
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.202  cpuTime=4.941  mem=582M570
+
+    instantiation X0=0 X1=3 X2=2 X3=1 X4=4837 X5=11 X6=12 X7=4836 
+
+    solution X0=0 X1=3 X2=2 X3=1 X4=4837 X5=11 X6=12 X7=4836 
+
+   
+   search
+        run=0  nbConstraintChecks=9  depth=(min:9,max:7,avg:0)  nbEffectivePropagations=7  nbRevisions=28  nbUselessRevisions=28
+        nbAssignments=8  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=9  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=25.606  cpuTime=27.394  mem=2459M175
+
+   
+   global
+        nbConstraintChecks=9  nbEffectivePropagations=7  nbRevisions=28  nbUselessRevisions=28  nbRestartNogoods=0  solvingWckTime=25.607
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=27.386  Stop=REACHED_GOAL
+          =>  wckTime=30.809  cpuTime=27.395  mem=2459M175
+
+s SATISFIABLE
+v X0=0 X1=3 X2=2 X3=1 X4=4837 X5=11 X6=12 X7=4836 
+d NODES 8
+
+   totalWckTime=30.702  totalCpuTime=27.395

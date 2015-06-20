@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target353
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target353
+      
+
+   loading variables...
+        nbVariables=129  nbDomainTypes=1  nbTotalValues=443244  domainSizes=(3436:129)
+          =>  wckTime=0.372  cpuTime=0.398  mem=105M940
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=382  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:380)  nbConflictsStructures=(1,shared:380,unbuilt:1)
+        degrees=(5:2)(6:13)(7:112)(9:1)(10:1)  arities=(2:381)(129:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:381)
+          =>  wckTime=0.883  cpuTime=0.882  mem=159M596
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target353.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=3.357  cpuTime=3.256  mem=859M498
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=20596  nbRevisions=141656  nbUselessRevisions=121187
+        nbAssignments=3423  nbFailedAssignments=3423  nbBacktracks=1  nbVisitedNodes=6847  nbRestartNogoods=0
+          =>  wckTime=598.301  cpuTime=594.761  mem=1708M818
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=20596  nbRevisions=141656  nbUselessRevisions=121187  nbRestartNogoods=0
+        solvingWckTime=598.301  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=601.66  cpuTime=594.762  mem=1708M818
+
+s UNSATISFIABLE
+d NODES 3423
+
+   totalWckTime=601.542  totalCpuTime=594.763

@@ -1,0 +1,44 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target110
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target110
+      
+
+   loading variables...
+        nbVariables=124  nbDomainTypes=1  nbTotalValues=330584  domainSizes=(2666:124)
+          =>  wckTime=0.238  cpuTime=0.319  mem=66M674
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=169  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:166)  nbConflictsStructures=(1,shared:166,unbuilt:2)
+        degrees=(2:1)(3:38)(4:82)(5:3)  arities=(1:1)(2:167)(124:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:167)(ConstraintHardExtensionV-Table:1)
+        tables=(4:1)  nbTotalTuples=4
+          =>  wckTime=0.435  cpuTime=0.506  mem=77M874
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target110.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=1.847  cpuTime=1.842  mem=488M714
+
+   
+   search
+        run=0  nbConstraintChecks=2671  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=2073  nbRevisions=6408  nbUselessRevisions=4764
+        nbAssignments=331  nbFailedAssignments=331  nbBacktracks=1  nbVisitedNodes=663  nbRestartNogoods=0
+          =>  wckTime=46.431  cpuTime=47.227  mem=2938M482
+
+   
+   global
+        nbConstraintChecks=2671  nbEffectivePropagations=2073  nbRevisions=6408  nbUselessRevisions=4764  nbRestartNogoods=0
+        solvingWckTime=46.431  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=48.279  cpuTime=47.227  mem=2938M482
+
+s UNSATISFIABLE
+d NODES 331
+
+   totalWckTime=48.18  totalCpuTime=47.23

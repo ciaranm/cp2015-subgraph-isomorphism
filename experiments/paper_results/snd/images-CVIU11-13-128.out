@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern13-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target128
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern13,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target128
+      
+
+   loading variables...
+        nbVariables=106  nbDomainTypes=1  nbTotalValues=474456  domainSizes=(4476:106)
+          =>  wckTime=0.326  cpuTime=0.382  mem=173M111
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=153  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:151)  nbConflictsStructures=(1,shared:151,unbuilt:1)
+        degrees=(3:22)(4:76)(5:8)  arities=(2:152)(106:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:152)
+          =>  wckTime=0.616  cpuTime=0.654  mem=210M618
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target128.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.428  cpuTime=4.265  mem=525M704
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=81230  nbRevisions=188877  nbUselessRevisions=107648
+        nbAssignments=4362  nbFailedAssignments=4362  nbBacktracks=1  nbVisitedNodes=8725  nbRestartNogoods=0
+          =>  wckTime=1088.578  cpuTime=1083.106  mem=2025M55
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=81230  nbRevisions=188877  nbUselessRevisions=107648  nbRestartNogoods=0
+        solvingWckTime=1088.578  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1093.006  cpuTime=1083.107  mem=2025M55
+
+s UNSATISFIABLE
+d NODES 4362
+
+   totalWckTime=1092.9  totalCpuTime=1083.112

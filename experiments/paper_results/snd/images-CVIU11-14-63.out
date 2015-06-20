@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern14-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target63
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern14,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target63
+      
+
+   loading variables...
+        nbVariables=151  nbDomainTypes=1  nbTotalValues=660323  domainSizes=(4373:151)
+          =>  wckTime=0.317  cpuTime=0.375  mem=168M990
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=212  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:210)  nbConflictsStructures=(1,shared:210,unbuilt:1)
+        degrees=(3:36)(4:110)(5:5)  arities=(2:211)(151:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:211)
+          =>  wckTime=0.609  cpuTime=0.654  mem=218M622
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target63.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.331  cpuTime=4.17  mem=512M212
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=75710  nbRevisions=201845  nbUselessRevisions=126136
+        nbAssignments=4260  nbFailedAssignments=4260  nbBacktracks=1  nbVisitedNodes=8521  nbRestartNogoods=0
+          =>  wckTime=1825.216  cpuTime=1813.518  mem=2278M292
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=75710  nbRevisions=201845  nbUselessRevisions=126136  nbRestartNogoods=0
+        solvingWckTime=1825.217  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1829.549  cpuTime=1813.519  mem=2278M292
+
+s UNSATISFIABLE
+d NODES 4260
+
+   totalWckTime=1829.444  totalCpuTime=1813.525

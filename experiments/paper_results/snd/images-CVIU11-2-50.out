@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target50
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target50
+      
+
+   loading variables...
+        nbVariables=108  nbDomainTypes=1  nbTotalValues=573048  domainSizes=(5306:108)
+          =>  wckTime=0.352  cpuTime=0.373  mem=240M411
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=154  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:152)  nbConflictsStructures=(1,shared:152,unbuilt:1)
+        degrees=(3:20)(4:86)(5:2)  arities=(2:153)(108:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:153)
+          =>  wckTime=0.666  cpuTime=0.662  mem=264M768
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target50.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.93  cpuTime=5.593  mem=724M272
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=68842  nbRevisions=225227  nbUselessRevisions=156386
+        nbAssignments=5305  nbFailedAssignments=5305  nbBacktracks=1  nbVisitedNodes=10611  nbRestartNogoods=0
+          =>  wckTime=6269.102  cpuTime=6224.21  mem=2615M449
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=68842  nbRevisions=225227  nbUselessRevisions=156386  nbRestartNogoods=0
+        solvingWckTime=6269.103  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=6275.033  cpuTime=6224.21  mem=2615M449
+
+s UNSATISFIABLE
+d NODES 5305
+
+   totalWckTime=6274.922  totalCpuTime=6224.215

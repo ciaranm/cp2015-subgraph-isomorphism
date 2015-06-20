@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern14-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target31
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern14,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target31
+      
+
+   loading variables...
+        nbVariables=151  nbDomainTypes=1  nbTotalValues=619855  domainSizes=(4105:151)
+          =>  wckTime=0.334  cpuTime=0.385  mem=150M171
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=212  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:210)  nbConflictsStructures=(1,shared:210,unbuilt:1)
+        degrees=(3:36)(4:110)(5:5)  arities=(2:211)(151:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:211)
+          =>  wckTime=0.623  cpuTime=0.662  mem=180M566
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target31.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.132  cpuTime=3.921  mem=454M131
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=77434  nbRevisions=203406  nbUselessRevisions=126120
+        nbAssignments=4000  nbFailedAssignments=4000  nbBacktracks=1  nbVisitedNodes=8001  nbRestartNogoods=0
+          =>  wckTime=1479.625  cpuTime=1467.933  mem=1676M567
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=77434  nbRevisions=203406  nbUselessRevisions=126120  nbRestartNogoods=0
+        solvingWckTime=1479.626  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1483.759  cpuTime=1467.933  mem=1676M567
+
+s UNSATISFIABLE
+d NODES 4000
+
+   totalWckTime=1483.654  totalCpuTime=1467.94

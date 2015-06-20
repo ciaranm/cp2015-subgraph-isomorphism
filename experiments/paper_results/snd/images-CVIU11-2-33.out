@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target33
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target33
+      
+
+   loading variables...
+        nbVariables=108  nbDomainTypes=1  nbTotalValues=617112  domainSizes=(5714:108)
+          =>  wckTime=0.383  cpuTime=0.404  mem=278M640
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=154  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:152)  nbConflictsStructures=(1,shared:152,unbuilt:1)
+        degrees=(3:20)(4:86)(5:2)  arities=(2:153)(108:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:153)
+          =>  wckTime=0.736  cpuTime=0.737  mem=325M657
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target33.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=6.948  cpuTime=6.457  mem=835M100
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=72144  nbRevisions=234371  nbUselessRevisions=162228
+        nbAssignments=5712  nbFailedAssignments=5712  nbBacktracks=1  nbVisitedNodes=11425  nbRestartNogoods=0
+          =>  wckTime=7133.915  cpuTime=7046.883  mem=2822M752
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=72144  nbRevisions=234371  nbUselessRevisions=162228  nbRestartNogoods=0
+        solvingWckTime=7133.916  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=7140.865  cpuTime=7046.883  mem=2822M752
+
+s UNSATISFIABLE
+d NODES 5712
+
+   totalWckTime=7140.769  totalCpuTime=7046.889

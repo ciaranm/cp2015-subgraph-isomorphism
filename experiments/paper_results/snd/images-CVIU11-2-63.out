@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target63
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target63
+      
+
+   loading variables...
+        nbVariables=108  nbDomainTypes=1  nbTotalValues=472284  domainSizes=(4373:108)
+          =>  wckTime=0.288  cpuTime=0.363  mem=165M718
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=154  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:152)  nbConflictsStructures=(1,shared:152,unbuilt:1)
+        degrees=(3:20)(4:86)(5:2)  arities=(2:153)(108:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:153)
+          =>  wckTime=0.573  cpuTime=0.637  mem=196M838
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target63.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.211  cpuTime=4.084  mem=504M654
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=58317  nbRevisions=188723  nbUselessRevisions=130407
+        nbAssignments=4371  nbFailedAssignments=4371  nbBacktracks=1  nbVisitedNodes=8743  nbRestartNogoods=0
+          =>  wckTime=3273.51  cpuTime=3232.987  mem=2471M598
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=58317  nbRevisions=188723  nbUselessRevisions=130407  nbRestartNogoods=0
+        solvingWckTime=3273.511  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=3277.723  cpuTime=3232.987  mem=2471M598
+
+s UNSATISFIABLE
+d NODES 4371
+
+   totalWckTime=3277.633  totalCpuTime=3232.993

@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g5-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g13
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g5,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g13
+
+   loading variables...
+        nbVariables=11  nbDomainTypes=1  nbTotalValues=539  domainSizes=(49:11)
+          =>  wckTime=0.254  cpuTime=0.342  mem=8M781
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=21  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:19)  nbConflictsStructures=(1,shared:19,unbuilt:1)
+        degrees=(4:10)(11:1)  arities=(2:20)(11:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:20)
+          =>  wckTime=0.306  cpuTime=0.372  mem=3M532
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g13.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.47  cpuTime=0.517  mem=16M421
+
+    instantiation X0=0 X1=1 X2=2 X3=3 X4=14 X5=4 X6=5 X7=42 X8=32 X9=10 X10=41 
+
+    solution X0=0 X1=1 X2=2 X3=3 X4=14 X5=4 X6=5 X7=42 X8=32 X9=10 X10=41 
+
+   
+   search
+        run=0  nbConstraintChecks=21  depth=(min:4,max:10,avg:5)  nbEffectivePropagations=72  nbRevisions=147  nbUselessRevisions=120
+        nbAssignments=14  nbFailedAssignments=3  nbBacktracks=0  nbVisitedNodes=18  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.053  cpuTime=0.565  mem=17M675
+
+   
+   global
+        nbConstraintChecks=21  nbEffectivePropagations=72  nbRevisions=147  nbUselessRevisions=120  nbRestartNogoods=0  solvingWckTime=0.054
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.563  Stop=REACHED_GOAL
+          =>  wckTime=0.524  cpuTime=0.566  mem=17M675
+
+s SATISFIABLE
+v X0=0 X1=1 X2=2 X3=3 X4=14 X5=4 X6=5 X7=42 X8=32 X9=10 X10=41 
+d NODES 14
+
+   totalWckTime=0.355  totalCpuTime=0.567

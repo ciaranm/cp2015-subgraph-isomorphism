@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern21-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target119
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern21,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target119
+      
+
+   loading variables...
+        nbVariables=146  nbDomainTypes=1  nbTotalValues=784896  domainSizes=(5376:146)
+          =>  wckTime=0.386  cpuTime=0.378  mem=248M457
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=215  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:213)  nbConflictsStructures=(1,shared:213,unbuilt:1)
+        degrees=(3:12)(4:132)(5:2)  arities=(2:214)(146:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:214)
+          =>  wckTime=0.722  cpuTime=0.703  mem=303M338
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target119.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.863  cpuTime=5.521  mem=754M428
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=140565  nbRevisions=421016  nbUselessRevisions=280670
+        nbAssignments=5369  nbFailedAssignments=5369  nbBacktracks=1  nbVisitedNodes=10739  nbRestartNogoods=0
+          =>  wckTime=4291.261  cpuTime=4247.169  mem=4522M227
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=140565  nbRevisions=421016  nbUselessRevisions=280670  nbRestartNogoods=0
+        solvingWckTime=4291.261  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=4297.124  cpuTime=4247.169  mem=4522M227
+
+s UNSATISFIABLE
+d NODES 5369
+
+   totalWckTime=4297.034  totalCpuTime=4247.177

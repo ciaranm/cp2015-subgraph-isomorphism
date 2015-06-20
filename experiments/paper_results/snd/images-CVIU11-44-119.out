@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern44-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target119
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern44,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target119
+      
+
+   loading variables...
+        nbVariables=145  nbDomainTypes=1  nbTotalValues=779520  domainSizes=(5376:145)
+          =>  wckTime=0.4  cpuTime=0.393  mem=248M72
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=213  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:211)  nbConflictsStructures=(1,shared:211,unbuilt:1)
+        degrees=(3:15)(4:126)(5:4)  arities=(2:212)(145:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:212)
+          =>  wckTime=0.725  cpuTime=0.706  mem=305M779
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target119.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=6.325  cpuTime=5.954  mem=752M734
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=99260  nbRevisions=297066  nbUselessRevisions=197943
+        nbAssignments=5245  nbFailedAssignments=5245  nbBacktracks=1  nbVisitedNodes=10491  nbRestartNogoods=0
+          =>  wckTime=3037.356  cpuTime=3005.139  mem=4164M510
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=99260  nbRevisions=297066  nbUselessRevisions=197943  nbRestartNogoods=0
+        solvingWckTime=3037.357  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=3043.683  cpuTime=3005.14  mem=4164M510
+
+s UNSATISFIABLE
+d NODES 5245
+
+   totalWckTime=3043.569  totalCpuTime=3005.147

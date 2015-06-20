@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target484
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target484
+      
+
+   loading variables...
+        nbVariables=129  nbDomainTypes=1  nbTotalValues=488523  domainSizes=(3787:129)
+          =>  wckTime=0.334  cpuTime=0.378  mem=128M131
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=382  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:380)  nbConflictsStructures=(1,shared:380,unbuilt:1)
+        degrees=(5:2)(6:13)(7:112)(9:1)(10:1)  arities=(2:381)(129:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:381)
+          =>  wckTime=0.69  cpuTime=0.704  mem=174M222
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target484.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=3.357  cpuTime=3.239  mem=926M832
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=27534  nbRevisions=176917  nbUselessRevisions=149384
+        nbAssignments=3782  nbFailedAssignments=3782  nbBacktracks=1  nbVisitedNodes=7565  nbRestartNogoods=0
+          =>  wckTime=769.779  cpuTime=765.243  mem=2462M826
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=27534  nbRevisions=176917  nbUselessRevisions=149384  nbRestartNogoods=0
+        solvingWckTime=769.78  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=773.137  cpuTime=765.243  mem=2462M826
+
+s UNSATISFIABLE
+d NODES 3782
+
+   totalWckTime=773.008  totalCpuTime=765.244

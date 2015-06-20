@@ -1,0 +1,46 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target97
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target97
+      
+
+   loading variables...
+        nbVariables=163  nbDomainTypes=1  nbTotalValues=566914  domainSizes=(3478:163)
+          =>  wckTime=0.284  cpuTime=0.347  mem=110M270
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=290  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:287)  nbConflictsStructures=(1,shared:287,unbuilt:2)
+        degrees=(2:14)(3:29)(4:105)...(6:1)(7:1)(132:1)  arities=(1:1)(2:288)(163:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:288)(ConstraintHardExtensionV-Table:1)
+        tables=(1:1)  nbTotalTuples=1
+          =>  wckTime=0.582  cpuTime=0.634  mem=165M158
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target97.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=2.917  cpuTime=2.852  mem=907M263
+
+   
+   search
+        run=0  nbConstraintChecks=3477  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=341  nbRevisions=635  nbUselessRevisions=326
+        nbAssignments=2  nbFailedAssignments=2  nbBacktracks=1  nbVisitedNodes=4  nbRestartNogoods=0
+          =>  wckTime=4.72  cpuTime=7.347  mem=631M317
+
+   
+   global
+        nbConstraintChecks=3477  nbEffectivePropagations=341  nbRevisions=635  nbUselessRevisions=326  nbRestartNogoods=0  solvingWckTime=4.72
+        expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=7.637  cpuTime=7.347  mem=631M317
+
+s UNSATISFIABLE
+d NODES 2
+
+   totalWckTime=7.534  totalCpuTime=7.35

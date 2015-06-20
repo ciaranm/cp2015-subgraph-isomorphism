@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern42-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target68
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern42,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target68
+      
+
+   loading variables...
+        nbVariables=97  nbDomainTypes=1  nbTotalValues=537380  domainSizes=(5540:97)
+          =>  wckTime=0.371  cpuTime=0.378  mem=259M519
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=137  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:135)  nbConflictsStructures=(1,shared:135,unbuilt:1)
+        degrees=(3:21)(4:74)(5:2)  arities=(2:136)(97:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:136)
+          =>  wckTime=0.694  cpuTime=0.686  mem=283M433
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target68.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=6.077  cpuTime=5.66  mem=785M615
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=87974  nbRevisions=254376  nbUselessRevisions=166496
+        nbAssignments=5395  nbFailedAssignments=5395  nbBacktracks=1  nbVisitedNodes=10791  nbRestartNogoods=0
+          =>  wckTime=3021.905  cpuTime=2986.822  mem=4545M225
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=87974  nbRevisions=254376  nbUselessRevisions=166496  nbRestartNogoods=0
+        solvingWckTime=3021.905  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=3027.983  cpuTime=2986.822  mem=4545M225
+
+s UNSATISFIABLE
+d NODES 5395
+
+   totalWckTime=3027.867  totalCpuTime=2986.828

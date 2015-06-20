@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g21
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g21
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=640  domainSizes=(64:10)
+          =>  wckTime=0.186  cpuTime=0.304  mem=9M335
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=16  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:14)  nbConflictsStructures=(1,shared:14,unbuilt:1)
+        degrees=(4:10)  arities=(2:15)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:15)
+          =>  wckTime=0.229  cpuTime=0.341  mem=4M97
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g21.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.376  cpuTime=0.461  mem=17M308
+
+    instantiation X0=0 X1=1 X2=2 X3=3 X4=5 X5=8 X6=4 X7=6 X8=7 X9=9 
+
+    solution X0=0 X1=1 X2=2 X3=3 X4=5 X5=8 X6=4 X7=6 X8=7 X9=9 
+
+   
+   search
+        run=0  nbConstraintChecks=16  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=30  nbRevisions=15  nbUselessRevisions=15
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.111  cpuTime=0.572  mem=19M417
+
+   
+   global
+        nbConstraintChecks=16  nbEffectivePropagations=30  nbRevisions=15  nbUselessRevisions=15  nbRestartNogoods=0  solvingWckTime=0.112
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.57  Stop=REACHED_GOAL
+          =>  wckTime=0.488  cpuTime=0.573  mem=19M417
+
+s SATISFIABLE
+v X0=0 X1=1 X2=2 X3=3 X4=5 X5=8 X6=4 X7=6 X8=7 X9=9 
+d NODES 10
+
+   totalWckTime=0.377  totalCpuTime=0.573

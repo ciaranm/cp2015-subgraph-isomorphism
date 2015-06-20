@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g15
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g15
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=500  domainSizes=(50:10)
+          =>  wckTime=0.188  cpuTime=0.291  mem=8M959
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=11  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:9)  nbConflictsStructures=(1,shared:9,unbuilt:1)
+        degrees=(3:10)  arities=(2:10)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:10)
+          =>  wckTime=0.212  cpuTime=0.314  mem=9M966
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g15.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.355  cpuTime=0.431  mem=15M795
+
+    instantiation X0=0 X1=2 X2=1 X3=3 X4=4 X5=5 X6=6 X7=7 X8=9 X9=8 
+
+    solution X0=0 X1=2 X2=1 X3=3 X4=4 X5=5 X6=6 X7=7 X8=9 X9=8 
+
+   
+   search
+        run=0  nbConstraintChecks=11  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=39  nbRevisions=82  nbUselessRevisions=77
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.089  cpuTime=0.464  mem=12M616
+
+   
+   global
+        nbConstraintChecks=11  nbEffectivePropagations=39  nbRevisions=82  nbUselessRevisions=77  nbRestartNogoods=0  solvingWckTime=0.09
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.462  Stop=REACHED_GOAL
+          =>  wckTime=0.446  cpuTime=0.465  mem=12M616
+
+s SATISFIABLE
+v X0=0 X1=2 X2=1 X3=3 X4=4 X5=5 X6=6 X7=7 X8=9 X9=8 
+d NODES 10
+
+   totalWckTime=0.33  totalCpuTime=0.465

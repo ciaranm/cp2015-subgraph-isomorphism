@@ -1,0 +1,51 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern21-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern21,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+      
+
+   loading variables...
+        nbVariables=16  nbDomainTypes=1  nbTotalValues=77408  domainSizes=(4838:16)
+          =>  wckTime=0.332  cpuTime=0.399  mem=193M115
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=24  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:22)  nbConflictsStructures=(1,shared:22,unbuilt:1)
+        degrees=(3:4)(4:10)(5:2)  arities=(2:23)(16:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:23)
+          =>  wckTime=0.538  cpuTime=0.605  mem=208M766
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.76  cpuTime=4.56  mem=585M653
+
+    instantiation X0=4440 X1=4441 X2=4415 X3=4416 X4=4439 X5=4438 X6=4437 X7=4435 X8=4420 X9=4419 X10=4418 X11=4417 X12=4421 X13=4436 X14=4442 X15=4443 
+
+    solution X0=4440 X1=4441 X2=4415 X3=4416 X4=4439 X5=4438 X6=4437 X7=4435 X8=4420 X9=4419 X10=4418 X11=4417 X12=4421 X13=4436 X14=4442 X15=4443 
+
+   
+   search
+        run=0  nbConstraintChecks=24  depth=(min:0,max:15,avg:1)  nbEffectivePropagations=29062  nbRevisions=90926  nbUselessRevisions=61866
+        nbAssignments=4434  nbFailedAssignments=4418  nbBacktracks=0  nbVisitedNodes=8853  nbRestartNogoods=0  nbFoundSolutions=1
+        upperBound=9223372036854775807
+          =>  wckTime=1104.659  cpuTime=1092.808  mem=1947M533
+
+   
+   global
+        nbConstraintChecks=24  nbEffectivePropagations=29062  nbRevisions=90926  nbUselessRevisions=61866  nbRestartNogoods=0
+        solvingWckTime=1104.659  expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=1092.805  Stop=REACHED_GOAL
+          =>  wckTime=1109.42  cpuTime=1092.808  mem=1947M533
+
+s SATISFIABLE
+v X0=4440 X1=4441 X2=4415 X3=4416 X4=4439 X5=4438 X6=4437 X7=4435 X8=4420 X9=4419 X10=4418 X11=4417 X12=4421 X13=4436 X14=4442 X15=4443 
+d NODES 4434
+
+   totalWckTime=1109.293  totalCpuTime=1092.81

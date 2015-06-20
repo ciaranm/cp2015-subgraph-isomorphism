@@ -1,0 +1,50 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern8-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern8,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+      
+
+   loading variables...
+        nbVariables=6  nbDomainTypes=1  nbTotalValues=29028  domainSizes=(4838:6)
+          =>  wckTime=0.293  cpuTime=0.353  mem=192M755
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=8  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:6)  nbConflictsStructures=(1,shared:6,unbuilt:1)
+        degrees=(3:4)(4:2)  arities=(2:7)(6:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:7)
+          =>  wckTime=0.474  cpuTime=0.533  mem=203M692
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.743  cpuTime=4.528  mem=582M19
+
+    instantiation X0=0 X1=1 X2=2 X3=3 X4=4837 X5=4836 
+
+    solution X0=0 X1=1 X2=2 X3=3 X4=4837 X5=4836 
+
+   
+   search
+        run=0  nbConstraintChecks=8  depth=(min:7,max:5,avg:0)  nbEffectivePropagations=6  nbRevisions=19  nbUselessRevisions=19
+        nbAssignments=6  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=7  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=17.086  cpuTime=18.388  mem=1521M737
+
+   
+   global
+        nbConstraintChecks=8  nbEffectivePropagations=6  nbRevisions=19  nbUselessRevisions=19  nbRestartNogoods=0  solvingWckTime=17.087
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=18.383  Stop=REACHED_GOAL
+          =>  wckTime=21.831  cpuTime=18.389  mem=1521M737
+
+s SATISFIABLE
+v X0=0 X1=1 X2=2 X3=3 X4=4837 X5=4836 
+d NODES 6
+
+   totalWckTime=21.739  totalCpuTime=18.389

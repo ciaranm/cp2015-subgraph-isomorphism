@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern5-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target306
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern5,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target306
+      
+
+   loading variables...
+        nbVariables=82  nbDomainTypes=1  nbTotalValues=430828  domainSizes=(5254:82)
+          =>  wckTime=0.333  cpuTime=0.389  mem=232M284
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=241  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:239)  nbConflictsStructures=(1,shared:239,unbuilt:1)
+        degrees=(6:16)(7:64)(9:2)  arities=(2:240)(82:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:240)
+          =>  wckTime=0.745  cpuTime=0.766  mem=270M922
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target306.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.681  cpuTime=5.334  mem=708M568
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=22070  nbRevisions=133414  nbUselessRevisions=111419
+        nbAssignments=5242  nbFailedAssignments=5242  nbBacktracks=1  nbVisitedNodes=10485  nbRestartNogoods=0
+          =>  wckTime=2092.64  cpuTime=2066.359  mem=2589M419
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=22070  nbRevisions=133414  nbUselessRevisions=111419  nbRestartNogoods=0
+        solvingWckTime=2092.64  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2098.321  cpuTime=2066.359  mem=2589M419
+
+s UNSATISFIABLE
+d NODES 5242
+
+   totalWckTime=2098.228  totalCpuTime=2066.36

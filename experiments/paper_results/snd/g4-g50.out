@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g50
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g50
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=1280  domainSizes=(128:10)
+          =>  wckTime=0.185  cpuTime=0.284  mem=9M633
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=46  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:44)  nbConflictsStructures=(1,shared:44,unbuilt:1)
+        degrees=(10:10)  arities=(2:45)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:45)
+          =>  wckTime=0.25  cpuTime=0.343  mem=9M213
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g50.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.405  cpuTime=0.475  mem=23M293
+
+    instantiation X0=0 X1=7 X2=15 X3=18 X4=26 X5=32 X6=38 X7=42 X8=64 X9=72 
+
+    solution X0=0 X1=7 X2=15 X3=18 X4=26 X5=32 X6=38 X7=42 X8=64 X9=72 
+
+   
+   search
+        run=0  nbConstraintChecks=46  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=0  nbRevisions=285  nbUselessRevisions=285
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.263  cpuTime=0.727  mem=18M533
+
+   
+   global
+        nbConstraintChecks=46  nbRevisions=285  nbUselessRevisions=285  nbRestartNogoods=0  solvingWckTime=0.264  expiredTime=no
+        totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.725  Stop=REACHED_GOAL
+          =>  wckTime=0.669  cpuTime=0.728  mem=18M533
+
+s SATISFIABLE
+v X0=0 X1=7 X2=15 X3=18 X4=26 X5=32 X6=38 X7=42 X8=64 X9=72 
+d NODES 10
+
+   totalWckTime=0.559  totalCpuTime=0.728

@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g25
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g25
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=750  domainSizes=(75:10)
+          =>  wckTime=0.212  cpuTime=0.372  mem=4M695
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=11  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:9)  nbConflictsStructures=(1,shared:9,unbuilt:1)
+        degrees=(3:10)  arities=(2:10)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:10)
+          =>  wckTime=0.238  cpuTime=0.397  mem=5M573
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g25.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.393  cpuTime=0.525  mem=18M469
+
+    instantiation X0=3 X1=4 X2=60 X3=23 X4=21 X5=26 X6=11 X7=49 X8=45 X9=6 
+
+    solution X0=3 X1=4 X2=60 X3=23 X4=21 X5=26 X6=11 X7=49 X8=45 X9=6 
+
+   
+   search
+        run=0  nbConstraintChecks=11  depth=(min:0,max:9,avg:1)  nbEffectivePropagations=58  nbRevisions=104  nbUselessRevisions=75
+        nbAssignments=13  nbFailedAssignments=3  nbBacktracks=0  nbVisitedNodes=17  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.044  cpuTime=0.569  mem=20M515
+
+   
+   global
+        nbConstraintChecks=11  nbEffectivePropagations=58  nbRevisions=104  nbUselessRevisions=75  nbRestartNogoods=0  solvingWckTime=0.045
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.567  Stop=REACHED_GOAL
+          =>  wckTime=0.438  cpuTime=0.57  mem=20M651
+
+s SATISFIABLE
+v X0=3 X1=4 X2=60 X3=23 X4=21 X5=26 X6=11 X7=49 X8=45 X9=6 
+d NODES 13
+
+   totalWckTime=0.301  totalCpuTime=0.57

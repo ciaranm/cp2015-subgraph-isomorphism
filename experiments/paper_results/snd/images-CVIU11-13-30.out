@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern13-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target30
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern13,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target30
+      
+
+   loading variables...
+        nbVariables=106  nbDomainTypes=1  nbTotalValues=514524  domainSizes=(4854:106)
+          =>  wckTime=0.354  cpuTime=0.381  mem=201M666
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=153  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:151)  nbConflictsStructures=(1,shared:151,unbuilt:1)
+        degrees=(3:22)(4:76)(5:8)  arities=(2:152)(106:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:152)
+          =>  wckTime=0.682  cpuTime=0.699  mem=234M348
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target30.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.231  cpuTime=4.945  mem=610M373
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=88379  nbRevisions=206983  nbUselessRevisions=118708
+        nbAssignments=4734  nbFailedAssignments=4734  nbBacktracks=1  nbVisitedNodes=9469  nbRestartNogoods=0
+          =>  wckTime=1404.626  cpuTime=1392.755  mem=2786M702
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=88379  nbRevisions=206983  nbUselessRevisions=118708  nbRestartNogoods=0
+        solvingWckTime=1404.626  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1409.858  cpuTime=1392.755  mem=2786M702
+
+s UNSATISFIABLE
+d NODES 4734
+
+   totalWckTime=1409.749  totalCpuTime=1392.76

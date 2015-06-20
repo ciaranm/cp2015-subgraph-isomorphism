@@ -1,0 +1,43 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern6-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target194
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern6,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target194
+      
+
+   loading variables...
+        nbVariables=199  nbDomainTypes=1  nbTotalValues=344270  domainSizes=(1730:199)
+          =>  wckTime=0.244  cpuTime=0.336  mem=34M663
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=540  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:538)  nbConflictsStructures=(1,shared:538,unbuilt:1)
+        degrees=(4:25)(5:32)(6:29)...(8:26)(9:1)(11:6)  arities=(2:539)(199:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:539)
+          =>  wckTime=0.547  cpuTime=0.617  mem=69M842
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target194.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=1.352  cpuTime=1.376  mem=229M441
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=14061  nbRevisions=92379  nbUselessRevisions=78515
+        nbAssignments=1716  nbFailedAssignments=1716  nbBacktracks=1  nbVisitedNodes=3433  nbRestartNogoods=0
+          =>  wckTime=109.428  cpuTime=109.442  mem=552M656
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=14061  nbRevisions=92379  nbUselessRevisions=78515  nbRestartNogoods=0
+        solvingWckTime=109.429  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=110.781  cpuTime=109.443  mem=552M656
+
+s UNSATISFIABLE
+d NODES 1716
+
+   totalWckTime=110.674  totalCpuTime=109.444

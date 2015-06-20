@@ -1,0 +1,46 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target20
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target20
+      
+
+   loading variables...
+        nbVariables=124  nbDomainTypes=1  nbTotalValues=580568  domainSizes=(4682:124)
+          =>  wckTime=0.405  cpuTime=0.425  mem=188M499
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=169  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:166)  nbConflictsStructures=(1,shared:166,unbuilt:2)
+        degrees=(2:1)(3:38)(4:82)(5:3)  arities=(1:1)(2:167)(124:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:167)(ConstraintHardExtensionV-Table:1)
+        tables=(6:1)  nbTotalTuples=6
+          =>  wckTime=0.67  cpuTime=0.689  mem=237M405
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target20.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.892  cpuTime=4.625  mem=573M471
+
+   
+   search
+        run=0  nbConstraintChecks=4694  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=2240  nbRevisions=6957  nbUselessRevisions=4832
+        nbAssignments=265  nbFailedAssignments=265  nbBacktracks=1  nbVisitedNodes=531  nbRestartNogoods=0
+          =>  wckTime=100.923  cpuTime=99.548  mem=3198M706
+
+   
+   global
+        nbConstraintChecks=4694  nbEffectivePropagations=2240  nbRevisions=6957  nbUselessRevisions=4832  nbRestartNogoods=0
+        solvingWckTime=100.924  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=105.817  cpuTime=99.548  mem=3198M706
+
+s UNSATISFIABLE
+d NODES 265
+
+   totalWckTime=105.71  totalCpuTime=99.553

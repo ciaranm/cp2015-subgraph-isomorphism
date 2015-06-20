@@ -1,0 +1,43 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_rand_r01_400/si2_r01_m400.01/pattern-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_rand_r01_400/si2_r01_m400.01/target
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_rand_r01_400/si2_r01_m400.01/pattern,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_rand_r01_400/si2_r01_m400.01/target
+      
+
+   loading variables...
+        nbVariables=80  nbDomainTypes=1  nbTotalValues=32000  domainSizes=(400:80)
+          =>  wckTime=0.201  cpuTime=0.323  mem=7M525
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=606  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:604)  nbConflictsStructures=(1,shared:604,unbuilt:1)
+        degrees=(9:3)(10:1)(11:3)...(22:4)(23:1)(24:1)  arities=(2:605)(80:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:605)
+          =>  wckTime=0.665  cpuTime=0.768  mem=61M43
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.961  cpuTime=1.032  mem=38M472
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:6,avg:4)  nbEffectivePropagations=85238329  nbRevisions=640637233  nbUselessRevisions=578386140
+        nbAssignments=946466  nbFailedAssignments=776477  nbBacktracks=169986  nbVisitedNodes=1832403  nbRestartNogoods=0
+          =>  wckTime=99999.171  cpuTime=99222.703  mem=60M266
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=85238329  nbRevisions=640637233  nbUselessRevisions=578386140  nbRestartNogoods=0
+        solvingWckTime=99999.171  expiredTime=yes  totalExploration=no  nbFoundSolutions=0  Stop=EXCEEDED_TIME
+          =>  wckTime=100000.133  cpuTime=99222.704  mem=60M266
+
+s UNKNOWN
+d NODES 946466
+
+   totalWckTime=100000.046  totalCpuTime=99222.704

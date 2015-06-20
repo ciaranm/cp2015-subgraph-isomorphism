@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g34
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g34
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=1200  domainSizes=(120:10)
+          =>  wckTime=0.162  cpuTime=0.274  mem=8M832
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=11  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:9)  nbConflictsStructures=(1,shared:9,unbuilt:1)
+        degrees=(3:10)  arities=(2:10)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:10)
+          =>  wckTime=0.187  cpuTime=0.299  mem=9M873
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g34.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.332  cpuTime=0.417  mem=17M14
+
+    instantiation X0=0 X1=1 X2=2 X3=3 X4=4 X5=9 X6=8 X7=7 X8=6 X9=5 
+
+    solution X0=0 X1=1 X2=2 X3=3 X4=4 X5=9 X6=8 X7=7 X8=6 X9=5 
+
+   
+   search
+        run=0  nbConstraintChecks=11  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=14  nbRevisions=68  nbUselessRevisions=65
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.091  cpuTime=0.476  mem=16M922
+
+   
+   global
+        nbConstraintChecks=11  nbEffectivePropagations=14  nbRevisions=68  nbUselessRevisions=65  nbRestartNogoods=0  solvingWckTime=0.092
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.473  Stop=REACHED_GOAL
+          =>  wckTime=0.425  cpuTime=0.476  mem=16M922
+
+s SATISFIABLE
+v X0=0 X1=1 X2=2 X3=3 X4=4 X5=9 X6=8 X7=7 X8=6 X9=5 
+d NODES 10
+
+   totalWckTime=0.331  totalCpuTime=0.477

@@ -1,0 +1,46 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern26-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target78
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern26,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target78
+      
+
+   loading variables...
+        nbVariables=70  nbDomainTypes=1  nbTotalValues=384230  domainSizes=(5489:70)
+          =>  wckTime=0.408  cpuTime=0.384  mem=252M906
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=103  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:101)  nbConflictsStructures=(1,shared:101,unbuilt:1)
+        degrees=(3:9)(4:58)(5:3)  arities=(2:102)(70:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:102)
+          =>  wckTime=0.671  cpuTime=0.648  mem=297M752
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target78.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=6.239  cpuTime=5.819  mem=763M334
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=69407  nbRevisions=211202  nbUselessRevisions=141796
+        nbAssignments=5483  nbFailedAssignments=5483  nbBacktracks=1  nbVisitedNodes=10967  nbRestartNogoods=0
+          =>  wckTime=2518.869  cpuTime=2491.004  mem=4456M579
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=69407  nbRevisions=211202  nbUselessRevisions=141796  nbRestartNogoods=0
+        solvingWckTime=2518.87  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2525.11  cpuTime=2491.005  mem=4456M579
+
+s UNSATISFIABLE
+d NODES 5483
+
+   totalWckTime=2525.012  totalCpuTime=2491.009
+

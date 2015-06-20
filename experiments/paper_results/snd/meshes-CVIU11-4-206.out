@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern4-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target206
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern4,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target206
+      
+
+   loading variables...
+        nbVariables=40  nbDomainTypes=1  nbTotalValues=214280  domainSizes=(5357:40)
+          =>  wckTime=0.346  cpuTime=0.387  mem=238M380
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=115  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:113)  nbConflictsStructures=(1,shared:113,unbuilt:1)
+        degrees=(5:4)(6:34)(22:2)  arities=(2:114)(40:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:114)
+          =>  wckTime=0.64  cpuTime=0.665  mem=284M71
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target206.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.759  cpuTime=5.495  mem=722M129
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=107581  nbRevisions=527712  nbUselessRevisions=420132
+        nbAssignments=4412  nbFailedAssignments=4412  nbBacktracks=1  nbVisitedNodes=8825  nbRestartNogoods=0
+          =>  wckTime=1153.731  cpuTime=1143.755  mem=2961M901
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=107581  nbRevisions=527712  nbUselessRevisions=420132  nbRestartNogoods=0
+        solvingWckTime=1153.732  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1159.492  cpuTime=1143.756  mem=2961M901
+
+s UNSATISFIABLE
+d NODES 4412
+
+   totalWckTime=1159.397  totalCpuTime=1143.758

@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=100  domainSizes=(10:10)
+          =>  wckTime=0.187  cpuTime=0.289  mem=9M11
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=16  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:14)  nbConflictsStructures=(1,shared:14,unbuilt:1)
+        degrees=(4:10)  arities=(2:15)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:15)
+          =>  wckTime=0.219  cpuTime=0.32  mem=9M855
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g4.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.361  cpuTime=0.437  mem=15M936
+
+    instantiation X0=0 X1=1 X2=2 X3=3 X4=4 X5=5 X6=6 X7=7 X8=8 X9=9 
+
+    solution X0=0 X1=1 X2=2 X3=3 X4=4 X5=5 X6=6 X7=7 X8=8 X9=9 
+
+   
+   search
+        run=0  nbConstraintChecks=16  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=30  nbRevisions=15  nbUselessRevisions=15
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.017  cpuTime=0.453  mem=16M128
+
+   
+   global
+        nbConstraintChecks=16  nbEffectivePropagations=30  nbRevisions=15  nbUselessRevisions=15  nbRestartNogoods=0  solvingWckTime=0.017
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.452  Stop=REACHED_GOAL
+          =>  wckTime=0.378  cpuTime=0.454  mem=16M128
+
+s SATISFIABLE
+v X0=0 X1=1 X2=2 X3=3 X4=4 X5=5 X6=6 X7=7 X8=8 X9=9 
+d NODES 10
+
+   totalWckTime=0.271  totalCpuTime=0.454

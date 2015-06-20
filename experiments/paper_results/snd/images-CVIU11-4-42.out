@@ -1,0 +1,46 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern4-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target42
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern4,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target42
+      
+
+   loading variables...
+        nbVariables=147  nbDomainTypes=1  nbTotalValues=563598  domainSizes=(3834:147)
+          =>  wckTime=0.277  cpuTime=0.402  mem=131M636
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=202  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:199)  nbConflictsStructures=(1,shared:199,unbuilt:2)
+        degrees=(3:41)(4:105)(5:1)  arities=(1:1)(2:200)(147:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:200)(ConstraintHardExtensionV-Table:1)
+        tables=(7:1)  nbTotalTuples=7
+          =>  wckTime=0.549  cpuTime=0.654  mem=154M255
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target42.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=3.133  cpuTime=3.126  mem=976M372
+
+   
+   search
+        run=0  nbConstraintChecks=3773  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=24188  nbRevisions=90100  nbUselessRevisions=65913
+        nbAssignments=2942  nbFailedAssignments=2942  nbBacktracks=1  nbVisitedNodes=5885  nbRestartNogoods=0
+          =>  wckTime=1330.439  cpuTime=1325.681  mem=2899M839
+
+   
+   global
+        nbConstraintChecks=3773  nbEffectivePropagations=24188  nbRevisions=90100  nbUselessRevisions=65913  nbRestartNogoods=0
+        solvingWckTime=1330.44  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1333.574  cpuTime=1325.682  mem=2899M839
+
+s UNSATISFIABLE
+d NODES 2942
+
+   totalWckTime=1333.48  totalCpuTime=1325.686

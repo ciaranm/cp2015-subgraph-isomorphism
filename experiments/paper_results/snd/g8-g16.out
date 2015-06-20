@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g8-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g16
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g8,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g16
+
+   loading variables...
+        nbVariables=30  nbDomainTypes=1  nbTotalValues=1590  domainSizes=(53:30)
+          =>  wckTime=0.183  cpuTime=0.291  mem=8M922
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=63  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:61)  nbConflictsStructures=(1,shared:61,unbuilt:1)
+        degrees=(2:1)(3:3)(4:10)...(6:6)(7:4)(8:3)  arities=(2:62)(30:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:62)
+          =>  wckTime=0.22  cpuTime=0.326  mem=3M333
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g16.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.367  cpuTime=0.451  mem=16M233
+
+    instantiation X0=2 X1=6 X2=3 X3=0 X4=8 X5=1 X6=5 X7=4 X8=11 X9=17 X10=15 X11=21 X12=12 X13=16 X14=20 X15=18 X16=26 X17=19 X18=7 X19=9 X20=14 X21=10 X22=13 X23=28 X24=29 X25=25 X26=30 X27=34 X28=32 X29=40 
+
+    solution X0=2 X1=6 X2=3 X3=0 X4=8 X5=1 X6=5 X7=4 X8=11 X9=17 X10=15 X11=21 X12=12 X13=16 X14=20 X15=18 X16=26 X17=19 X18=7 X19=9 X20=14 X21=10 X22=13 X23=28 X24=29 X25=25 X26=30 X27=34 X28=32 X29=40 
+
+   
+   search
+        run=0  nbConstraintChecks=63  depth=(min:0,max:29,avg:1)  nbEffectivePropagations=196  nbRevisions=705  nbUselessRevisions=628
+        nbAssignments=44  nbFailedAssignments=12  nbBacktracks=2  nbVisitedNodes=59  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.16  cpuTime=0.61  mem=22M832
+
+   
+   global
+        nbConstraintChecks=63  nbEffectivePropagations=196  nbRevisions=705  nbUselessRevisions=628  nbRestartNogoods=0  solvingWckTime=0.16
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.608  Stop=REACHED_GOAL
+          =>  wckTime=0.528  cpuTime=0.611  mem=22M832
+
+s SATISFIABLE
+v X0=2 X1=6 X2=3 X3=0 X4=8 X5=1 X6=5 X7=4 X8=11 X9=17 X10=15 X11=21 X12=12 X13=16 X14=20 X15=18 X16=26 X17=19 X18=7 X19=9 X20=14 X21=10 X22=13 X23=28 X24=29 X25=25 X26=30 X27=34 X28=32 X29=40 
+d NODES 44
+
+   totalWckTime=0.416  totalCpuTime=0.611

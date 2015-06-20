@@ -1,0 +1,50 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern11-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/pattern11,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-PR15/target
+      
+
+   loading variables...
+        nbVariables=5  nbDomainTypes=1  nbTotalValues=24190  domainSizes=(4838:5)
+          =>  wckTime=0.316  cpuTime=0.368  mem=192M659
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=7  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:5)  nbConflictsStructures=(1,shared:5,unbuilt:1)
+        degrees=(3:3)(4:2)  arities=(2:6)(5:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:6)
+          =>  wckTime=0.476  cpuTime=0.527  mem=203M536
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.724  cpuTime=4.471  mem=582M148
+
+    instantiation X0=6 X1=67 X2=68 X3=66 X4=7 
+
+    solution X0=6 X1=67 X2=68 X3=66 X4=7 
+
+   
+   search
+        run=0  nbConstraintChecks=7  depth=(min:0,max:4,avg:1)  nbEffectivePropagations=5  nbRevisions=28  nbUselessRevisions=25
+        nbAssignments=11  nbFailedAssignments=6  nbBacktracks=0  nbVisitedNodes=18  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=17.337  cpuTime=17.649  mem=1521M467
+
+   
+   global
+        nbConstraintChecks=7  nbEffectivePropagations=5  nbRevisions=28  nbUselessRevisions=25  nbRestartNogoods=0  solvingWckTime=17.337
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=17.647  Stop=REACHED_GOAL
+          =>  wckTime=22.063  cpuTime=17.65  mem=1521M475
+
+s SATISFIABLE
+v X0=6 X1=67 X2=68 X3=66 X4=7 
+d NODES 11
+
+   totalWckTime=21.953  totalCpuTime=17.65

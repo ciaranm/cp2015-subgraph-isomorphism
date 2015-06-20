@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern38-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target10
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern38,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target10
+      
+
+   loading variables...
+        nbVariables=126  nbDomainTypes=1  nbTotalValues=441756  domainSizes=(3506:126)
+          =>  wckTime=0.287  cpuTime=0.337  mem=109M266
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=177  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:175)  nbConflictsStructures=(1,shared:175,unbuilt:1)
+        degrees=(3:28)(4:96)(5:2)  arities=(2:176)(126:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:176)
+          =>  wckTime=0.525  cpuTime=0.561  mem=140M144
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target10.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=2.884  cpuTime=2.789  mem=910M484
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=58998  nbRevisions=181028  nbUselessRevisions=122031
+        nbAssignments=3400  nbFailedAssignments=3400  nbBacktracks=1  nbVisitedNodes=6801  nbRestartNogoods=0
+          =>  wckTime=1151.442  cpuTime=1144.228  mem=1337M960
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=58998  nbRevisions=181028  nbUselessRevisions=122031  nbRestartNogoods=0
+        solvingWckTime=1151.442  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1154.327  cpuTime=1144.229  mem=1337M960
+
+s UNSATISFIABLE
+d NODES 3400
+
+   totalWckTime=1154.239  totalCpuTime=1144.232

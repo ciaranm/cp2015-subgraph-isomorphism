@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern5-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target191
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern5,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target191
+      
+
+   loading variables...
+        nbVariables=82  nbDomainTypes=1  nbTotalValues=400324  domainSizes=(4882:82)
+          =>  wckTime=0.324  cpuTime=0.385  mem=202M750
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=241  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:239)  nbConflictsStructures=(1,shared:239,unbuilt:1)
+        degrees=(6:16)(7:64)(9:2)  arities=(2:240)(82:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:240)
+          =>  wckTime=0.737  cpuTime=0.768  mem=235M22
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target191.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.178  cpuTime=4.895  mem=616M892
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:1,avg:1)  nbEffectivePropagations=121913  nbRevisions=741765  nbUselessRevisions=624749
+        nbAssignments=6409  nbFailedAssignments=6339  nbBacktracks=71  nbVisitedNodes=12819  nbRestartNogoods=0
+          =>  wckTime=15150.738  cpuTime=14958.1  mem=4489M922
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=121913  nbRevisions=741765  nbUselessRevisions=624749  nbRestartNogoods=0
+        solvingWckTime=15150.738  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=15155.916  cpuTime=14958.1  mem=4489M922
+
+s UNSATISFIABLE
+d NODES 6409
+
+   totalWckTime=15155.823  totalCpuTime=14958.103

@@ -1,0 +1,44 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target503
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target503
+      
+
+   loading variables...
+        nbVariables=163  nbDomainTypes=1  nbTotalValues=272373  domainSizes=(1671:163)
+          =>  wckTime=0.305  cpuTime=0.409  mem=31M515
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=290  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:287)  nbConflictsStructures=(1,shared:287,unbuilt:2)
+        degrees=(2:14)(3:29)(4:105)...(6:1)(7:1)(132:1)  arities=(1:1)(2:288)(163:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:288)(ConstraintHardExtensionV-Table:1)
+        tables=(1:1)  nbTotalTuples=1
+          =>  wckTime=0.549  cpuTime=0.644  mem=52M387
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target503.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=1.357  cpuTime=1.405  mem=233M209
+
+   
+   search
+        run=0  nbConstraintChecks=1670  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=1051  nbRevisions=803  nbUselessRevisions=468
+        nbAssignments=2  nbFailedAssignments=2  nbBacktracks=1  nbVisitedNodes=4  nbRestartNogoods=0
+          =>  wckTime=2.487  cpuTime=3.775  mem=398M313
+
+   
+   global
+        nbConstraintChecks=1670  nbEffectivePropagations=1051  nbRevisions=803  nbUselessRevisions=468  nbRestartNogoods=0  solvingWckTime=2.488
+        expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=3.845  cpuTime=3.776  mem=398M313
+
+s UNSATISFIABLE
+d NODES 2
+
+   totalWckTime=3.675  totalCpuTime=3.779

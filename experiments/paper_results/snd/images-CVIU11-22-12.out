@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern22-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target12
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern22,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target12
+      
+
+   loading variables...
+        nbVariables=117  nbDomainTypes=1  nbTotalValues=464958  domainSizes=(3974:117)
+          =>  wckTime=0.312  cpuTime=0.369  mem=137M950
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=165  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:163)  nbConflictsStructures=(1,shared:163,unbuilt:1)
+        degrees=(3:26)(4:88)(5:3)  arities=(2:164)(117:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:164)
+          =>  wckTime=0.663  cpuTime=0.712  mem=158M924
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target12.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=3.485  cpuTime=3.426  mem=997M966
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=78998  nbRevisions=225133  nbUselessRevisions=146136
+        nbAssignments=3947  nbFailedAssignments=3947  nbBacktracks=1  nbVisitedNodes=7895  nbRestartNogoods=0
+          =>  wckTime=1057.106  cpuTime=1053.107  mem=1442M736
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=78998  nbRevisions=225133  nbUselessRevisions=146136  nbRestartNogoods=0
+        solvingWckTime=1057.106  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1060.591  cpuTime=1053.108  mem=1442M736
+
+s UNSATISFIABLE
+d NODES 3947
+
+   totalWckTime=1060.485  totalCpuTime=1053.112

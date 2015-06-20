@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g23
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g23
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=730  domainSizes=(73:10)
+          =>  wckTime=0.168  cpuTime=0.288  mem=9M131
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=46  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:44)  nbConflictsStructures=(1,shared:44,unbuilt:1)
+        degrees=(10:10)  arities=(2:45)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:45)
+          =>  wckTime=0.209  cpuTime=0.321  mem=3M575
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g23.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.353  cpuTime=0.445  mem=16M743
+
+    instantiation X0=2 X1=17 X2=25 X3=39 X4=53 X5=54 X6=55 X7=58 X8=66 X9=71 
+
+    solution X0=2 X1=17 X2=25 X3=39 X4=53 X5=54 X6=55 X7=58 X8=66 X9=71 
+
+   
+   search
+        run=0  nbConstraintChecks=46  depth=(min:0,max:9,avg:1)  nbEffectivePropagations=0  nbRevisions=303  nbUselessRevisions=303
+        nbAssignments=12  nbFailedAssignments=2  nbBacktracks=0  nbVisitedNodes=15  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.051  cpuTime=0.496  mem=18M940
+
+   
+   global
+        nbConstraintChecks=46  nbRevisions=303  nbUselessRevisions=303  nbRestartNogoods=0  solvingWckTime=0.051  expiredTime=no
+        totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.494  Stop=REACHED_GOAL
+          =>  wckTime=0.405  cpuTime=0.496  mem=18M940
+
+s SATISFIABLE
+v X0=2 X1=17 X2=25 X3=39 X4=53 X5=54 X6=55 X7=58 X8=66 X9=71 
+d NODES 12
+
+   totalWckTime=0.309  totalCpuTime=0.497

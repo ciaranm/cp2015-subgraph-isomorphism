@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern28-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target99
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern28,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target99
+      
+
+   loading variables...
+        nbVariables=81  nbDomainTypes=1  nbTotalValues=354537  domainSizes=(4377:81)
+          =>  wckTime=0.296  cpuTime=0.347  mem=164M186
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=116  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:114)  nbConflictsStructures=(1,shared:114,unbuilt:1)
+        degrees=(3:14)(4:66)(5:1)  arities=(2:115)(81:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:115)
+          =>  wckTime=0.539  cpuTime=0.573  mem=187M218
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target99.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.169  cpuTime=4.013  mem=498M123
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=55036  nbRevisions=181605  nbUselessRevisions=126570
+        nbAssignments=4256  nbFailedAssignments=4256  nbBacktracks=1  nbVisitedNodes=8513  nbRestartNogoods=0
+          =>  wckTime=1719.592  cpuTime=1706.017  mem=3434M712
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=55036  nbRevisions=181605  nbUselessRevisions=126570  nbRestartNogoods=0
+        solvingWckTime=1719.593  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1723.762  cpuTime=1706.017  mem=3434M712
+
+s UNSATISFIABLE
+d NODES 4256
+
+   totalWckTime=1723.676  totalCpuTime=1706.022

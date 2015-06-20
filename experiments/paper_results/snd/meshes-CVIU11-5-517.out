@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern5-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target517
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern5,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target517
+      
+
+   loading variables...
+        nbVariables=82  nbDomainTypes=1  nbTotalValues=415658  domainSizes=(5069:82)
+          =>  wckTime=0.349  cpuTime=0.382  mem=217M280
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=241  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:239)  nbConflictsStructures=(1,shared:239,unbuilt:1)
+        degrees=(6:16)(7:64)(9:2)  arities=(2:240)(82:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:240)
+          =>  wckTime=0.875  cpuTime=0.875  mem=282M638
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target517.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=6.002  cpuTime=5.65  mem=661M944
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=32019  nbRevisions=178251  nbUselessRevisions=146307
+        nbAssignments=5067  nbFailedAssignments=5067  nbBacktracks=1  nbVisitedNodes=10135  nbRestartNogoods=0
+          =>  wckTime=1543.355  cpuTime=1523.412  mem=2367M562
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=32019  nbRevisions=178251  nbUselessRevisions=146307  nbRestartNogoods=0
+        solvingWckTime=1543.356  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1549.359  cpuTime=1523.413  mem=2367M562
+
+s UNSATISFIABLE
+d NODES 5067
+
+   totalWckTime=1549.265  totalCpuTime=1523.414

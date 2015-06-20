@@ -1,0 +1,46 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern26-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target71
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern26,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target71
+      
+
+   loading variables...
+        nbVariables=70  nbDomainTypes=1  nbTotalValues=329000  domainSizes=(4700:70)
+          =>  wckTime=0.307  cpuTime=0.366  mem=186M824
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=103  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:101)  nbConflictsStructures=(1,shared:101,unbuilt:1)
+        degrees=(3:9)(4:58)(5:3)  arities=(2:102)(70:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:102)
+          =>  wckTime=0.551  cpuTime=0.598  mem=218M886
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target71.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.66  cpuTime=4.52  mem=567M721
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=59876  nbRevisions=180530  nbUselessRevisions=120719
+        nbAssignments=4691  nbFailedAssignments=4691  nbBacktracks=1  nbVisitedNodes=9383  nbRestartNogoods=0
+          =>  wckTime=1469.967  cpuTime=1456.653  mem=1632M523
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=59876  nbRevisions=180530  nbUselessRevisions=120719  nbRestartNogoods=0
+        solvingWckTime=1469.967  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1474.629  cpuTime=1456.654  mem=1632M523
+
+s UNSATISFIABLE
+d NODES 4691
+
+   totalWckTime=1474.531  totalCpuTime=1456.657
+6

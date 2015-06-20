@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g5-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g20
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g5,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g20
+
+   loading variables...
+        nbVariables=11  nbDomainTypes=1  nbTotalValues=704  domainSizes=(64:11)
+          =>  wckTime=0.188  cpuTime=0.299  mem=9M126
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=21  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:19)  nbConflictsStructures=(1,shared:19,unbuilt:1)
+        degrees=(4:10)(11:1)  arities=(2:20)(11:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:20)
+          =>  wckTime=0.225  cpuTime=0.333  mem=3M777
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g20.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.384  cpuTime=0.467  mem=16M716
+
+    instantiation X0=0 X1=1 X2=2 X3=5 X4=6 X5=7 X6=56 X7=16 X8=18 X9=4 X10=3 
+
+    solution X0=0 X1=1 X2=2 X3=5 X4=6 X5=7 X6=56 X7=16 X8=18 X9=4 X10=3 
+
+   
+   search
+        run=0  nbConstraintChecks=21  depth=(min:12,max:10,avg:0)  nbEffectivePropagations=34  nbRevisions=109  nbUselessRevisions=108
+        nbAssignments=11  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=12  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.09  cpuTime=0.556  mem=18M443
+
+   
+   global
+        nbConstraintChecks=21  nbEffectivePropagations=34  nbRevisions=109  nbUselessRevisions=108  nbRestartNogoods=0  solvingWckTime=0.09
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.553  Stop=REACHED_GOAL
+          =>  wckTime=0.474  cpuTime=0.556  mem=18M443
+
+s SATISFIABLE
+v X0=0 X1=1 X2=2 X3=5 X4=6 X5=7 X6=56 X7=16 X8=18 X9=4 X10=3 
+d NODES 11
+
+   totalWckTime=0.358  totalCpuTime=0.556

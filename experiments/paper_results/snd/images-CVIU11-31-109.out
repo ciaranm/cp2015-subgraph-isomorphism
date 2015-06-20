@@ -1,0 +1,46 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern31-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target109
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern31,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target109
+      
+
+   loading variables...
+        nbVariables=78  nbDomainTypes=1  nbTotalValues=338676  domainSizes=(4342:78)
+          =>  wckTime=0.298  cpuTime=0.352  mem=161M138
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=109  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:106)  nbConflictsStructures=(1,shared:106,unbuilt:2)
+        degrees=(3:20)(4:57)(5:1)  arities=(1:1)(2:107)(78:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:107)(ConstraintHardExtensionV-Table:1)
+        tables=(8:1)  nbTotalTuples=8
+          =>  wckTime=0.555  cpuTime=0.596  mem=176M371
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target109.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.191  cpuTime=4.058  mem=489M550
+
+   
+   search
+        run=0  nbConstraintChecks=4369  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=768  nbRevisions=1415  nbUselessRevisions=858
+        nbAssignments=29  nbFailedAssignments=29  nbBacktracks=1  nbVisitedNodes=59  nbRestartNogoods=0
+          =>  wckTime=21.153  cpuTime=22.732  mem=1397M883
+
+   
+   global
+        nbConstraintChecks=4369  nbEffectivePropagations=768  nbRevisions=1415  nbUselessRevisions=858  nbRestartNogoods=0  solvingWckTime=21.154
+        expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=25.346  cpuTime=22.733  mem=1397M883
+
+s UNSATISFIABLE
+d NODES 29
+
+   totalWckTime=25.249  totalCpuTime=22.736

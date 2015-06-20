@@ -1,0 +1,49 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g33-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g50
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g33,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g50
+      
+
+   loading variables...
+        nbVariables=101  nbDomainTypes=1  nbTotalValues=12928  domainSizes=(128:101)
+          =>  wckTime=0.205  cpuTime=0.313  mem=9M752
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=298  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:296)  nbConflictsStructures=(1,shared:296,unbuilt:1)
+        degrees=(4:3)(5:15)(6:27)...(10:2)(12:1)(14:1)  arities=(2:297)(101:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:297)
+          =>  wckTime=0.403  cpuTime=0.499  mem=14M327
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g50.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.616  cpuTime=0.684  mem=14M437
+
+    instantiation X0=66 X1=35 X2=71 X3=3 X4=102 X5=22 X6=63 X7=115 X8=126 X9=90 X10=98 X11=51 X12=1 X13=121 X14=97 X15=42 X16=70 X17=43 X18=62 X19=60 X20=12 X21=21 X22=31 X23=68 X24=91 X25=11 X26=117 X27=96 X28=79 X29=38 X30=81 X31=34 X32=110 X33=64 X34=75 X35=56 X36=94 X37=44 X38=120 X39=57 X40=77 X41=86 X42=95 X43=99 X44=2 X45=87 X46=4 X47=89 X48=55 X49=23 X50=59 X51=69 X52=14 X53=5 X54=88 X55=92 X56=101 X57=13 X58=67 X59=45 X60=73 X61=114 X62=8 X63=32 X64=106 X65=15 X66=65 X67=83 X68=7 X69=85 X70=112 X71=72 X72=40 X73=46 X74=29 X75=74 X76=78 X77=33 X78=93 X79=19 X80=36 X81=9 X82=54 X83=122 X84=113 X85=26 X86=6 X87=30 X88=82 X89=125 X90=24 X91=50 X92=27 X93=52 X94=47 X95=105 X96=61 X97=111 X98=37 X99=18 X100=0 
+
+    solution X0=66 X1=35 X2=71 X3=3 X4=102 X5=22 X6=63 X7=115 X8=126 X9=90 X10=98 X11=51 X12=1 X13=121 X14=97 X15=42 X16=70 X17=43 X18=62 X19=60 X20=12 X21=21 X22=31 X23=68 X24=91 X25=11 X26=117 X27=96 X28=79 X29=38 X30=81 X31=34 X32=110 X33=64 X34=75 X35=56 X36=94 X37=44 X38=120 X39=57 X40=77 X41=86 X42=95 X43=99 X44=2 X45=87 X46=4 X47=89 X48=55 X49=23 X50=59 X51=69 X52=14 X53=5 X54=88 X55=92 X56=101 X57=13 X58=67 X59=45 X60=73 X61=114 X62=8 X63=32 X64=106 X65=15 X66=65 X67=83 X68=7 X69=85 X70=112 X71=72 X72=40 X73=46 X74=29 X75=74 X76=78 X77=33 X78=93 X79=19 X80=36 X81=9 X82=54 X83=122 X84=113 X85=26 X86=6 X87=30 X88=82 X89=125 X90=24 X91=50 X92=27 X93=52 X94=47 X95=105 X96=61 X97=111 X98=37 X99=18 X100=0 
+
+   
+   search
+        run=0  nbConstraintChecks=298  depth=(min:11,max:100,avg:17)  nbEffectivePropagations=40211  nbRevisions=124244  nbUselessRevisions=117985
+        nbAssignments=664  nbFailedAssignments=302  nbBacktracks=261  nbVisitedNodes=1091  nbRestartNogoods=0  nbFoundSolutions=1
+        upperBound=9223372036854775807
+          =>  wckTime=15.081  cpuTime=15.706  mem=145M147
+
+   
+   global
+        nbConstraintChecks=298  nbEffectivePropagations=40211  nbRevisions=124244  nbUselessRevisions=117985  nbRestartNogoods=0
+        solvingWckTime=15.082  expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=15.703  Stop=REACHED_GOAL
+          =>  wckTime=15.698  cpuTime=15.706  mem=145M147
+
+s SATISFIABLE
+v X0=66 X1=35 X2=71 X3=3 X4=102 X5=22 X6=63 X7=115 X8=126 X9=90 X10=98 X11=51 X12=1 X13=121 X14=97 X15=42 X16=70 X17=43 X18=62 X19=60 X20=12 X21=21 X22=31 X23=68 X24=91 X25=11 X26=117 X27=96 X28=79 X29=38 X30=81 X31=34 X32=110 X33=64 X34=75 X35=56 X36=94 X37=44 X38=120 X39=57 X40=77 X41=86 X42=95 X43=99 X44=2 X45=87 X46=4 X47=89 X48=55 X49=23 X50=59 X51=69 X52=14 X53=5 X54=88 X55=92 X56=101 X57=13 X58=67 X59=45 X60=73 X61=114 X62=8 X63=32 X64=106 X65=15 X66=65 X67=83 X68=7 X69=85 X70=112 X71=72 X72=40 X73=46 X74=29 X75=74 X76=78 X77=33 X78=93 X79=19 X80=36 X81=9 X82=54 X83=122 X84=113 X85=26 X86=6 X87=30 X88=82 X89=125 X90=24 X91=50 X92=27 X93=52 X94=47 X95=105 X96=61 X97=111 X98=37 X99=18 X100=0 
+d NODES 664
+
+   totalWckTime=15.593  totalCpuTime=15.707

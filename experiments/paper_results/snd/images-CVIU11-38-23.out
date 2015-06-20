@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern38-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target23
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern38,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target23
+      
+
+   loading variables...
+        nbVariables=126  nbDomainTypes=1  nbTotalValues=537264  domainSizes=(4264:126)
+          =>  wckTime=0.289  cpuTime=0.356  mem=159M974
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=177  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:175)  nbConflictsStructures=(1,shared:175,unbuilt:1)
+        degrees=(3:28)(4:96)(5:2)  arities=(2:176)(126:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:176)
+          =>  wckTime=0.56  cpuTime=0.614  mem=190M456
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target23.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.077  cpuTime=3.942  mem=483M677
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=72021  nbRevisions=221911  nbUselessRevisions=150014
+        nbAssignments=4145  nbFailedAssignments=4145  nbBacktracks=1  nbVisitedNodes=8291  nbRestartNogoods=0
+          =>  wckTime=2004.578  cpuTime=1985.371  mem=3457M187
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=72021  nbRevisions=221911  nbUselessRevisions=150014  nbRestartNogoods=0
+        solvingWckTime=2004.579  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2008.656  cpuTime=1985.372  mem=3457M187
+
+s UNSATISFIABLE
+d NODES 4145
+
+   totalWckTime=2008.568  totalCpuTime=1985.377

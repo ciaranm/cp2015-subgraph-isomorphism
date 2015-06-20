@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern42-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target88
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern42,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target88
+      
+
+   loading variables...
+        nbVariables=97  nbDomainTypes=1  nbTotalValues=436209  domainSizes=(4497:97)
+          =>  wckTime=0.293  cpuTime=0.352  mem=173M869
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=137  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:135)  nbConflictsStructures=(1,shared:135,unbuilt:1)
+        degrees=(3:21)(4:74)(5:2)  arities=(2:136)(97:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:136)
+          =>  wckTime=0.554  cpuTime=0.597  mem=209M404
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target88.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.301  cpuTime=4.171  mem=527M987
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=74642  nbRevisions=214217  nbUselessRevisions=139576
+        nbAssignments=4400  nbFailedAssignments=4400  nbBacktracks=1  nbVisitedNodes=8801  nbRestartNogoods=0
+          =>  wckTime=1764.764  cpuTime=1750.215  mem=2825M381
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=74642  nbRevisions=214217  nbUselessRevisions=139576  nbRestartNogoods=0
+        solvingWckTime=1764.765  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1769.067  cpuTime=1750.215  mem=2825M381
+
+s UNSATISFIABLE
+d NODES 4400
+
+   totalWckTime=1768.982  totalCpuTime=1750.22

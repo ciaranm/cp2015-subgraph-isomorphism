@@ -1,0 +1,48 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g16
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g16
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=530  domainSizes=(53:10)
+          =>  wckTime=0.171  cpuTime=0.287  mem=8M978
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=16  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:14)  nbConflictsStructures=(1,shared:14,unbuilt:1)
+        degrees=(4:10)  arities=(2:15)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:15)
+          =>  wckTime=0.195  cpuTime=0.31  mem=9M855
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g16.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.342  cpuTime=0.427  mem=16M68
+
+    instantiation X0=38 X1=49 X2=25 X3=18 X4=1 X5=8 X6=2 X7=10 X8=4 X9=27 
+
+    solution X0=38 X1=49 X2=25 X3=18 X4=1 X5=8 X6=2 X7=10 X8=4 X9=27 
+
+   
+   search
+        run=0  nbConstraintChecks=16  depth=(min:0,max:9,avg:3)  nbEffectivePropagations=1559  nbRevisions=4105  nbUselessRevisions=3153
+        nbAssignments=242  nbFailedAssignments=161  nbBacktracks=71  nbVisitedNodes=446  nbRestartNogoods=0  nbFoundSolutions=1
+        upperBound=9223372036854775807
+          =>  wckTime=0.3  cpuTime=0.682  mem=22M126
+
+   
+   global
+        nbConstraintChecks=16  nbEffectivePropagations=1559  nbRevisions=4105  nbUselessRevisions=3153  nbRestartNogoods=0  solvingWckTime=0.301
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.681  Stop=REACHED_GOAL
+          =>  wckTime=0.644  cpuTime=0.683  mem=22M126
+
+s SATISFIABLE
+v X0=38 X1=49 X2=25 X3=18 X4=1 X5=8 X6=2 X7=10 X8=4 X9=27 
+d NODES 242
+
+   totalWckTime=0.549  totalCpuTime=0.683

@@ -1,0 +1,48 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_bvg_b09_200/si2_b09_m200.02/pattern-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_bvg_b09_200/si2_b09_m200.02/target
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_bvg_b09_200/si2_b09_m200.02/pattern,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si2_bvg_b09_200/si2_b09_m200.02/target
+      
+
+   loading variables...
+        nbVariables=40  nbDomainTypes=1  nbTotalValues=8000  domainSizes=(200:40)
+          =>  wckTime=0.184  cpuTime=0.315  mem=9M789
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=155  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:153)  nbConflictsStructures=(1,shared:153,unbuilt:1)
+        degrees=(4:1)(5:2)(6:3)...(8:4)(9:4)(10:22)  arities=(2:154)(40:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:154)
+          =>  wckTime=0.259  cpuTime=0.386  mem=8M651
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.471  cpuTime=0.57  mem=23M540
+
+    instantiation X0=0 X1=1 X2=43 X3=58 X4=59 X5=73 X6=76 X7=120 X8=144 X9=197 X10=77 X11=89 X12=150 X13=163 X14=72 X15=151 X16=28 X17=128 X18=31 X19=41 X20=92 X21=167 X22=70 X23=137 X24=153 X25=170 X26=9 X27=29 X28=38 X29=71 X30=78 X31=169 X32=141 X33=149 X34=67 X35=183 X36=65 X37=174 X38=85 X39=130 
+
+    solution X0=0 X1=1 X2=43 X3=58 X4=59 X5=73 X6=76 X7=120 X8=144 X9=197 X10=77 X11=89 X12=150 X13=163 X14=72 X15=151 X16=28 X17=128 X18=31 X19=41 X20=92 X21=167 X22=70 X23=137 X24=153 X25=170 X26=9 X27=29 X28=38 X29=71 X30=78 X31=169 X32=141 X33=149 X34=67 X35=183 X36=65 X37=174 X38=85 X39=130 
+
+   
+   search
+        run=0  nbConstraintChecks=155  depth=(min:41,max:39,avg:0)  nbEffectivePropagations=2  nbRevisions=700  nbUselessRevisions=700
+        nbAssignments=40  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=41  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.331  cpuTime=0.888  mem=35M273
+
+   
+   global
+        nbConstraintChecks=155  nbEffectivePropagations=2  nbRevisions=700  nbUselessRevisions=700  nbRestartNogoods=0  solvingWckTime=0.332
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.884  Stop=REACHED_GOAL
+          =>  wckTime=0.803  cpuTime=0.888  mem=35M273
+
+s SATISFIABLE
+v X0=0 X1=1 X2=43 X3=58 X4=59 X5=73 X6=76 X7=120 X8=144 X9=197 X10=77 X11=89 X12=150 X13=163 X14=72 X15=151 X16=28 X17=128 X18=31 X19=41 X20=92 X21=167 X22=70 X23=137 X24=153 X25=170 X26=9 X27=29 X28=38 X29=71 X30=78 X31=169 X32=141 X33=149 X34=67 X35=183 X36=65 X37=174 X38=85 X39=130 
+d NODES 40
+
+   totalWckTime=0.697  totalCpuTime=0.889

@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g43
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g43
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=1280  domainSizes=(128:10)
+          =>  wckTime=0.213  cpuTime=0.353  mem=9M446
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=16  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:14)  nbConflictsStructures=(1,shared:14,unbuilt:1)
+        degrees=(4:10)  arities=(2:15)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:15)
+          =>  wckTime=0.249  cpuTime=0.387  mem=4M46
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g43.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.394  cpuTime=0.51  mem=17M732
+
+    instantiation X0=0 X1=119 X2=54 X3=56 X4=118 X5=30 X6=43 X7=71 X8=97 X9=102 
+
+    solution X0=0 X1=119 X2=54 X3=56 X4=118 X5=30 X6=43 X7=71 X8=97 X9=102 
+
+   
+   search
+        run=0  nbConstraintChecks=16  depth=(min:6,max:9,avg:7)  nbEffectivePropagations=30  nbRevisions=113  nbUselessRevisions=113
+        nbAssignments=11  nbFailedAssignments=1  nbBacktracks=0  nbVisitedNodes=13  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.091  cpuTime=0.601  mem=23M888
+
+   
+   global
+        nbConstraintChecks=16  nbEffectivePropagations=30  nbRevisions=113  nbUselessRevisions=113  nbRestartNogoods=0  solvingWckTime=0.091
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.599  Stop=REACHED_GOAL
+          =>  wckTime=0.486  cpuTime=0.602  mem=23M888
+
+s SATISFIABLE
+v X0=0 X1=119 X2=54 X3=56 X4=118 X5=30 X6=43 X7=71 X8=97 X9=102 
+d NODES 11
+
+   totalWckTime=0.343  totalCpuTime=0.602

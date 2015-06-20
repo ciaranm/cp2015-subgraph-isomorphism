@@ -1,0 +1,43 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si6_rand_r01_600/si6_r01_m600.05/pattern-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si6_rand_r01_600/si6_r01_m600.05/target
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si6_rand_r01_600/si6_r01_m600.05/pattern,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/si6_rand_r01_600/si6_r01_m600.05/target
+      
+
+   loading variables...
+        nbVariables=360  nbDomainTypes=1  nbTotalValues=216000  domainSizes=(600:360)
+          =>  wckTime=0.267  cpuTime=0.374  mem=11M406
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=12311  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:12309)  nbConflictsStructures=(1,shared:12309,unbuilt:1)
+        degrees=(49:1)(51:1)(52:1)...(90:2)(91:1)(92:1)  arities=(2:12310)(360:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:12310)
+          =>  wckTime=14.417  cpuTime=14.318  mem=298M149
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=14.962  cpuTime=14.785  mem=405M658
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:3,avg:2)  nbEffectivePropagations=15098989  nbRevisions=631657474  nbUselessRevisions=619788076
+        nbAssignments=67747  nbFailedAssignments=61746  nbBacktracks=5999  nbVisitedNodes=134575  nbRestartNogoods=0
+          =>  wckTime=99985.732  cpuTime=99207.848  mem=192M936
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=15098989  nbRevisions=631657474  nbUselessRevisions=619788076  nbRestartNogoods=0
+        solvingWckTime=99985.733  expiredTime=yes  totalExploration=no  nbFoundSolutions=0  Stop=EXCEEDED_TIME
+          =>  wckTime=100000.695  cpuTime=99207.848  mem=192M936
+
+s UNKNOWN
+d NODES 67747
+
+   totalWckTime=100000.583  totalCpuTime=99207.848

@@ -1,0 +1,44 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern3-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target290
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern3,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target290
+      
+
+   loading variables...
+        nbVariables=163  nbDomainTypes=1  nbTotalValues=42706  domainSizes=(262:163)
+          =>  wckTime=0.208  cpuTime=0.328  mem=4M501
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=290  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:287)  nbConflictsStructures=(1,shared:287,unbuilt:2)
+        degrees=(2:14)(3:29)(4:105)...(6:1)(7:1)(132:1)  arities=(1:1)(2:288)(163:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:288)(ConstraintHardExtensionV-Table:1)
+        tables=(1:1)  nbTotalTuples=1
+          =>  wckTime=0.303  cpuTime=0.422  mem=12M759
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target290.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.545  cpuTime=0.628  mem=20M907
+
+   
+   search
+        run=0  nbConstraintChecks=261  depth=(min:0,max:9,avg:8)  nbEffectivePropagations=7735  nbRevisions=10566  nbUselessRevisions=6774
+        nbAssignments=111  nbFailedAssignments=38  nbBacktracks=74  nbVisitedNodes=159  nbRestartNogoods=0
+          =>  wckTime=5.882  cpuTime=6.459  mem=59M301
+
+   
+   global
+        nbConstraintChecks=261  nbEffectivePropagations=7735  nbRevisions=10566  nbUselessRevisions=6774  nbRestartNogoods=0
+        solvingWckTime=5.882  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=6.427  cpuTime=6.459  mem=59M301
+
+s UNSATISFIABLE
+d NODES 111
+
+   totalWckTime=6.319  totalCpuTime=6.46

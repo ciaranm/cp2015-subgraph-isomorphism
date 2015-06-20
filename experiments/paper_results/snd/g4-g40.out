@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g40
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g4,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g40
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=1210  domainSizes=(121:10)
+          =>  wckTime=0.166  cpuTime=0.318  mem=10M148
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=46  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:44)  nbConflictsStructures=(1,shared:44,unbuilt:1)
+        degrees=(10:10)  arities=(2:45)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:45)
+          =>  wckTime=0.243  cpuTime=0.392  mem=9M780
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g40.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.416  cpuTime=0.539  mem=24M150
+
+    instantiation X0=0 X1=2 X2=4 X3=6 X4=8 X5=10 X6=22 X7=24 X8=26 X9=28 
+
+    solution X0=0 X1=2 X2=4 X3=6 X4=8 X5=10 X6=22 X7=24 X8=26 X9=28 
+
+   
+   search
+        run=0  nbConstraintChecks=46  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=0  nbRevisions=285  nbUselessRevisions=285
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.247  cpuTime=0.783  mem=17M912
+
+   
+   global
+        nbConstraintChecks=46  nbRevisions=285  nbUselessRevisions=285  nbRestartNogoods=0  solvingWckTime=0.247  expiredTime=no
+        totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.781  Stop=REACHED_GOAL
+          =>  wckTime=0.664  cpuTime=0.783  mem=17M912
+
+s SATISFIABLE
+v X0=0 X1=2 X2=4 X3=6 X4=8 X5=10 X6=22 X7=24 X8=26 X9=28 
+d NODES 10
+
+   totalWckTime=0.575  totalCpuTime=0.784

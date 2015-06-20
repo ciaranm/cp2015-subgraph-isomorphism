@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern26-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target75
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern26,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target75
+      
+
+   loading variables...
+        nbVariables=70  nbDomainTypes=1  nbTotalValues=386960  domainSizes=(5528:70)
+          =>  wckTime=0.392  cpuTime=0.415  mem=256M166
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=103  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:101)  nbConflictsStructures=(1,shared:101,unbuilt:1)
+        degrees=(3:9)(4:58)(5:3)  arities=(2:102)(70:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:102)
+          =>  wckTime=0.712  cpuTime=0.734  mem=301M373
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target75.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=6.139  cpuTime=5.815  mem=774M862
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=70089  nbRevisions=209600  nbUselessRevisions=139512
+        nbAssignments=5521  nbFailedAssignments=5521  nbBacktracks=1  nbVisitedNodes=11043  nbRestartNogoods=0
+          =>  wckTime=2133.713  cpuTime=2113.121  mem=3494M460
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=70089  nbRevisions=209600  nbUselessRevisions=139512  nbRestartNogoods=0
+        solvingWckTime=2133.714  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2139.853  cpuTime=2113.122  mem=3494M460
+
+s UNSATISFIABLE
+d NODES 5521
+
+   totalWckTime=2139.752  totalCpuTime=2113.126

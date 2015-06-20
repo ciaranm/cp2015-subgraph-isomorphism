@@ -1,0 +1,47 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g21
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g21
+
+   loading variables...
+        nbVariables=10  nbDomainTypes=1  nbTotalValues=640  domainSizes=(64:10)
+          =>  wckTime=0.166  cpuTime=0.288  mem=9M448
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=11  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:9)  nbConflictsStructures=(1,shared:9,unbuilt:1)
+        degrees=(3:10)  arities=(2:10)(10:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:10)
+          =>  wckTime=0.211  cpuTime=0.327  mem=4M119
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g21.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.37  cpuTime=0.454  mem=17M323
+
+    instantiation X0=0 X1=8 X2=1 X3=7 X4=2 X5=5 X6=3 X7=6 X8=4 X9=9 
+
+    solution X0=0 X1=8 X2=1 X3=7 X4=2 X5=5 X6=3 X7=6 X8=4 X9=9 
+
+   
+   search
+        run=0  nbConstraintChecks=11  depth=(min:11,max:9,avg:0)  nbEffectivePropagations=35  nbRevisions=10  nbUselessRevisions=10
+        nbAssignments=10  nbFailedAssignments=0  nbBacktracks=0  nbVisitedNodes=11  nbRestartNogoods=0  nbFoundSolutions=1  upperBound=9223372036854775807
+          =>  wckTime=0.131  cpuTime=0.585  mem=19M623
+
+   
+   global
+        nbConstraintChecks=11  nbEffectivePropagations=35  nbRevisions=10  nbUselessRevisions=10  nbRestartNogoods=0  solvingWckTime=0.132
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.582  Stop=REACHED_GOAL
+          =>  wckTime=0.502  cpuTime=0.585  mem=19M623
+
+s SATISFIABLE
+v X0=0 X1=8 X2=1 X3=7 X4=2 X5=5 X6=3 X7=6 X8=4 X9=9 
+d NODES 10
+
+   totalWckTime=0.408  totalCpuTime=0.586

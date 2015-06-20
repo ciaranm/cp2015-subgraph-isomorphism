@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern1-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target187
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern1,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target187
+      
+
+   loading variables...
+        nbVariables=49  nbDomainTypes=1  nbTotalValues=197666  domainSizes=(4034:49)
+          =>  wckTime=0.293  cpuTime=0.346  mem=137M767
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=137  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:135)  nbConflictsStructures=(1,shared:135,unbuilt:1)
+        degrees=(5:8)(6:8)(7:32)(9:1)  arities=(2:136)(49:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:136)
+          =>  wckTime=0.545  cpuTime=0.591  mem=156M673
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target187.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=3.984  cpuTime=3.893  mem=1603M200
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=19624  nbRevisions=112958  nbUselessRevisions=93335
+        nbAssignments=4014  nbFailedAssignments=4014  nbBacktracks=1  nbVisitedNodes=8029  nbRestartNogoods=0
+          =>  wckTime=604.763  cpuTime=599.724  mem=3405M67
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=19624  nbRevisions=112958  nbUselessRevisions=93335  nbRestartNogoods=0
+        solvingWckTime=604.763  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=608.748  cpuTime=599.725  mem=3405M67
+
+s UNSATISFIABLE
+d NODES 4014
+
+   totalWckTime=608.655  totalCpuTime=599.726

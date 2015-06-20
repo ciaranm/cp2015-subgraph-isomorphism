@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern1-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target50
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern1,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target50
+      
+
+   loading variables...
+        nbVariables=144  nbDomainTypes=1  nbTotalValues=764064  domainSizes=(5306:144)
+          =>  wckTime=0.354  cpuTime=0.378  mem=241M787
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=198  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:196)  nbConflictsStructures=(1,shared:196,unbuilt:1)
+        degrees=(3:39)(4:104)(5:1)  arities=(2:197)(144:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:197)
+          =>  wckTime=0.705  cpuTime=0.719  mem=288M824
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target50.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.706  cpuTime=5.43  mem=733M654
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=86078  nbRevisions=219763  nbUselessRevisions=133821
+        nbAssignments=5163  nbFailedAssignments=5163  nbBacktracks=1  nbVisitedNodes=10327  nbRestartNogoods=0
+          =>  wckTime=2111.415  cpuTime=2091.769  mem=4407M165
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=86078  nbRevisions=219763  nbUselessRevisions=133821  nbRestartNogoods=0
+        solvingWckTime=2111.415  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2117.122  cpuTime=2091.77  mem=4407M165
+
+s UNSATISFIABLE
+d NODES 5163
+
+   totalWckTime=2117.024  totalCpuTime=2091.781

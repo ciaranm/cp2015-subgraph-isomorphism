@@ -1,0 +1,44 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target58
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern10,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target58
+      
+
+   loading variables...
+        nbVariables=124  nbDomainTypes=1  nbTotalValues=293260  domainSizes=(2365:124)
+          =>  wckTime=0.307  cpuTime=0.398  mem=52M899
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=169  nbSpecificConstraints=1  nbExtensionStructures=(2,shared:166)  nbConflictsStructures=(1,shared:166,unbuilt:2)
+        degrees=(2:1)(3:38)(4:82)(5:3)  arities=(1:1)(2:167)(124:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:167)(ConstraintHardExtensionV-Table:1)
+        tables=(4:1)  nbTotalTuples=4
+          =>  wckTime=0.529  cpuTime=0.612  mem=73M653
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target58.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=1.828  cpuTime=1.837  mem=430M472
+
+   
+   search
+        run=0  nbConstraintChecks=2369  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=1304  nbRevisions=3982  nbUselessRevisions=2801
+        nbAssignments=153  nbFailedAssignments=153  nbBacktracks=1  nbVisitedNodes=307  nbRestartNogoods=0
+          =>  wckTime=21.15  cpuTime=22.413  mem=1443M350
+
+   
+   global
+        nbConstraintChecks=2369  nbEffectivePropagations=1304  nbRevisions=3982  nbUselessRevisions=2801  nbRestartNogoods=0
+        solvingWckTime=21.151  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=22.979  cpuTime=22.413  mem=1443M350
+
+s UNSATISFIABLE
+d NODES 153
+
+   totalWckTime=22.841  totalCpuTime=22.416

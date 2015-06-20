@@ -1,0 +1,43 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g16-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g29
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g16,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g29
+      
+
+   loading variables...
+        nbVariables=53  nbDomainTypes=1  nbTotalValues=5300  domainSizes=(100:53)
+          =>  wckTime=0.184  cpuTime=0.302  mem=9M383
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=190  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:188)  nbConflictsStructures=(1,shared:188,unbuilt:1)
+        degrees=(2:1)(4:1)(5:1)...(10:5)(11:2)(12:3)  arities=(2:189)(53:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:189)
+          =>  wckTime=0.26  cpuTime=0.371  mem=8M790
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g29.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.421  cpuTime=0.509  mem=22M431
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:1,avg:1)  nbEffectivePropagations=363  nbRevisions=2752  nbUselessRevisions=2470
+        nbAssignments=111  nbFailedAssignments=110  nbBacktracks=2  nbVisitedNodes=222  nbRestartNogoods=0
+          =>  wckTime=0.65  cpuTime=1.145  mem=27M210
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=363  nbRevisions=2752  nbUselessRevisions=2470  nbRestartNogoods=0  solvingWckTime=0.651
+        expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1.072  cpuTime=1.145  mem=27M210
+
+s UNSATISFIABLE
+d NODES 111
+
+   totalWckTime=0.965  totalCpuTime=1.146

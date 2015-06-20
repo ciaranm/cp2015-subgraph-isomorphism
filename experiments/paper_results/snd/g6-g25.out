@@ -1,0 +1,48 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g6-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g25
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g6,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/LV/g25
+
+   loading variables...
+        nbVariables=19  nbDomainTypes=1  nbTotalValues=1425  domainSizes=(75:19)
+          =>  wckTime=0.204  cpuTime=0.31  mem=8M588
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=34  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:32)  nbConflictsStructures=(1,shared:32,unbuilt:1)
+        degrees=(2:3)(3:3)(4:6)...(6:2)(8:1)(11:1)  arities=(2:33)(19:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:33)
+          =>  wckTime=0.232  cpuTime=0.338  mem=9M596
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of g25.xml -->
+
+   Solver SolverBacktrack being built... 
+          =>  wckTime=0.388  cpuTime=0.471  mem=16M129
+
+    instantiation X0=68 X1=21 X2=50 X3=42 X4=26 X5=70 X6=11 X7=62 X8=60 X9=28 X10=29 X11=32 X12=49 X13=23 X14=64 X15=4 X16=6 X17=3 X18=43 
+
+    solution X0=68 X1=21 X2=50 X3=42 X4=26 X5=70 X6=11 X7=62 X8=60 X9=28 X10=29 X11=32 X12=49 X13=23 X14=64 X15=4 X16=6 X17=3 X18=43 
+
+   
+   search
+        run=0  nbConstraintChecks=34  depth=(min:0,max:18,avg:3)  nbEffectivePropagations=612  nbRevisions=1427  nbUselessRevisions=1223
+        nbAssignments=56  nbFailedAssignments=25  nbBacktracks=12  nbVisitedNodes=88  nbRestartNogoods=0  nbFoundSolutions=1
+        upperBound=9223372036854775807
+          =>  wckTime=0.174  cpuTime=0.612  mem=23M435
+
+   
+   global
+        nbConstraintChecks=34  nbEffectivePropagations=612  nbRevisions=1427  nbUselessRevisions=1223  nbRestartNogoods=0  solvingWckTime=0.174
+        expiredTime=no  totalExploration=no  nbFoundSolutions=1  firstSolutionCpuTime=0.61  Stop=REACHED_GOAL
+          =>  wckTime=0.564  cpuTime=0.612  mem=23M435
+
+s SATISFIABLE
+v X0=68 X1=21 X2=50 X3=42 X4=26 X5=70 X6=11 X7=62 X8=60 X9=28 X10=29 X11=32 X12=49 X13=23 X14=64 X15=4 X16=6 X17=3 X18=43 
+d NODES 56
+
+   totalWckTime=0.438  totalCpuTime=0.613

@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern25-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target70
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern25,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target70
+      
+
+   loading variables...
+        nbVariables=81  nbDomainTypes=1  nbTotalValues=423792  domainSizes=(5232:81)
+          =>  wckTime=0.342  cpuTime=0.394  mem=230M608
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=116  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:114)  nbConflictsStructures=(1,shared:114,unbuilt:1)
+        degrees=(3:15)(4:64)(5:2)  arities=(2:115)(81:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:115)
+          =>  wckTime=0.657  cpuTime=0.675  mem=265M639
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target70.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=5.546  cpuTime=5.254  mem=698M103
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=62899  nbRevisions=197098  nbUselessRevisions=134200
+        nbAssignments=5207  nbFailedAssignments=5207  nbBacktracks=1  nbVisitedNodes=10415  nbRestartNogoods=0
+          =>  wckTime=2238.981  cpuTime=2220.529  mem=3156M326
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=62899  nbRevisions=197098  nbUselessRevisions=134200  nbRestartNogoods=0
+        solvingWckTime=2238.982  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2244.529  cpuTime=2220.53  mem=3156M326
+
+s UNSATISFIABLE
+d NODES 5207
+
+   totalWckTime=2244.433  totalCpuTime=2220.536

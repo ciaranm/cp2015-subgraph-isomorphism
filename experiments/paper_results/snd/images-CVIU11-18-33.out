@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern18-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target33
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern18,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target33
+      
+
+   loading variables...
+        nbVariables=69  nbDomainTypes=1  nbTotalValues=394266  domainSizes=(5714:69)
+          =>  wckTime=0.339  cpuTime=0.358  mem=273M295
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=97  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:95)  nbConflictsStructures=(1,shared:95,unbuilt:1)
+        degrees=(2:2)(3:13)(4:52)(5:2)  arities=(2:96)(69:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:96)
+          =>  wckTime=0.648  cpuTime=0.646  mem=314M938
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target33.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=6.931  cpuTime=6.521  mem=825M10
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=60709  nbRevisions=175672  nbUselessRevisions=115030
+        nbAssignments=5570  nbFailedAssignments=5570  nbBacktracks=1  nbVisitedNodes=11141  nbRestartNogoods=0
+          =>  wckTime=2215.714  cpuTime=2178.248  mem=2970M243
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=60709  nbRevisions=175672  nbUselessRevisions=115030  nbRestartNogoods=0
+        solvingWckTime=2215.715  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=2222.646  cpuTime=2178.249  mem=2970M243
+
+s UNSATISFIABLE
+d NODES 5570
+
+   totalWckTime=2222.549  totalCpuTime=2178.253

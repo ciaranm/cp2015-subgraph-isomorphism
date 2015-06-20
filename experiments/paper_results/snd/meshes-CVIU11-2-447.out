@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern2-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target447
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern2,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target447
+      
+
+   loading variables...
+        nbVariables=129  nbDomainTypes=1  nbTotalValues=451113  domainSizes=(3497:129)
+          =>  wckTime=0.28  cpuTime=0.353  mem=109M383
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=382  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:380)  nbConflictsStructures=(1,shared:380,unbuilt:1)
+        degrees=(5:2)(6:13)(7:112)(9:1)(10:1)  arities=(2:381)(129:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:381)
+          =>  wckTime=0.674  cpuTime=0.733  mem=169M24
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target447.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=2.993  cpuTime=2.963  mem=908M26
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=21746  nbRevisions=159417  nbUselessRevisions=137672
+        nbAssignments=3493  nbFailedAssignments=3493  nbBacktracks=1  nbVisitedNodes=6987  nbRestartNogoods=0
+          =>  wckTime=1068.391  cpuTime=1060.217  mem=2781M362
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=21746  nbRevisions=159417  nbUselessRevisions=137672  nbRestartNogoods=0
+        solvingWckTime=1068.392  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1071.385  cpuTime=1060.218  mem=2781M362
+
+s UNSATISFIABLE
+d NODES 3493
+
+   totalWckTime=1071.281  totalCpuTime=1060.218

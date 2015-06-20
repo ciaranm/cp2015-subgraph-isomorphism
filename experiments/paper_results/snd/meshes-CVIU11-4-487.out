@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern4-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target487
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/patterns/pattern4,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/meshes-CVIU11/targets/target487
+      
+
+   loading variables...
+        nbVariables=40  nbDomainTypes=1  nbTotalValues=171120  domainSizes=(4278:40)
+          =>  wckTime=0.358  cpuTime=0.362  mem=153M553
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=115  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:113)  nbConflictsStructures=(1,shared:113,unbuilt:1)
+        degrees=(5:4)(6:34)(22:2)  arities=(2:114)(40:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:114)
+          =>  wckTime=0.615  cpuTime=0.604  mem=171M580
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target487.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.165  cpuTime=3.943  mem=471M283
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=94850  nbRevisions=485919  nbUselessRevisions=391070
+        nbAssignments=4059  nbFailedAssignments=4059  nbBacktracks=1  nbVisitedNodes=8119  nbRestartNogoods=0
+          =>  wckTime=1029.34  cpuTime=1020.559  mem=1144M884
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=94850  nbRevisions=485919  nbUselessRevisions=391070  nbRestartNogoods=0
+        solvingWckTime=1029.341  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1033.507  cpuTime=1020.559  mem=1144M884
+
+s UNSATISFIABLE
+d NODES 4059
+
+   totalWckTime=1033.362  totalCpuTime=1020.561

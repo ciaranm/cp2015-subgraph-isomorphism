@@ -1,0 +1,45 @@
+
+   AbsCon 1.41 (January, 2014) - defaultConfiguration
+
+   
+   instance
+        framework=CSP  name=Isomorphism-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern44-/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target20
+        parameters=/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/patterns/pattern44,/cluster/gpg/ciaran/sip-benchmarks/benchmarks/images-CVIU11/targets/target20
+      
+
+   loading variables...
+        nbVariables=145  nbDomainTypes=1  nbTotalValues=678890  domainSizes=(4682:145)
+          =>  wckTime=0.312  cpuTime=0.356  mem=190M555
+
+   loading objectives...
+
+   loading constraints...
+        nbConstraints=213  nbSpecificConstraints=1  nbExtensionStructures=(1,shared:211)  nbConflictsStructures=(1,shared:211,unbuilt:1)
+        degrees=(3:15)(4:126)(5:4)  arities=(2:212)(145:1)  types=(AllDifferent:1)(ConstraintHardExtensionV-Bits:212)
+          =>  wckTime=0.616  cpuTime=0.65  mem=221M912
+
+   INFO : <!-- Start saving the XML representation -->
+
+   INFO : <!-- Stop saving the XML representation of target20.xml -->
+
+   Solver SolverBacktrack being built... 
+
+   INFO : Stop creating residues for RevisionManagerBitRm
+          =>  wckTime=4.76  cpuTime=4.498  mem=578M579
+
+   
+   search
+        run=0  nbConstraintChecks=0  depth=(min:0,max:0,avg:1)  nbEffectivePropagations=82454  nbRevisions=249829  nbUselessRevisions=167376
+        nbAssignments=4559  nbFailedAssignments=4559  nbBacktracks=1  nbVisitedNodes=9119  nbRestartNogoods=0
+          =>  wckTime=1915.58  cpuTime=1898.17  mem=1864M335
+
+   
+   global
+        nbConstraintChecks=0  nbEffectivePropagations=82454  nbRevisions=249829  nbUselessRevisions=167376  nbRestartNogoods=0
+        solvingWckTime=1915.581  expiredTime=no  totalExploration=yes  nbFoundSolutions=0  Stop=FULL_EXPLORATION
+          =>  wckTime=1920.341  cpuTime=1898.17  mem=1864M335
+
+s UNSATISFIABLE
+d NODES 4559
+
+   totalWckTime=1920.256  totalCpuTime=1898.177
