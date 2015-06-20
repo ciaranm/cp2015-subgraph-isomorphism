@@ -46,10 +46,9 @@ Research Council [grant number EP/K503058/1]} \and Patrick Prosser}
     The subgraph isomorphism problem involves finding a pattern graph inside a target graph.  We
     present a new bit- and thread-parallel constraint-based search algorithm for the problem, and
     experiment on a wide range of standard benchmark instances to demonstrate its effectiveness.  We
-    introduce the idea of supplemental graphs, to create implied constraints. We use a low-overhead,
-    lazy variation of conflict directed backjumping which interacts safely with parallel search, and
-    a counting-based all-different propagator which is better suited to our large domains than the
-    conventional matching approach.
+    introduce supplemental graphs, to create implied constraints. We use a new low-overhead, lazy
+    variation of conflict directed backjumping which interacts safely with parallel search, and a
+    counting-based all-different propagator which is better suited for large domains.
 \end{abstract}
 
 \section{Introduction}
@@ -68,13 +67,11 @@ This constraint-based search approach dates back to works by Ullmann \cite{Ullma
 McGregor \cite{McGregor:1979}, and was improved upon in the LV \cite{Larrosa:2002} and VF2
 \cite{Cordella:2004} algorithms.  More recently, ILF \cite{Zampelli:2010}, LAD \cite{Solnon:2010}
 and SND \cite{Audemard:2014} are algorithms which take a ``deep thinking'' approach, using strong
-inference at each stage of the search.  This is powerful, but we observe that when LAD or SND fail
-to find a solution in time, it is often because they do not get to explore much of the search space.
-Sometimes LAD and SND make less than one recursive call per second---this is often true with larger
-target graphs, where strong inference becomes particularly expensive.  This motivates our
-alternative approach: on the same hardware, we will be making between ten thousand and a million
-recursive calls per core per second on non-trivial instances.  The main features of our algorithm
-are:
+inference at each stage of the search.  This is powerful, but we observe LAD or SND sometimes make
+less than one recursive call per second with larger target graphs, and cannot always explore enough
+of the search space to find a solution in time. This motivates an alternative approach: on the same
+hardware, we will be making $10^4$ to $10^6$ recursive calls per core per second.  The main features
+of our algorithm are:
 
 \begin{enumerate}
     \item We introduce supplemental graphs, which generalise some of the ideas in SND. The key idea
@@ -89,8 +86,8 @@ are:
         to bitset encodings.
 
     \item We describe a clone-comparing variation of conflict-directed backjumping, which does not
-        require explicit conflict sets. We note that an all-different propagator can produce reduced
-        conflict sets, which can enable more backjumping.
+        require conflict sets. We show that an all-different propagator can produce reduced
+        conflict explanations, which can improve backjumping.
 
     \item We use thread-parallel preprocessing and search, to make better use of modern multi-core
         hardware. We explain how parallel search may interact safely with backjumping. We use
@@ -139,7 +136,7 @@ preserved):
 
 \begin{proposition}\label{proposition:supplemental}
     Let $i : P \hookrightarrow T$ be a subgraph isomorphism. Then $i$ is also
-    \begin{enumerate}[itemindent=1em,topsep=0pt,itemsep=0.2pt]
+    \begin{enumerate}[itemindent=1em,topsep=2pt,itemsep=0.2pt]
         \item a subgraph isomorphism $i^d : P^d \hookrightarrow T^d$ for any $d \ge 1$, and
         \item a subgraph isomorphism $i^{\left[c, l\right]} : P^{\left[c, l\right]} \hookrightarrow
             T^{\left[c, l\right]}$ for any $c, l \ge 1$.
@@ -162,7 +159,7 @@ number of variables which must be copied when branching.  Next we construct the 
 further. Finally, we perform a backtracking search (\lineref{line:search}). Each of these steps is
 elaborated upon below.
 
-\begin{algorithm}[h]
+\begin{algorithm}[b]
 \DontPrintSemicolon
 \nl $\FuncSty{nonInducedSubgraphIsomorphism}$ (Graph $\mathcal{P}$, Graph $\mathcal{T}$) $\rightarrow$ Bool \;
 \nl \Begin{
@@ -222,7 +219,7 @@ F(T)$ for any of our supplemental graph constructions $F$, we may further restri
 by considering only the intersection of filtered domains using each supplemental graph pair
 individually (\lineref{line:filter}). At this stage, we also enforce the ``loops must be mapped to loops'' constraint.
 
-\begin{algorithm}[h]
+\begin{algorithm}[b]
 \DontPrintSemicolon
 \nl $\FuncSty{init}$ (Vertices $V$, Vertices $R$, GraphPairs $L$) $\rightarrow$ Domains \;
 \nl \Begin{
@@ -257,7 +254,7 @@ in its domain in turn, ordered by static degree in the target graph \cite{Geelen
 assigning that value to the variable (\lineref{line:assign}). If we do not detect a failure, we
 recurse (\lineref{line:recursesearch}).
 
-\begin{algorithm}[h]
+\begin{algorithm}[t]
 \DontPrintSemicolon
 \SetKwSwitch{Switch}{Case}{Other}{case}{of}{}{otherwise}{endcase}{endsw}
 \nl $\FuncSty{search}$ (GraphPairs $L$, Domains $D$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
@@ -307,7 +304,7 @@ Secondly, for each supplemental graph pair, any domain for a vertex adjacent to 
 mapped to a vertex adjacent to $v'$ (\lineref{line:adj}). If any domain gives a wipeout, then we
 fail with that variable as the nogood (\lineref{line:wipeout}).
 
-\begin{algorithm}[h]
+\begin{algorithm}[t]
 \DontPrintSemicolon
 \nl $\FuncSty{assign}$ (GraphPairs $L$, Domains $D$, Vertex $v$, Vertex $v'$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
 \nl \Begin{
@@ -342,12 +339,11 @@ not maintaining arc consistency in general, we instead use an intermediate level
 is not guaranteed to identify every Hall set: this can be thought of as a heuristic towards the
 matching approach. This is described in \cref{algorithm:cad}.
 
-\begin{algorithm}[h]
+\begin{algorithm}[t]
 \DontPrintSemicolon
 \nl $\FuncSty{countingAllDifferent}$ (Domains $D$) $\rightarrow$ Fail $F$ \KwSty{or} Success \;
 \nl \Begin{
-\nl $F \gets \emptyset$ \;
-\nl $(H,\,A,\,n) \gets (\emptyset,\,\emptyset,\,0)$ \;
+\nl $(F,\,H,\,A,\,n) \gets (\emptyset,\,\emptyset,\,\emptyset,\,0)$ \;
 \nl \ForEach{$D_v \in D$ \textnormal{from smallest cardinality to largest\label{line:eachdomain}}}{
     \nl $F \gets F + v$ \;
     \nl $D_v \gets D_v \setminus H$ \label{line:elimhall} \;
