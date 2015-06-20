@@ -8,7 +8,7 @@ set size square
 
 set multiplot layout 2,1
 
-set key outside right center height 1 width -2 spacing 1.2
+set key outside right center height 1 width -2 spacing 1.2 samplen 1.5
 
 set border 3
 
@@ -77,9 +77,9 @@ plot \
     "runtimes.data" u (($3 == -2 && $6<1e8)?$6:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
     "runtimes.data" u (($3 == -2 && $5<1e8)?$5:NaN):($7):(1) w p ps 10 lc 0 pt 2 notitle, \
     x w l lt 0 notitle, \
-    NaN w p ps 1.5 pt 7 lc 8 ti "LAD", \
-    NaN w p ps 1.5 pt 7 lc 2 ti "VF2", \
-    NaN w p ps 1.5 pt 7 lc 4 ti "SND", \
+    NaN w l lw 10 lc 8 ti "LAD", \
+    NaN w l lw 10 lc 2 ti "VF2", \
+    NaN w l lw 10 lc 4 ti "SND", \
     NaN w p ps 0 lc "white" ti "~~~~~~~~~~~~~~", \
     NaN w p ps 1.5 pt 6 lc 8 ti "LV (sat)", \
     NaN w p ps 1.5 pt 7 lc 8 ti "LV (unsat)", \
