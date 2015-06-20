@@ -426,9 +426,9 @@ points are:
         conventional backtracking search without learning, we should \emph{not} expect a linear
         speedup for unsatisfiable instances.
 
-        (In effect we are treating the $\KwSty{foreach}$ loop as a parallel fold, so that a subtree
-        does not depend upon items to its left. Backjumping conditions are left-zero elements
-        \cite{Lobachev:2012}, although we do not have a unique zero.)
+        (In effect we are treating the $\KwSty{foreach}$ loop as a parallel lazy fold, so that a
+        subtree does not depend upon items to its left. Backjumping conditions are left-zero
+        elements \cite{Lobachev:2012}, although we do not have a unique zero.)
 
     \item If any thread finds a solution, we \emph{do} succeed immediately, even if this involves
         passing knowledge to the left. If there are multiple solutions, this can lead to a parallel
