@@ -510,8 +510,8 @@ line at a given time for an algorithm shows the total number of instances which,
 solved in at most that amount of time. Our sequential implementation beats VF2 for times over 0.2s,
 LAD for times over 0.6s, and always beats SND.  Our parallel implementation beats VF2 for times over
 0.06s, LAD for times over 0.02s, and always beats SND; parallelism gives us an overall benefit from
-12ms onwards. Finally, removing supplemental graphs from our algorithm gives an improvement below 1s
-(due to the cost of preprocessing), but is beneficial for longer runtimes.
+12ms onwards. Finally, removing the supplemental graphs from our sequential algorithm gives an
+improvement below 10s (due to the cost of preprocessing), but is beneficial for longer runtimes.
 
 \Cref{figure:best-other} presents an alternative perspective of these results. Each point represents
 an instance, and the shape of a point shows its family. For the $y$ position for an instance, we use
