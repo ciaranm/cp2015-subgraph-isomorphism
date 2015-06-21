@@ -75,8 +75,8 @@ of our algorithm are:
 
 \begin{enumerate}
     \item We introduce supplemental graphs, which generalise some of the ideas in SND. The key idea
-        is that a subgraph isomorphism $i : P \hookrightarrow T$ induces a subgraph isomorphism
-        $F(i) : F(P) \hookrightarrow F(T)$, for certain functors $F$.  This is used to generate
+        is that a subgraph isomorphism $i : P \rightarrowtail T$ induces a subgraph isomorphism
+        $F(i) : F(P) \rightarrowtail F(T)$, for certain functors $F$.  This is used to generate
         implied constraints: we may now look for a mapping which is simultaneously a subgraph
         isomorphism between several carefully selected pairs of graphs.
 
@@ -110,7 +110,7 @@ the sequence consisting of the degrees of every neighbour of $v$, from largest t
 vertex is \emph{isolated} if it has no neighbours. By $v \sim_G w$ we mean vertex $v$ is adjacent to
 vertex $w$ in graph $G$. We write $G[V]$ for the subgraph of $G$ induced by a set of vertices $V$.
 
-A \emph{non-induced subgraph isomorphism} is an injective mapping $i : P \hookrightarrow T$ from a
+A \emph{non-induced subgraph isomorphism} is an injective mapping $i : P \rightarrowtail T$ from a
 graph $P$ to a graph $T$ which preserves adjacency---that is, if $v \sim_{P} w$ then we require
 $i(v) \sim_{T} i(w)$ (and thus if $v$ has a loop, then $i(v)$ must have a loop). The
 \emph{non-induced subgraph isomorphism problem} is to find such a mapping from a given pattern graph
@@ -135,10 +135,10 @@ following proposition may easily be verified (by observing that injectivity mean
 preserved):
 
 \begin{proposition}\label{proposition:supplemental}
-    Let $i : P \hookrightarrow T$ be a subgraph isomorphism. Then $i$ is also
+    Let $i : P \rightarrowtail T$ be a subgraph isomorphism. Then $i$ is also
     \begin{enumerate}[itemindent=1em,topsep=2pt,itemsep=0.2pt]
-        \item a subgraph isomorphism $i^d : P^d \hookrightarrow T^d$ for any $d \ge 1$, and
-        \item a subgraph isomorphism $i^{\left[c, l\right]} : P^{\left[c, l\right]} \hookrightarrow
+        \item a subgraph isomorphism $i^d : P^d \rightarrowtail T^d$ for any $d \ge 1$, and
+        \item a subgraph isomorphism $i^{\left[c, l\right]} : P^{\left[c, l\right]} \rightarrowtail
             T^{\left[c, l\right]}$ for any $c, l \ge 1$.
     \end{enumerate}
 \end{proposition}
@@ -214,7 +214,7 @@ is easy to see that a vertex of degree $d$ in the pattern graph $P$ may only be 
 the target graph $T$ of degree $d$ or higher: this allows us to perform some initial filtering. By
 extension, we may use compatibility of neighbourhood degree sequences: $v$ may only be mapped to $w$
 if $\operatorname{S}(P, v) \preceq \operatorname{S}(T, w)$ \cite{Zampelli:2010}.  Because any
-subgraph isomorphism $P \hookrightarrow T$ is also a subgraph isomorphism $F(P) \hookrightarrow
+subgraph isomorphism $P \rightarrowtail T$ is also a subgraph isomorphism $F(P) \rightarrowtail
 F(T)$ for any of our supplemental graph constructions $F$, we may further restrict initial domains
 by considering only the intersection of filtered domains using each supplemental graph pair
 individually (\lineref{line:filter}). At this stage, we also enforce the ``loops must be mapped to loops'' constraint.
