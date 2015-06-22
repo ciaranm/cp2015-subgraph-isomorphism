@@ -13,6 +13,9 @@ Parts of this repository are from other authors:
 
     http://liris.cnrs.fr/csolnon/LAD.html
 
+ * The snd/ directory contains the Abscon solver. The txt files in the
+   directory give its licence conditions.
+
  * The instances/ directory contains a subset of Christine Solnon's benchmark
    instances:
 
@@ -28,8 +31,6 @@ Steps to reproduce the paper:
  * Build the vflib library: run 'make' inside the vflib/vflib-2.0.6/ directory.
 
  * Build the vflib solver: run 'make' inside the vflib/ directory.
-
- * Obtain SND: consult snd/README.md for details.
 
  * Run the experiments: run 'make TIMEOUT=100000' inside the experiments/
    directory. (This will take a loooooong time. If a timeout is not specified,

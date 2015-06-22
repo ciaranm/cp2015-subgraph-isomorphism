@@ -1,1 +1,2 @@
-You need to obtain 'abscon609.jar' and place it in this directory.
+This directory contains the Abscon solver implementation of SND. See the txt
+files for licence conditions.
