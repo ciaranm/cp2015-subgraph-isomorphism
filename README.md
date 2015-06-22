@@ -1,5 +1,8 @@
 This repository contains the code, data and experimental scripts needed to
-reproduce our subgraph isomorphism paper.
+reproduce our subgraph isomorphism paper:
+
+    Ciaran McCreesh and Patrick Prosser, "A Parallel, Backjumping Subgraph
+    Isomorphism Algorithm using Supplemental Graphs". To appear at CP 2015.
 
 Parts of this repository are from other authors:
 
@@ -34,7 +37,8 @@ Steps to reproduce the paper:
 
  * Run the experiments: run 'make TIMEOUT=100000' inside the experiments/
    directory. (This will take a loooooong time. If a timeout is not specified,
-   100s is used instead, which should finish within a few days.)
+   100s is used instead, which should finish within a few days, but which may
+    cause the charts in the paper to look strange.)
 
  * Copy experiments/results/*.data into the paper/ directory, to replace our
    experimental results with your own.
