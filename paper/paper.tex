@@ -115,8 +115,9 @@ graph $P$ to a graph $T$ which preserves adjacency---that is, if $v \sim_{P} w$ 
 $i(v) \sim_{T} i(w)$ (and thus if $v$ has a loop, then $i(v)$ must have a loop). The
 \emph{non-induced subgraph isomorphism problem} is to find such a mapping from a given pattern graph
 $P$ to a given target graph $T$.  (The \emph{induced subgraph isomorphism problem} additionally
-requires that if $v \not\sim_{P} w$ then $i(v) \not\sim_{T} i(w)$; we discuss only the non-induced
-version in this paper. Both variants are \NP-complete.)
+requires that if $v \not\sim_{P} w$ then $i(v) \not\sim_{T} i(w)$, and variants also exist for
+directed and labelled graphs; we discuss only the non-induced version in this paper. All these
+variants are \NP-complete.)
 
 If $R$ and $S$ are sequences of integers, we write $R \preceq S$ if there exists a subsequence of
 $S$ with length equal to that of $R$, such that each element in $R$ is less than or equal to the
@@ -131,8 +132,8 @@ with vertex set $\operatorname{V}(G)$, and edges between $v$ and $w$ if the dist
 $w$ in $G$ is at most $d$.  We introduce the notation $G^{\left[c, l\right]}$ for the graph with
 vertex set $\operatorname{V}(G)$, and edges between vertices $v$ and $w$ (not necessarily distinct)
 precisely if there are at least $c$ paths of length exactly $l$ between $v$ and $w$ in $G$. The
-following proposition may easily be verified (by observing that injectivity means paths are
-preserved):
+following proposition may easily be verified by observing that injectivity means paths are
+preserved:
 
 \begin{proposition}\label{proposition:supplemental}
     Let $i : P \rightarrowtail T$ be a subgraph isomorphism. Then $i$ is also
@@ -417,7 +418,7 @@ points are:
     \item The $\KwSty{search}$ function, parallelised without changes, could attempt to exit early
         due to backjumping. We rule out this possibility by refusing to pass knowledge to the left:
         that is, we do not allow speculatively-found backjumping conditions to change the return
-        value of $\KwSty{search}$). This is for safety \cite{Trienekens:1990} and reproducibility:
+        value of $\KwSty{search}$. This is for safety \cite{Trienekens:1990} and reproducibility:
         value-ordering heuristics can alter the performance of unsatisfiable instances when
         backjumping, and allowing parallelism to select a different backjump set could lead to an
         absolute slowdown \cite{Prosser:1993b}. To avoid this possibility, when a backjump condition
@@ -622,7 +623,7 @@ could pay off, and that backjumping could be implemented cheaply enough to be be
 saw parallelism give a substantial benefit. This was true even for relatively low runtimes, due to
 us exploiting parallelism for pre-processing as well as for search.  Parallel backjumping has only
 been given limited attention \cite{Conrad:1994,Habbas:1997,Cope:2000}.  However, a simple approach
-has worked reasonably well here (in contrast to stronger learning systems, where successes in
+has worked reasonably well here (in contrast to stronger clause-learning systems, where successes in
 parallelism appear to be rare).
 
 There is also plenty of scope for extensions of and improvement to our algorithm. We have yet to
