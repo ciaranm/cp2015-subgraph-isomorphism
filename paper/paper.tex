@@ -392,8 +392,10 @@ least Ullmann's algorithm \cite{Ullmann:1976}, and remains an active area of res
 vectors, our domains are bit vectors, the neighbourhood intersection in \cref{algorithm:assign} is a
 bitwise-and operation, the unions in \cref{algorithm:search} and \cref{algorithm:cad} are bitwise-or
 operations, and the cardinality check in \cref{algorithm:cad} is a population count (this is a
-single instruction in modern CPUs).  In addition to the SIMD-like parallelism from bitset encodings,
-we observed two opportunities for multi-core thread parallelism in the algorithm:
+single instruction in modern CPUs).
+
+In addition to the SIMD-like parallelism from bitset encodings, we observed two opportunities for
+multi-core thread parallelism in the algorithm:
 
 \paragraph{Graph and domain construction} We may parallelise the outer $\FuncSty{for}$ loops
 involved in calculating neighbourhood degree sequences and in initialising the domains of variables
