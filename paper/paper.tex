@@ -248,12 +248,12 @@ occurs.)
 
 \Cref{algorithm:search} describes our recursive search procedure. If every variable has already been
 assigned, we succeed (\lineref{line:success}). Otherwise, we pick a variable (\lineref{line:branch})
-to branch on by selecting the variable with smallest domain, tiebreaking on static degree only in
+to branch on by selecting the variable with smallest domain, tiebreaking on descending static degree only in
 the original pattern graph (we tried other variations, including using supplemental graphs for
 calculating degree, and domain over degree, but none gave an overall improvement).  For each value
-in its domain in turn, ordered by static degree in the target graph \cite{Geelen:1992}, we try
-assigning that value to the variable (\lineref{line:assign}). If we do not detect a failure, we
-recurse (\lineref{line:recursesearch}).
+in its domain in turn, ordered by descending static degree in the target graph \cite{Geelen:1992},
+we try assigning that value to the variable (\lineref{line:assign}). If we do not detect a failure,
+we recurse (\lineref{line:recursesearch}).
 
 \begin{algorithm}[t]
 \DontPrintSemicolon
