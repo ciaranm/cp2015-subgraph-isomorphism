@@ -524,12 +524,12 @@ For any point below the $x=y$ diagonal line, we are the best solver. A limit of 
 used---points along the outer axes represent timeouts.
 
 Although overall ours is the single best solver, VF2 is stronger on trivial instances. This is not
-surprising: we must spend time constructing supplemental graphs. Thus it may be worth using VF2 as a
-presolver, if short runtimes for trivial instances is desirable---this may be the case in graph
-database systems where many trivial queries must be run \cite{Giugno:2013} (although these systems
-could cache the supplemental graphs for targets). These results also suggest potential scope for
-algorithm portfolios, or instance-specific configuration: for example, we could omit or use
-different supplemental graphs in some cases.
+surprising: we must spend time constructing supplemental graphs. Thus it may be worth using either
+VF2 or our own algorithm without supplemental graphs as a presolver, if short runtimes for trivial
+instances is desirable---this may be the case in graph database systems where many trivial queries
+must be run \cite{Giugno:2013} (although these systems could cache the supplemental graphs for
+targets). These results also suggest potential scope for algorithm portfolios, or instance-specific
+configuration: for example, we could omit or use different supplemental graphs in some cases.
 
 \subsection{Parallelism}
 
