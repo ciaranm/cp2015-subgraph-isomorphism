@@ -2,7 +2,7 @@ SHELL := /bin/bash
 INSTANCES := $(shell cut -d' ' -f1 instances.txt)
 TIMEOUT := 100
 ALGORITHMS := lad
-STACK_SPACE := 1048576
+STACK_SPACE := 10485760
 RESULTS := results
 
 all : $(foreach i, $(INSTANCES), $(foreach a, $(ALGORITHMS), $(RESULTS)/$(a)/$i.out ))

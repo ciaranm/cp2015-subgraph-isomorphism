@@ -1,6 +1,6 @@
 TIMEOUT := 100
 THREADS := $(shell nproc )
-STACK_SPACE := 1048576
+STACK_SPACE := 10485760
 RESULTS := results
 
 all :
