@@ -1,0 +1,14 @@
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.toc
+texput.fls
+texput.log
+gen-*.*
+gnuplot-lua-*
+!UoG_keyline.pdf
