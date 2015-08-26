@@ -28,6 +28,7 @@
 \definecolor{uofgslate}{rgb}{0.309804, 0.34902, 0.380392}
 \definecolor{uofgrose}{rgb}{0.823529, 0.470588, 0.709804}
 \definecolor{uofgmocha}{rgb}{0.709804, 0.564706, 0.47451}
+\definecolor{uofgsandstone}{rgb}{0.321569, 0.278431, 0.231373}
 
 \definecolor{uofglawn}{rgb}{0.517647, 0.741176, 0}
 \definecolor{uofgcobalt}{rgb}{0, 0.615686, 0.92549}
@@ -35,6 +36,8 @@
 \definecolor{uofgsunshine}{rgb}{1.0, 0.862745, 0.211765}
 \definecolor{uofgpumpkin}{rgb}{1.0, 0.72549, 0.282353}
 \definecolor{uofgthistle}{rgb}{0.584314, 0.070588, 0.447059}
+\definecolor{uofgrust}{rgb}{0.603922, 0.227451, 0.023529}
+\definecolor{uofgburgundy}{rgb}{0.490196, 0.133333, 0.223529}
 \definecolor{uofgpillarbox}{rgb}{0.701961, 0.047059, 0}
 \definecolor{uofglavendar}{rgb}{0.356863, 0.301961, 0.580392}
 
@@ -57,7 +60,7 @@
 \setbeamerfont{block title}{size={}}
 \setbeamercolor*{structure}{fg=uofguniversityblue}
 \setbeamercolor*{palette primary}{use=structure,fg=black,bg=white}
-\setbeamercolor*{palette secondary}{use=structure,fg=black,bg=uofgcobalt}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=uofgheather}
 \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=uofguniversityblue}
 \setbeamercolor*{palette quaternary}{fg=white,bg=black}
 
@@ -213,32 +216,33 @@
 
 \begin{frame}{The Basic CP Model}
     \begin{itemize}
-        \item One variable for each vertex in the pattern graph, with the domains being the vertices
-            of the target graph.
-        \item If two vertices are adjacent in the pattern, their values must be adjacent
-            in the target.
+        \item One \textcolor{uofgrose}{variable for each vertex in the pattern} graph,
+        with the \textcolor{uofgrose}{domains being the vertices of the target} graph.
+    \item If two vertices are \textcolor{uofgrose}{adjacent in the pattern}, their
+        \textcolor{uofgrose}{values must be adjacent} in the target.
             \begin{itemize}
                 \item In the \emph{induced} variant, non-adjacent vertices must be mapped to
                     non-adjacent vertices. We only discuss the non-induced variant in this talk.
             \end{itemize}
-        \item All pattern vertices must be given different values.
+        \item Each pattern vertex must be given a \textcolor{uofgrose}{different value}.
         \item Often enhanced: for example, we can filter based upon degree.
-        \item Another perspective: the variables describe an injective mapping from the pattern to
-            the target, which preserves adjacency.
+        \item Another perspective: find an \textcolor{uofgrose}{injective mapping} from the
+            pattern to the target, which \textcolor{uofgrose}{preserves adjacency}.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Selected Previous Work}
     \begin{itemize}
-        \item VF2: backtracking search, interesting heuristics. Widely used. \\[0.1cm]
+        \item \textcolor{uofgthistle}{VF2}: backtracking search, interesting heuristics. Widely used. \\[0.1cm]
             {\scriptsize A (Sub)Graph Isomorphism Algorithm for Matching Large Graphs. \emph{Luigi P.
                 Cordella, Pasquale Foggia, Carlo Sansone and Mario Vento}. {IEEE} Trans.
         Pattern Anal. Mach. Intell., 2004.}
 
-        \item LAD: locally all-different, and neighbourhood degree sequences. \\[0.1cm]
+        \item \textcolor{uofgthistle}{LAD}: locally all-different, and neighbourhood degree sequences. \\[0.1cm]
             {\scriptsize AllDifferent-based filtering for subgraph isomorphism. \emph{Christine
                 Solnon}.  Artif. Intell., 2010.}
-        \item SND: distance-based filtering. \\[0.1cm]
+
+        \item \textcolor{uofgthistle}{SND}: distance-based filtering. \\[0.1cm]
             {\scriptsize Scoring-Based Neighborhood Dominance for the Subgraph Isomorphism Problem.
                 \emph{Gilles Audemard, Christophe Lecoutre, Mouny Samy Modeliar, Gilles
             Goncalves and Daniel Porumbel}. CP 2014.}
@@ -249,8 +253,8 @@
     \begin{itemize}
         \item We want to work with up to 1,000 pattern vertices, and 10,000 target vertices.
 
-        \item When LAD and SND fail, they often manage less than one recursive call per second,
-            particularly with larger target graphs.
+        \item When LAD and SND fail, they often manage less than \textcolor{uofgthistle}{one
+            recursive call per second}, particularly with larger target graphs.
     \end{itemize}
 \end{frame}
 
@@ -259,17 +263,17 @@
 
 \begin{frame}{Our Approach}
     \begin{itemize}
-        \item Cheaper inference: $10^4$ to $10^6$ recursive calls per second.
-        \item Expensive preprocessing once at the top of search, rather than computing distances and
-            degree sequences during search.
+        \item \textcolor{uofgthistle}{Cheaper inference}: $10^4$ to $10^6$ recursive calls per second.
+        \item Expensive \textcolor{uofgthistle}{preprocessing once} at the top of search, rather
+            than computing distances and degree sequences during search.
         \item FC-CBJ instead of MAC:
             \begin{itemize}
-                \item A counting-based all-different propagator, which does more
+                \item A \textcolor{uofgthistle}{counting-based all-different} propagator, which does more
                     than pairwise-$\ne$ AC but less than GAC.
-                \item CBJ without explicit conflict sets, and without modifying propagators.
+                \item CBJ \textcolor{uofgthistle}{without explicit conflict sets}, and without modifying propagators.
             \end{itemize}
-        \item Bit-parallelism for all major operations.
-        \item Thread-parallel search:
+        \item \textcolor{uofgthistle}{Bit-parallelism} for all major operations.
+        \item \textcolor{uofgthistle}{Thread-parallel} search:
             \begin{itemize}
                 \item Safe, deterministic search via nested parallel folds.
                 \item Explicit early work-stealing, to fake discrepancy search.
@@ -392,28 +396,28 @@
     \only<3> {
         \begin{itemize}
             \item We can do something stronger: rather than looking at distances, we can look at
-                (simple) paths, and we can count how many there are.
+                \textcolor{uofgthistle}{(simple) paths}, and we can count how many there are.
 
-            \item This is \NP-hard in general, but only lengths 2 and 3 and counts of 2 and 3 are
-                useful in practice.
+            \item This is \NP-hard in general, but only \textcolor{uofgthistle}{lengths 2 and 3} and
+                counts of 2 and 3 are useful in practice.
 
-            \item We construct these graph pairs once, at the top of search, and use them for
-                degree-based filtering at the top of search, and ``adjacency'' filtering during
-                search.
+            \item We construct these graph pairs \textcolor{uofgthistle}{once, at the top of
+                search}, and use them for degree-based filtering at the top of search, and
+                ``adjacency'' filtering during search.
         \end{itemize}
     }
 \end{frame}
 
 \begin{frame}{Counting-Based All-Different}
     \begin{itemize}
-        \item One pass through the variables, from smallest domain to largest.
+        \item \textcolor{uofgthistle}{One pass} through the variables, from smallest domain to largest.
 
-        \item Track unions of domains as we go along.
+        \item Track \textcolor{uofgthistle}{unions of domains} as we go along.
 
-        \item Eliminate any detected Hall sets from future variables.
+        \item Eliminate \textcolor{uofgthistle}{any detected Hall sets} from future variables.
 
-        \item This can miss some deletions, but has a very fast bitset implementation for large
-            domains.
+        \item This \textcolor{uofgthistle}{can miss some deletions}, but has a very fast bitset
+            implementation for large domains.
     \end{itemize}
 \end{frame}
 
