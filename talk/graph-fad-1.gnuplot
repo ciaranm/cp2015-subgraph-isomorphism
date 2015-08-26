@@ -23,31 +23,31 @@ set format x '$10^{%T}$'
 set format y '$10^{%T}$'
 
 plot \
-    "nodes.data" u (($3 == 0 && $2 == 10) ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 5 lc 2 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 10) ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 4 lc 2 notitle, \
-    "nodes.data" u (($3 == 0 && $2 == 2)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 7 lc 1 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 2)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 6 lc 1 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 3)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 1 lc 3 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 4)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 1 lc 3 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 5)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 2 lc 5 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 6)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 2 lc 5 notitle, \
-    "nodes.data" u (($3 == 0 && $2 == 1)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 11 lc 7 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 1)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 10 lc 7 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 7)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 3 lc 8 notitle, \
-    "nodes.data" u (($3 == 0 && $2 == 8)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 9 lc 6 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 8)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 8 lc 6 notitle, \
-    "nodes.data" u (($3 == 1 && $2 == 9)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 12 lc 4 notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 10) ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 5 lc "#003865" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 10) ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 4 lc "#003865" notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 2)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 7 lc "#9a3a06" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 2)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 6 lc "#9a3a06" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 3)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 1 lc "#7d2239" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 4)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 1 lc "#7d2239" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 5)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 2 lc "#005133" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 6)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 2 lc "#005133" notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 1)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 11 lc "#52473b" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 1)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 10 lc "#52473b" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 7)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 3 lc "#d278ab" notitle, \
+    "nodes.data" u (($3 == 0 && $2 == 8)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 9 lc "#5b537d" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 8)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 8 lc "#5b537d" notitle, \
+    "nodes.data" u (($3 == 1 && $2 == 9)  ? ($4<1?1:($4>1e9?1e9:$4)) : NaN):($8<1?1:($8>1e9?1e9:$8)):(1) ps variable pt 12 lc "#9ab9ad" notitle, \
     x w l lt 1 lc 0 notitle, \
-    NaN w p ps 1.5 pt 6 lc 1 ti "LV (sat)", \
-    NaN w p ps 1.5 pt 7 lc 1 ti "LV (unsat)", \
-    NaN w p ps 1.5 pt 1 lc 3 ti "BVG / BVGm", \
-    NaN w p ps 1.5 pt 2 lc 5 ti "M4D / M4Dr", \
-    NaN w p ps 1.5 pt 10 lc 7 ti "SF (sat)", \
-    NaN w p ps 1.5 pt 11 lc 7 ti "SF (unsat)", \
-    NaN w p ps 1.5 pt 3 lc 8 ti "r", \
-    NaN w p ps 1.5 pt 12 lc 4 ti "football", \
-    NaN w p ps 1.5 pt 8 lc 6 ti "images (sat)", \
-    NaN w p ps 1.5 pt 9 lc 6 ti "images (unsat)", \
-    NaN w p ps 1.5 pt 4 lc 2 ti "meshes (sat)", \
-    NaN w p ps 1.5 pt 5 lc 2 ti "meshes (unsat)"
+    NaN w p ps 1.5 pt 6 lc "#9a3a06" ti "LV (sat)", \
+    NaN w p ps 1.5 pt 7 lc "#9a3a06" ti "LV (unsat)", \
+    NaN w p ps 1.5 pt 1 lc "#7d2239" ti "BVG / BVGm", \
+    NaN w p ps 1.5 pt 2 lc "#005133" ti "M4D / M4Dr", \
+    NaN w p ps 1.5 pt 10 lc "#52473b" ti "SF (sat)", \
+    NaN w p ps 1.5 pt 11 lc "#52473b" ti "SF (unsat)", \
+    NaN w p ps 1.5 pt 3 lc "#d278ab" ti "r", \
+    NaN w p ps 1.5 pt 12 lc "#9ab9ad" ti "football", \
+    NaN w p ps 1.5 pt 8 lc "#5b537d" ti "images (sat)", \
+    NaN w p ps 1.5 pt 9 lc "#5b537d" ti "images (unsat)", \
+    NaN w p ps 1.5 pt 4 lc "#003865" ti "meshes (sat)", \
+    NaN w p ps 1.5 pt 5 lc "#003865" ti "meshes (unsat)"
 

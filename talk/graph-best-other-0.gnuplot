@@ -23,9 +23,9 @@ set format y '$10^{%T}$'
 
 plot \
     x w l lt 0 notitle, \
-    NaN w l lw 10 lc 8 ti "LAD", \
-    NaN w l lw 10 lc 2 ti "VF2", \
-    NaN w l lw 10 lc 4 ti "SND", \
+    NaN w l lw 10 lc "#9a3a06" ti "LAD", \
+    NaN w l lw 10 lc "#005133" ti "VF2", \
+    NaN w l lw 10 lc "#d278ab" ti "SND", \
     NaN w p ps 0 lc "white" ti "~~~~~~~~~~~~~~", \
     NaN w p ps 1.5 pt 6 lc 8 ti "LV (sat)", \
     NaN w p ps 1.5 pt 7 lc 8 ti "LV (unsat)", \

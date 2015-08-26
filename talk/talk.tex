@@ -29,7 +29,7 @@
 \definecolor{uofgrose}{rgb}{0.823529, 0.470588, 0.709804}
 \definecolor{uofgmocha}{rgb}{0.709804, 0.564706, 0.47451}
 \definecolor{uofgsandstone}{rgb}{0.321569, 0.278431, 0.231373}
-
+\definecolor{uofgforest}{rgb}{0, 0.2, 0.129412}
 \definecolor{uofglawn}{rgb}{0.517647, 0.741176, 0}
 \definecolor{uofgcobalt}{rgb}{0, 0.615686, 0.92549}
 \definecolor{uofgturquoise}{rgb}{0, 0.709804, 0.819608}
@@ -44,14 +44,14 @@
 \tikzset{vertex/.style={draw, circle, inner sep=0pt, minimum size=0.5cm, font=\small\bfseries}}
 \tikzset{notvertex/.style={vertex, color=white, text=black}}
 \tikzset{plainvertex/.style={vertex}}
-\tikzset{vertexc1/.style={vertex, fill=uofgthistle}}
-\tikzset{vertexc2/.style={vertex, fill=uofgpumpkin}}
-\tikzset{vertexc3/.style={vertex, fill=uofgpillarbox}}
-\tikzset{vertexc4/.style={vertex, fill=uofgturquoise}}
+\tikzset{vertexc1/.style={vertex, fill=uofgburgundy, text=white}}
+\tikzset{vertexc2/.style={vertex, fill=uofgsandstone, text=white}}
+\tikzset{vertexc3/.style={vertex, fill=uofgforest, text=white}}
+\tikzset{vertexc4/.style={vertex, fill=uofgheather, text=white}}
 \tikzset{edge/.style={color=black!50!white}}
 \tikzset{bedge/.style={ultra thick}}
 \tikzset{edged/.style={color=screengrey, dashed}}
-\tikzset{edgel3/.style={color=uofgturquoise, ultra thick}}
+\tikzset{edgel3/.style={color=uofgrose, ultra thick}}
 
 % {{{ theme things
 \useoutertheme[footline=authortitle]{miniframes}
@@ -233,16 +233,16 @@
 
 \begin{frame}{Selected Previous Work}
     \begin{itemize}
-        \item \textcolor{uofgthistle}{VF2}: backtracking search, interesting heuristics. Widely used. \\[0.1cm]
+        \item \textcolor{uofgrose}{VF2}: backtracking search, interesting heuristics. Widely used. \\[0.1cm]
             {\scriptsize A (Sub)Graph Isomorphism Algorithm for Matching Large Graphs. \emph{Luigi P.
                 Cordella, Pasquale Foggia, Carlo Sansone and Mario Vento}. {IEEE} Trans.
         Pattern Anal. Mach. Intell., 2004.}
 
-        \item \textcolor{uofgthistle}{LAD}: locally all-different, and neighbourhood degree sequences. \\[0.1cm]
+        \item \textcolor{uofgrose}{LAD}: locally all-different, and neighbourhood degree sequences. \\[0.1cm]
             {\scriptsize AllDifferent-based filtering for subgraph isomorphism. \emph{Christine
                 Solnon}.  Artif. Intell., 2010.}
 
-        \item \textcolor{uofgthistle}{SND}: distance-based filtering. \\[0.1cm]
+        \item \textcolor{uofgrose}{SND}: distance-based filtering. \\[0.1cm]
             {\scriptsize Scoring-Based Neighborhood Dominance for the Subgraph Isomorphism Problem.
                 \emph{Gilles Audemard, Christophe Lecoutre, Mouny Samy Modeliar, Gilles
             Goncalves and Daniel Porumbel}. CP 2014.}
@@ -253,7 +253,7 @@
     \begin{itemize}
         \item We want to work with up to 1,000 pattern vertices, and 10,000 target vertices.
 
-        \item When LAD and SND fail, they often manage less than \textcolor{uofgthistle}{one
+        \item When LAD and SND fail, they often manage less than \textcolor{uofgrose}{one
             recursive call per second}, particularly with larger target graphs.
     \end{itemize}
 \end{frame}
@@ -263,17 +263,17 @@
 
 \begin{frame}{Our Approach}
     \begin{itemize}
-        \item \textcolor{uofgthistle}{Cheaper inference}: $10^4$ to $10^6$ recursive calls per second.
-        \item Expensive \textcolor{uofgthistle}{preprocessing once} at the top of search, rather
+        \item \textcolor{uofgrose}{Cheaper inference}: $10^4$ to $10^6$ recursive calls per second.
+        \item Expensive \textcolor{uofgrose}{preprocessing once} at the top of search, rather
             than computing distances and degree sequences during search.
         \item FC-CBJ instead of MAC:
             \begin{itemize}
-                \item A \textcolor{uofgthistle}{counting-based all-different} propagator, which does more
+                \item A \textcolor{uofgrose}{counting-based all-different} propagator, which does more
                     than pairwise-$\ne$ AC but less than GAC.
-                \item CBJ \textcolor{uofgthistle}{without explicit conflict sets}, and without modifying propagators.
+                \item CBJ \textcolor{uofgrose}{without explicit conflict sets}, and without modifying propagators.
             \end{itemize}
-        \item \textcolor{uofgthistle}{Bit-parallelism} for all major operations.
-        \item \textcolor{uofgthistle}{Thread-parallel} search:
+        \item \textcolor{uofgrose}{Bit-parallelism} for all major operations.
+        \item \textcolor{uofgrose}{Thread-parallel} search:
             \begin{itemize}
                 \item Safe, deterministic search via nested parallel folds.
                 \item Explicit early work-stealing, to fake discrepancy search.
@@ -299,7 +299,7 @@
         \centering
         \begin{tikzpicture}
             \node [vertex] (Pc) at (0, 0) { c };
-            \node [vertexc2] (Pd) at (1, 0) { d };
+            \node [vertexc3] (Pd) at (1, 0) { d };
             \node [vertex] (Pb) at (1, 1) { b };
             \node [vertexc1] (Pa) at (0, 1) { a };
 
@@ -316,7 +316,7 @@
             \node [vertex] (T6) at (6, 0) { 6 };
             \node [vertex] (T3) at (6, 1) { 3 };
             \node [vertex] (T2) at (5, 1) { 2 };
-            \node [vertexc2] (T4) at (6.87, 0.5) { 4 };
+            \node [vertexc3] (T4) at (6.87, 0.5) { 4 };
 
             \draw [edge] (T1) -- (T2);
             \draw [edge] (T1) -- (T5);
@@ -349,7 +349,7 @@
         \centering
         \begin{tikzpicture}
             \node [vertex] (Pc) at (0, 0) { c };
-            \node [vertexc2] (Pd) at (1, 0) { d };
+            \node [vertexc3] (Pd) at (1, 0) { d };
             \node [vertex] (Pb) at (1, 1) { b };
             \node [vertexc1] (Pa) at (0, 1) { a };
 
@@ -368,7 +368,7 @@
             \node [vertex] (T6) at (6, 0) { 6 };
             \node [vertex] (T3) at (6, 1) { 3 };
             \node [vertex] (T2) at (5, 1) { 2 };
-            \node [vertexc2] (T4) at (6.87, 0.5) { 4 };
+            \node [vertexc3] (T4) at (6.87, 0.5) { 4 };
 
             \draw [edge] (T1) -- (T2);
             \draw [edge] (T1) -- (T5);
@@ -396,12 +396,12 @@
     \only<3> {
         \begin{itemize}
             \item We can do something stronger: rather than looking at distances, we can look at
-                \textcolor{uofgthistle}{(simple) paths}, and we can count how many there are.
+                \textcolor{uofgrose}{(simple) paths}, and we can count how many there are.
 
-            \item This is \NP-hard in general, but only \textcolor{uofgthistle}{lengths 2 and 3} and
+            \item This is \NP-hard in general, but only \textcolor{uofgrose}{lengths 2 and 3} and
                 counts of 2 and 3 are useful in practice.
 
-            \item We construct these graph pairs \textcolor{uofgthistle}{once, at the top of
+            \item We construct these graph pairs \textcolor{uofgrose}{once, at the top of
                 search}, and use them for degree-based filtering at the top of search, and
                 ``adjacency'' filtering during search.
         \end{itemize}
@@ -410,21 +410,21 @@
 
 \begin{frame}{Counting-Based All-Different}
     \begin{itemize}
-        \item \textcolor{uofgthistle}{One pass} through the variables, from smallest domain to largest.
+        \item \textcolor{uofgrose}{One pass} through the variables, from smallest domain to largest.
 
-        \item Track \textcolor{uofgthistle}{unions of domains} as we go along.
+        \item Track \textcolor{uofgrose}{unions of domains} as we go along.
 
-        \item Eliminate \textcolor{uofgthistle}{any detected Hall sets} from future variables.
+        \item Eliminate \textcolor{uofgrose}{any detected Hall sets} from future variables.
 
-        \item This \textcolor{uofgthistle}{can miss some deletions}, but has a very fast bitset
+        \item This \textcolor{uofgrose}{can miss some deletions}, but has a very fast bitset
             implementation for large domains.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Backjumping}
     \begin{itemize}
-        \item Rather than backtracking on failure, we can sometimes show it's safe to jump back
-            several levels immediately.
+        \item Rather than backtracking on failure, we can sometimes show it's safe to
+            \textcolor{uofgrose}{jump back several levels} immediately.
         \item This can be done with without explicit conflict sets, and without modifying
             propagators.
         \item Producing smaller conflict sets from a failed all-different gives better results.
@@ -548,14 +548,14 @@
                 }
             }
 
-            \tikzstyle{t} = [draw, fill, fill=uofgcobalt, rounded corners];
+            \tikzstyle{t} = [draw, fill, fill=uofgrose, rounded corners];
             \foreach \na in {1, ..., 3}{
                 \foreach \nb in {1, ..., 3}{
                     \draw [t] (N\na\nb) -- (N\na\nb t1) -- (N\na\nb t2) -- cycle;
                 }
             }
 
-            \tikzstyle{c} = [draw, circle, fill, fill=uofgcobalt];
+            \tikzstyle{c} = [draw, circle, fill, fill=uofgrose];
             \node [c] at (N) { };
 
             \foreach \na in {1, ..., 3}{
@@ -572,13 +572,15 @@
 
     \only<2> {
         \begin{itemize}
-            \item Explicit early-first work stealing, to offset incorrect decisions early in search.
+            \item Explicit \textcolor{uofgrose}{early-first work stealing}, to offset incorrect
+                decisions early in search.
                 \begin{itemize}
                     \item There are EHPs, and this gets rid of them more cheaply than discrepancy
                         searches.
                 \end{itemize}
             \item Backjumping is a nested parallel fold with left-zero elements.
-            \item Speculative, so we should not expect linear speedups (even on unsat instances).
+            \item Speculative, so we should \textcolor{uofgrose}{not expect linear speedups} (even
+                on unsat instances).
         \end{itemize}
     }
 \end{frame}
@@ -587,7 +589,8 @@
     \begin{itemize}
         \item The way we do parallelism guarantees:
             \begin{itemize}
-                \item Parallel search will never be substantially worse than sequential search.
+                \item Parallel search will \textcolor{uofgrose}{never be substantially worse} than
+                    sequential search.
                 \item Adding more cores will never make things substantially worse (excluding
                     hardware weirdness).
                 \item Running it twice will give more or less the same runtimes.
