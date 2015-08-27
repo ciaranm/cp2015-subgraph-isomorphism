@@ -58,6 +58,9 @@
 \useinnertheme{rectangles}
 
 \setbeamerfont{block title}{size={}}
+\setbeamerfont{title}{size=\large,series=\bfseries}
+\setbeamerfont{section title}{size=\large,series=\mdseries}
+\setbeamerfont{author}{size=\normalsize,series=\mdseries}
 \setbeamercolor*{structure}{fg=uofguniversityblue}
 \setbeamercolor*{palette primary}{use=structure,fg=black,bg=white}
 \setbeamercolor*{palette secondary}{use=structure,fg=white,bg=uofgheather}
@@ -71,20 +74,22 @@
 \setbeamertemplate{title page}
 {
     \begin{tikzpicture}[remember picture, overlay]
-        \node [anchor=center, fill=white, fill opacity=0.8, text opacity=1, inner sep=0.2cm, shift={(0cm,0.3cm)}] at (current page.center) {
-            \begin{minipage}{\paperwidth}
-                \centering
-                {\usebeamerfont{title}\inserttitle}
-                \vskip0.2cm
-                {\usebeamerfont{author}\insertauthor \quad \insertinstitute}
+        \node at (current page.north west) {
+            \begin{tikzpicture}[remember picture, overlay]
+                \fill [fill=uofguniversityblue, anchor=north west] (0, 0) rectangle (\paperwidth, -2.6cm);
+            \end{tikzpicture}
+        };
+
+        \node (logo) [anchor=north east, shift={(-0.6cm,-0.6cm)}] at (current page.north east) {
+            \includegraphics*[keepaspectratio=true,scale=0.7]{UoG_keyline.pdf}
+        };
+
+        \node [anchor=west, xshift=0.2cm] at (current page.west |- logo.west) {
+            \begin{minipage}{0.65\paperwidth}\raggedright
+                {\usebeamerfont{title}\usebeamercolor[white]{}\inserttitle}\\[0.1cm]
+                {\usebeamerfont{author}\usebeamercolor[white]{}\insertauthor}
             \end{minipage}
         };
-    \end{tikzpicture}
-
-    \begin{tikzpicture}[remember picture, overlay]
-        \node at (current page.north west) {\begin{tikzpicture}[remember picture, overlay]\fill
-        [fill=uofguniversityblue, anchor=north west] (0, 0) rectangle (\paperwidth, -1.5cm);\end{tikzpicture}};
-        \node [anchor=north west, shift={(0.2cm,-0.2cm)}] at (current page.north west) {\includegraphics*[keepaspectratio=true,scale=0.5]{UoG_keyline.pdf}};
     \end{tikzpicture}
 }
 
@@ -123,7 +128,8 @@
 
 % }}}
 
-\title{A Parallel, Backjumping Subgraph Isomorphism Algorithm using Supplemental Graphs}
+\title[A Parallel, Backjumping Subgraph Isomorphism Algorithm using Supplemental Graphs]
+    {A Parallel, Backjumping Subgraph Isomorphism Algorithm using Supplemental Graphs}
 \author{Ciaran McCreesh and Patrick Prosser}
 
 \begin{document}
@@ -667,8 +673,9 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[plain,noframenumbering]
     \begin{center}
+        \vspace*{2em}
         Reproduce, replicate, or recompute this paper: \\
         \url{http://dcs.gla.ac.uk/~ciaran} \\
         \vspace{1em}
@@ -679,11 +686,17 @@
         \url{http://liris.cnrs.fr/csolnon/SIP.html}
     \end{center}
 
-\begin{tikzpicture}[remember picture, overlay]
-    \node at (current page.north west) {\begin{tikzpicture}[remember picture, overlay]\fill
-    [fill=uofguniversityblue, anchor=north west] (0, 0) rectangle (\paperwidth, -1.5cm);\end{tikzpicture}};
-    \node [anchor=north west, shift={(0.2cm,-0.2cm)}] at (current page.north west) {\includegraphics*[keepaspectratio=true,scale=0.5]{UoG_keyline.pdf}};
-\end{tikzpicture}
+    \begin{tikzpicture}[remember picture, overlay]
+        \node at (current page.north west) {
+            \begin{tikzpicture}[remember picture, overlay]
+                \fill [fill=uofguniversityblue, anchor=north west] (0, 0) rectangle (\paperwidth, -1.7cm);
+            \end{tikzpicture}
+        };
+
+        \node (logo) [anchor=north east, shift={(-0.3cm,-0.2cm)}] at (current page.north east) {
+            \includegraphics*[keepaspectratio=true,scale=0.55]{UoG_keyline.pdf}
+        };
+    \end{tikzpicture}
 \end{frame}
 
 \end{document}
