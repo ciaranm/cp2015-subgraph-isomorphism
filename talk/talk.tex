@@ -18,9 +18,6 @@
 \usetikzlibrary{decorations.pathreplacing, decorations.pathmorphing, shapes.misc}
 \usetikzlibrary{tikzmark}
 
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=0pt] (char) {#1};}}
-
 \definecolor{uofguniversityblue}{rgb}{0, 0.219608, 0.396078}
 
 \definecolor{uofgheather}{rgb}{0.356863, 0.32549, 0.490196}
@@ -130,7 +127,7 @@
 
 \title[A Parallel, Backjumping Subgraph Isomorphism Algorithm using Supplemental Graphs]
     {A Parallel, Backjumping Subgraph Isomorphism Algorithm using Supplemental Graphs}
-\author{Ciaran McCreesh and Patrick Prosser}
+\author[Ciaran McCreesh and Patrick Prosser]{\textbf{Ciaran McCreesh} and Patrick Prosser}
 
 \begin{document}
 
@@ -216,6 +213,7 @@
         \item Fraud detection and law enforcement.
         \item Model checking.
         \item Social network analysis.
+        \item Code generation in compilers.
         \item Diseased cows.
     \end{itemize}
 \end{frame}
@@ -265,25 +263,17 @@
 \end{frame}
 
 \section{Our Algorithm}
-\frame{\sectionpage}
 
 \begin{frame}{Our Approach}
     \begin{itemize}
         \item \textcolor{uofgrose}{Cheaper inference}: $10^4$ to $10^6$ recursive calls per second.
         \item Expensive \textcolor{uofgrose}{preprocessing once} at the top of search, rather
             than computing distances and degree sequences during search.
-        \item FC-CBJ instead of MAC:
-            \begin{itemize}
-                \item A \textcolor{uofgrose}{counting-based all-different} propagator, which does more
-                    than pairwise-$\ne$ AC but less than GAC.
-                \item CBJ \textcolor{uofgrose}{without explicit conflict sets}, and without modifying propagators.
-            \end{itemize}
+        \item FC-CBJ instead of MAC.
+        \item A \textcolor{uofgrose}{counting-based all-different} propagator, which does more
+            than pairwise-$\ne$ AC but less than GAC.
         \item \textcolor{uofgrose}{Bit-parallelism} for all major operations.
-        \item \textcolor{uofgrose}{Thread-parallel} search:
-            \begin{itemize}
-                \item Safe, deterministic search via nested parallel folds.
-                \item Explicit early work-stealing, to fake discrepancy search.
-            \end{itemize}
+        \item \textcolor{uofgrose}{Thread-parallel} search.
     \end{itemize}
 \end{frame}
 
@@ -437,7 +427,9 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Sequential Experiments}
+\section{Sequential Experiments}
+
+\begin{frame}{Experimental Setup}
     \begin{itemize}
         \item Dual Intel Xeon E5-2640 v2 (Q3'13), 64GBytes RAM. Our code is C++, LAD and VFLib are C, SND is Java.
 
@@ -457,7 +449,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Cumulative Instances Solved}
+\begin{frame}[t,plain]{Cumulative Instances Solved}
     \only<1>{
         \input{gen-graph-cumulative-0}
     }
@@ -478,7 +470,7 @@
     }
 \end{frame}
 
-\begin{frame}{Versus Virtual Best Other Solver}
+\begin{frame}[t,plain]{Versus Virtual Best Other Solver}
     \only<1>{
         \input{gen-graph-best-other-0}
     }
@@ -487,7 +479,7 @@
     }
 \end{frame}
 
-\begin{frame}{Backjumping?}
+\begin{frame}[t,plain]{Backjumping?}
     \only<1>{
         \input{gen-graph-backjumping-0}
     }
@@ -496,7 +488,7 @@
     }
 \end{frame}
 
-\begin{frame}{Counting All-Different?}
+\begin{frame}[t,plain]{Counting All-Different?}
     \only<1>{
         \input{gen-graph-fad-0}
     }
@@ -509,12 +501,12 @@
 \end{frame}
 
 \section{Thread Parallelism}
-\frame{\sectionpage}
 
 \begin{frame}{Parallel Preprocessing}
     \begin{itemize}
-        \item Entirely (mostly\ldots) routine and not very interesting, but good at offsetting the
-            cost of supplemental graph construction.
+        \item Constructing supplemental graphs is expensive, but we have lots of cores.
+        \item Parallelising the loops is entirely (mostly\ldots) routine and not very interesting,
+            but good at offsetting the cost of supplemental graph construction.
     \end{itemize}
 \end{frame}
 
@@ -578,8 +570,8 @@
 
     \only<2> {
         \begin{itemize}
-            \item Explicit \textcolor{uofgrose}{early-first work stealing}, to offset incorrect
-                decisions early in search.
+            \item Explicit \textcolor{uofgrose}{deterministic early-first work stealing}, to offset
+                incorrect decisions early in search.
                 \begin{itemize}
                     \item There are EHPs, and this gets rid of them more cheaply than discrepancy
                         searches.
@@ -593,6 +585,8 @@
 
 \begin{frame}{Sidenote on Safety, Parallelism, and Benchmarking}
     \begin{itemize}
+        \item All comparisons are against a dedicated sequential implementation of a strong
+            algorithm, not a threaded implementation run with one thread.
         \item The way we do parallelism guarantees:
             \begin{itemize}
                 \item Parallel search will \textcolor{uofgrose}{never be substantially worse} than
@@ -601,8 +595,6 @@
                     hardware weirdness).
                 \item Running it twice will give more or less the same runtimes.
             \end{itemize}
-        \item All comparisons are against a dedicated sequential implementation of a strong
-            algorithm, not a threaded implementation run with one thread.
     \end{itemize}
 \end{frame}
 
@@ -614,7 +606,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Speedups}
+\begin{frame}[t,plain]{Speedups}
     \only<1>{
         \input{gen-graph-speedup-0}
     }
@@ -637,7 +629,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Cumulative Instances Solved}
+\begin{frame}[t,plain]{Cumulative Instances Solved}
     \only<1>{
         \input{gen-graph-cumulative-4}
     }
@@ -649,7 +641,7 @@
     }
 \end{frame}
 
-\begin{frame}{Versus Virtual Best Other Solver}
+\begin{frame}[t,plain]{Versus Virtual Best Other Solver}
     \only<1>{
         \input{gen-graph-best-other-1}
     }
@@ -659,7 +651,6 @@
 \end{frame}
 
 \section{Future Work}
-\frame{\sectionpage}
 
 \begin{frame}{Conspicuously Absent From This Talk}
     \begin{itemize}
@@ -667,6 +658,9 @@
 
         \item Why that choice of supplemental graphs, using only paths of lengths 2 and 3? It seems
             rather arbitrary. Can we do better with domain knowledge, or with portfolios?
+
+        \item Caching supplemental targets (graph databases) or patterns (code generation, kidney
+            exchange).
 
         \item Why does that counting all-different propagator do so well in practice? Is it only
             subgraph isomorphism where it helps?

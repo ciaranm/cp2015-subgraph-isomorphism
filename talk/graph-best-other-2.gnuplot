@@ -1,6 +1,6 @@
 # vim: set et ft=gnuplot sw=4 :
 
-set terminal tikz color size 4.2in,2.6in font '\tiny'
+set terminal tikz color size 4.2in,3in font '\tiny'
 
 set output "gen-graph-best-other-2.tex"
 

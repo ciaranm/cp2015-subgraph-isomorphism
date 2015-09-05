@@ -1,18 +1,18 @@
 # vim: set et ft=gnuplot sw=4 :
 
-set terminal tikz color size 3.5in,2.6in font '\tiny'
+set terminal tikz color size 4in,3in font '\tiny'
 
 set output "gen-graph-cumulative-5.tex"
 
 set multiplot
 
-set border 3
+set border 3 lc "#c0000000"
 
 # set key bottom right at screen 0.94, screen 0.1 Left vertical box height 1 width -3 spacing 1.2 maxrows 4 opaque
 set nokey
 
-set xlabel "Runtime (ms)"
-set ylabel "Cumulative Number of Instances Solved"
+set xlabel "Runtime (ms)" tc "#c0000000"
+set ylabel "Cumulative Number of Instances Solved" tc "#c0000000"
 set logscale x
 set xtics nomirror
 set ytics nomirror add (2487)
@@ -29,16 +29,16 @@ set arrow from 60e3,2250 to 60e3,2487 front nohead
 set arrow from 86400e3,2250 to 86400e3,2487 front nohead
 
 plot \
-    "runtimes.data" u ($7):($7 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Glasgow" lc "#003865" lw 2, \
-    "runtimes.data" u ($5):($5 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "SND" lc "#d278ab" lw 2, \
-    "runtimes.data" u ($4):($4 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "LAD" lc "#9a3a06" lw 2, \
-    "runtimes.data" u ($6):($6 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "VF2" at end lc "#005133" lw 2
+    "runtimes.data" u ($7):($7 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "Glasgow" lc "#c0003865" lw 2, \
+    "runtimes.data" u ($5):($5 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "SND" lc "#c0d278ab" lw 2, \
+    "runtimes.data" u ($4):($4 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "LAD" lc "#c09a3a06" lw 2, \
+    "runtimes.data" u ($6):($6 >= 1e8 ? 1e-10 : 1) smooth cumulative ti "VF2" at end lc "#c0005133" lw 2
 
 set size 0.32, 0.40
 set origin 0.525, 0.25
 set bmargin 0; set tmargin 0; set lmargin 0; set rmargin 0
 unset arrow
-set border 15
+set border 15 lc "#000000"
 clear
 
 set nokey

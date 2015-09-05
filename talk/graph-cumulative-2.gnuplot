@@ -1,6 +1,6 @@
 # vim: set et ft=gnuplot sw=4 :
 
-set terminal tikz color size 3.5in,2.6in font '\tiny'
+set terminal tikz color size 4in,3in font '\tiny'
 
 set output "gen-graph-cumulative-2.tex"
 
